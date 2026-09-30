@@ -339,6 +339,7 @@
     <form id="feedback-form" action="https://formsubmit.co/st.minjae@gmail.com" method="POST">
       <input type="hidden" name="_subject" value="New feedback from your Hex op-ed page">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://stminjae.github.io/hex.me/#feedback">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label>Name<input type="text" name="name" required autocomplete="name"></label>
       <label>Email<input type="email" name="email" required autocomplete="email"></label>
@@ -374,17 +375,27 @@
     const button = form.querySelector('button');
     button.disabled = true;
     status.textContent = 'Sending...';
+    const data = Object.fromEntries(new FormData(form).entries());
     try {
       const res = await fetch('https://formsubmit.co/ajax/st.minjae@gmail.com', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: new FormData(form)
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
       });
-      if (!res.ok) throw new Error(res.status);
-      form.reset();
-      status.textContent = 'Thank you. Your feedback was sent to Minjae.';
+      const body = await res.json().catch(() => ({}));
+      if (res.ok && String(body.success) === 'true') {
+        form.reset();
+        status.textContent = 'Thank you. Your feedback was sent to Minjae.';
+      } else if (body.message) {
+        status.textContent = body.message;
+      } else {
+        throw new Error('HTTP ' + res.status);
+      }
     } catch (err) {
-      status.textContent = 'Something went wrong. Please try again in a moment.';
+      // Fall back to a regular form post, which FormSubmit handles without JavaScript
+      status.textContent = 'Sending another way...';
+      form.submit();
+      return;
     } finally {
       button.disabled = false;
     }
