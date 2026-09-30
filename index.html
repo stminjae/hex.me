@@ -102,7 +102,10 @@
   .flow .box span { color: var(--muted); line-height: 1.4; display: block; }
   .flow .arrow { align-self: center; color: var(--accent); font-size: 20px; }
 
-  blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--accent); font-family: Newsreader, Georgia, serif; font-size: 19px; }
+  blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--accent); font-family: Newsreader, Georgia, serif; font-size: 19px; font-style: italic; }
+  blockquote cite { display: block; margin-top: 8px; font-style: normal; font-size: 16px; color: var(--muted); }
+  blockquote cite::before { content: "— "; }
+  .lede blockquote { margin: 0 0 18px; }
 
   .close { font-family: Newsreader, Georgia, serif; font-size: 20px; line-height: 1.55; }
   footer { color: var(--muted); font-size: 16px; padding-top: 32px; border-top: 1px solid var(--line); }
@@ -133,7 +136,10 @@
 
   <div class="lede">
     <p>Every B2B SaaS vendor wants to sell agents. But to sell more of them, we first need to understand the pain prospects commonly face: enterprise agents are getting harder to deploy and administer, because there are more of them and every team uses them differently, some as direct contributors and some not. So it matters to see what people ask agents, and to decide who gets to keep enriching their context.</p>
-    <p>That is the lens I bring to selling Hex. Here are the four moves I would lean into.</p>
+    <p>Jensen Huang recently shared his new definition of smart. In my opinion, it is also the best description of a great sales engineer I have heard:</p>
+    <blockquote>The intersection of being technically astute, but also having human empathy, and having the ability to infer the unspoken, the around the corners, the unknowables. People who are able to see around corners, to preempt problems before they show up, just because you feel the vibe. And the vibe came from data analysis, first principles, life experience, wisdom, sensing other people. That, I think, is smart. That person might actually score horribly on the SAT.<cite>Jensen Huang, NVIDIA CEO</cite></blockquote>
+    <aside class="note">Check the exact wording against the original interview clip and add a link to it.</aside>
+    <p>That is how I want to sell Hex. Here are four places I would put it to work.</p>
   </div>
 
   <ol class="tldr">
