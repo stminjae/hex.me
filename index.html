@@ -108,7 +108,16 @@
   .lede blockquote { margin: 0 0 18px; }
 
   .close { font-family: Newsreader, Georgia, serif; font-size: 20px; line-height: 1.55; }
-  footer { color: var(--muted); font-size: 16px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .feedback h2 { margin-bottom: 20px; }
+  .feedback form { display: grid; gap: 16px; }
+  .feedback label { display: grid; gap: 6px; font-size: 16px; font-weight: 600; }
+  .feedback input, .feedback textarea { font: 400 17px/1.5 Newsreader, Georgia, serif; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
+  .feedback input:focus, .feedback textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+  .feedback textarea { resize: vertical; min-height: 120px; }
+  .feedback button { justify-self: start; font: 600 17px Newsreader, Georgia, serif; color: #fff; background: var(--accent); border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
+  .feedback button:disabled { opacity: .6; cursor: default; }
+  .feedback .hp { display: none; }
+  .form-status { margin: 0; font-size: 16px; color: var(--muted); }
 
   /* Review notes: hidden unless the URL has ?review */
   .note { display: none; background: var(--note-bg); border-left: 3px solid var(--note-line); color: var(--note-text); font-size: 16px; padding: 10px 14px; border-radius: 6px; margin: 0 0 16px; }
@@ -252,20 +261,46 @@
     </ol>
   </section>
 
-  <section>
-    <h2>Why I'm confident</h2>
-    <p class="close">Trust is the problem I have lived with for years in post-sales. Hex has the product answer to it. I would bring the discovery habits, the dbt partner story, and the person customers want to talk to again.</p>
-    <p>Thank you for the conversation. I would love to keep it going.</p>
+  <section id="feedback" class="feedback">
+    <h2>Send feedback directly to Minjae</h2>
+    <form id="feedback-form" action="https://formsubmit.co/st.minjae@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New feedback from your Hex op-ed page">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label>Name<input type="text" name="name" required autocomplete="name"></label>
+      <label>Email<input type="email" name="email" required autocomplete="email"></label>
+      <label>Share your thoughts and feedback<textarea name="message" rows="5" required></textarea></label>
+      <button type="submit">Submit</button>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
   </section>
-
-  <footer>
-    <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a> · <a href="https://github.com/stminjae">GitHub</a>
-    <aside class="note">Add email link if you want one.</aside>
-  </footer>
 
 </main>
 <script>
   if (/[?&#]review\b/.test(location.search + location.hash)) document.body.classList.add('review');
+
+  const form = document.getElementById('feedback-form');
+  const status = form.querySelector('.form-status');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const button = form.querySelector('button');
+    button.disabled = true;
+    status.textContent = 'Sending...';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/st.minjae@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      status.textContent = 'Thank you. Your feedback was sent to Minjae.';
+    } catch (err) {
+      status.textContent = 'Something went wrong. Please try again in a moment.';
+    } finally {
+      button.disabled = false;
+    }
+  });
 </script>
 </body>
 </html>
