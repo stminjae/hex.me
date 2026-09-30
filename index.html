@@ -141,6 +141,13 @@
       linear-gradient(var(--accent), var(--accent)) center / 12px 2px no-repeat,
       var(--soft); }
   .attainment details[open] summary { margin-bottom: 20px; }
+  @media (max-width: 600px) {
+    .layers thead { display: none; }
+    .layers tr, .layers td { display: block; }
+    .layers tr { border-bottom: 1px solid var(--line); padding: 12px 0; }
+    .layers td { border: 0; padding: 2px 0; }
+    .layers td:first-child { font-weight: 600; color: var(--accent); }
+  }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
 
   /* Review notes: hidden unless the URL has ?review */
@@ -226,15 +233,17 @@
   <section id="together">
     <h2><span class="num">03</span>Better together with dbt</h2>
 
-    <p>At dbt, partner motions usually centered on warehouses like Snowflake. Hex rarely came up, even though Hex shows up big at dbt Summit and the product ties run deeper than most users realize. There is a clear story for selling a Hex Enterprise plan alongside the dbt platform.</p>
+    <p>At dbt, partner motions usually centered on warehouses like Snowflake. Hex rarely came up, at least for me, even though Hex shows up big at dbt Summit and the product ties run deeper than most users realize. There is a clear story for selling a Hex Enterprise plan alongside the dbt platform.</p>
 
-    <div class="flow" role="img" aria-label="dbt authors logic, tests and metrics; Hex reads them into the data browser and semantic models; business users and agents get trusted answers.">
-      <div class="box"><b>dbt</b><span>Models, tests, docs, metrics. Authored and version controlled once.</span></div>
-      <div class="arrow">→</div>
-      <div class="box"><b>Hex</b><span>Descriptions, tests and freshness in the data browser. Metrics synced to semantic models.</span></div>
-      <div class="arrow">→</div>
-      <div class="box"><b>People and agents</b><span>Threads, notebooks, apps, and MCP. Same definitions everywhere.</span></div>
-    </div>
+    <h3>How the integrations build an agent story</h3>
+    <table class="layers">
+      <thead><tr><th>Priority</th><th>dbt platform (fka dbt Cloud) → Hex</th><th>Why it matters for agents</th></tr></thead>
+      <tbody>
+        <tr><td>1. Data quality</td><td>Hex pulls dbt model, source and column descriptions, test results, last run time and source freshness into its data browser, with links back to dbt docs.</td><td>People and agents can see whether a table is fresh and tested before they trust an answer built on it.</td></tr>
+        <tr><td>2. Data governance</td><td>Semantic Model Sync imports dbt MetricFlow measures, dimensions and joins into Hex semantic models.</td><td>Metrics are defined once in dbt, version controlled, and every Hex agent uses the same definition.</td></tr>
+        <tr><td>3. Agent governance</td><td>dbt metadata becomes context. Hex adds endorsements, Certified statuses, workspace rules and Context Studio on top.</td><td>The data team decides what agents can use and sees what they are asked.</td></tr>
+      </tbody>
+    </table>
 
     <h3>A real scenario</h3>
     <p>A customer inherited a dbt platform contract through an acquisition. They had run dbt Core with <mark>Dagster</mark> for orchestration, and their BI had moved from Tableau to Mode to Hex. Their question was fair: why administer another tool? Telemetry showed the new admins had no dbt platform seat, and they were building Hex agents with no semantic model behind them.</p>
