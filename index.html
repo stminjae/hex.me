@@ -286,16 +286,6 @@
       </div>
     </div>
 
-    <h3>A real scenario</h3>
-    <p>A customer inherited a dbt platform contract through an acquisition. They had run dbt Core with Dagster for orchestration, and their BI had moved from Tableau to Mode to Hex. Their question was fair: why administer another tool? Telemetry showed the new admins had no dbt platform seat, and they were building Hex agents with no semantic model behind them.</p>
-
-    <h3>How I would tell the story</h3>
-    <ol class="steps">
-      <li><b>Start from their plan.</b> You are rolling out Hex agents. Where will your governed metrics live, and how will every agent get the same definition?</li>
-      <li><b>Connect the layers they already have.</b> Your logic already lives in dbt. Author the metadata and metrics there too. <mark>Hex reads dbt descriptions, tests and freshness, and syncs MetricFlow metrics into Hex semantic models.</mark> On Databricks, persist docs carries the same metadata into Unity Catalog.</li>
-      <li><b>Land the outcome.</b> One version-controlled definition, reused by Hex agents today and any other agent tomorrow. Both renewals get stronger.</li>
-    </ol>
-    <aside class="note">Verify which Hex dbt features need the dbt platform vs. dbt Core (metadata sync, semantic layer, APIs), and how Fivetran + dbt Labs changes the partner story post-merger. Add one line on Hex Enterprise plan fit.</aside>
   </section>
 
   <!-- 4 -->
