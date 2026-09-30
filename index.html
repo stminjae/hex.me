@@ -7,14 +7,15 @@
 <meta name="description" content="An op-ed by Minjae on how I would sell Hex in 2026.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
+    --font: Cinetype, "Instrument Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --bg: #ffffff;
-    --text: #1a1a1a;
-    --muted: #6b6b6b;
-    --line: #e8e8e8;
-    --soft: #f6f5f8;
+    --text: #31263b;
+    --muted: #6e6378;
+    --line: #e7e2ec;
+    --soft: #f6f3f8;
     --accent: #6d4aff;
     --note-bg: #fff6d6;
     --note-line: #e8c547;
@@ -22,11 +23,11 @@
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #121212;
-      --text: #ececec;
-      --muted: #9a9a9a;
-      --line: #2a2a2a;
-      --soft: #1c1b20;
+      --bg: #17121b;
+      --text: #efe9f3;
+      --muted: #a89fb1;
+      --line: #2e2636;
+      --soft: #221b28;
       --accent: #a592ff;
       --note-bg: #2e2810;
       --note-line: #8a7520;
@@ -34,11 +35,11 @@
     }
   }
   :root[data-theme="dark"] {
-    --bg: #121212;
-    --text: #ececec;
-    --muted: #9a9a9a;
-    --line: #2a2a2a;
-    --soft: #1c1b20;
+    --bg: #17121b;
+    --text: #efe9f3;
+    --muted: #a89fb1;
+    --line: #2e2636;
+    --soft: #221b28;
     --accent: #a592ff;
     --note-bg: #2e2810;
     --note-line: #8a7520;
@@ -50,20 +51,20 @@
     margin: 0;
     background: var(--bg);
     color: var(--text);
-    font: 19px/1.6 Newsreader, Georgia, serif;
+    font: 17px/1.65 var(--font);
     -webkit-font-smoothing: antialiased;
   }
   main { max-width: 680px; margin: 0 auto; padding: 72px 16px 96px; }
 
-  h1 { font-family: Newsreader, Georgia, serif; font-weight: 500; font-size: 44px; line-height: 1.1; margin: 0 0 16px; letter-spacing: -.01em; }
+  h1 { font-weight: 600; font-size: 44px; line-height: 1.1; margin: 0 0 16px; letter-spacing: -.02em; }
   .byline { color: var(--muted); font-size: 17px; margin: 0 0 40px; }
-  .lede { font-size: 21px; line-height: 1.55; margin: 0 0 40px; }
+  .lede { font-size: 19px; line-height: 1.6; margin: 0 0 40px; }
   .lede p { margin: 0 0 18px; }
   .lede p:last-child { margin: 0; }
 
   h2 { font-size: 26px; font-weight: 600; margin: 0 0 4px; letter-spacing: -.01em; }
   h2 .num { color: var(--accent); margin-right: 8px; }
-  .thesis { font-family: Newsreader, Georgia, serif; font-style: italic; font-size: 19px; color: var(--muted); margin: 0 0 20px; }
+  .thesis { font-style: italic; font-size: 17px; color: var(--muted); margin: 0 0 20px; }
   h3 { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 28px 0 10px; }
   section { padding: 48px 0; border-top: 1px solid var(--line); }
   p { margin: 0 0 16px; }
@@ -102,19 +103,19 @@
   .flow .box span { color: var(--muted); line-height: 1.4; display: block; }
   .flow .arrow { align-self: center; color: var(--accent); font-size: 20px; }
 
-  blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--accent); font-family: Newsreader, Georgia, serif; font-size: 19px; font-style: italic; }
+  blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--accent); font-size: 17px; font-style: italic; }
   blockquote cite { display: block; margin-top: 8px; font-style: normal; font-size: 16px; color: var(--muted); }
   blockquote cite::before { content: "— "; }
   .lede blockquote { margin: 0 0 18px; }
 
-  .close { font-family: Newsreader, Georgia, serif; font-size: 20px; line-height: 1.55; }
+  .close { font-size: 19px; line-height: 1.55; }
   .feedback h2 { margin-bottom: 20px; }
   .feedback form { display: grid; gap: 16px; }
   .feedback label { display: grid; gap: 6px; font-size: 16px; font-weight: 600; }
-  .feedback input, .feedback textarea { font: 400 17px/1.5 Newsreader, Georgia, serif; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
+  .feedback input, .feedback textarea { font: 400 16px/1.5 var(--font); color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
   .feedback input:focus, .feedback textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
   .feedback textarea { resize: vertical; min-height: 120px; }
-  .feedback button { justify-self: start; font: 600 17px Newsreader, Georgia, serif; color: #fff; background: var(--accent); border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
+  .feedback button { justify-self: start; font: 600 16px var(--font); color: #fff; background: var(--accent); border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
   .feedback button:disabled { opacity: .6; cursor: default; }
   .feedback .hp { display: none; }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
@@ -129,7 +130,7 @@
   @media (max-width: 600px) {
     main { padding-top: 48px; }
     h1 { font-size: 34px; }
-    .lede { font-size: 19px; }
+    .lede { font-size: 18px; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .flow { grid-template-columns: 1fr; }
     .flow .arrow { justify-self: center; transform: rotate(90deg); }
