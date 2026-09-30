@@ -167,9 +167,8 @@
     <ol class="steps">
       <li><b>Raise data quality.</b> Standardize data transformation, then add a semantic layer to govern metrics. Hex can author semantic models or sync them from dbt MetricFlow, Cube and Snowflake Semantic Views.</li>
       <li><b>Make the agent's knowledge base smarter.</b> Context Studio shows what agents are asked, surfaces where context is missing, and suggests fixes.</li>
-      <li><b>Make the workspace trustworthy and governable.</b> Certified statuses and endorsements tell agents which tables and projects to prefer, and exclusions keep them away from the rest. <mark>Business users give feedback in Threads, and that feedback feeds back into context.</mark></li>
+      <li><b>Make the workspace trustworthy and governable.</b> Certified statuses and endorsements tell agents which tables and projects to prefer, and exclusions keep them away from the rest. Business users give feedback in Threads, and that feedback feeds back into context.</li>
     </ol>
-    <aside class="note">Confirm exactly how feedback in Threads flows back into context (automatic vs. suggested and approved by an Admin). Pull one line from the Context Studio docs to cite.</aside>
 
     <p>Governance, and the automation around it, has been top of mind for me for a while. Customers tell me AI has lowered the barrier to entry so far that the business asks: if we can build agents ourselves, why do we need a data team? At dbt, that pushed me to advocate for data mesh ownership and for product ideas like verified queries, verified metadata, and a review bot that approves or flags pull requests. Hex already ships the trust layer I kept asking for.</p>
     <aside class="note">Strengthen the governance narrative with a Hex source: the Hex + dbt trust and governance blog (hex.tech/blog/dbt-partnership), the Data Leader's Guide layering (endorse, describe, guide, then semantic models), and the Context Studio docs. Pick one quote to anchor this section.</aside>
