@@ -183,6 +183,9 @@
   .gallery .ph { display: grid; place-items: center; background: var(--soft); color: var(--muted); font-size: 14px; border-style: dashed; }
   .gallery figcaption { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
   @media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  .photo { margin: 24px 0 0; }
+  .photo img { display: block; margin: 0 auto; width: 100%; max-width: 360px; height: auto; border: 1px solid var(--line); }
+  .photo figcaption { max-width: 360px; margin: 10px auto 0; font-size: 15px; color: var(--muted); line-height: 1.5; }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
 
   /* Review notes: hidden unless the URL has ?review */
@@ -301,6 +304,10 @@
     <p>There is a reason B2B companies with open source roots invest in user groups, communities, and conferences. In a crowded and anxious market, where every vendor is pitching agents, people buy from people they remember.</p>
     <p>At every conference I attend, the Hex activation is on my top two to visit, for the experience and for the merch. This matters more than it looks. Look at how OpenAI, Cursor and Claude are investing in creator partnerships. Every chief financial officer at an all hands asks how to expand the total addressable market. I believe the answer is to lower the barrier to entry: be approachable, sometimes fashionable, and willing to laugh at ourselves.</p>
 
+    <figure class="photo">
+      <img src="images/data-person-tee.jpg" width="768" height="1024" alt="My husband dressed as me, in my work glasses and a grey Hex t-shirt that reads Data person.">
+      <figcaption>I asked my husband to dress up as me. He wore my work glasses and my favorite Hex t-shirt, which I got at the Hex booth at Coalesce 2025 (RIP). This LA Apparel 6.5 oz shrink-free, custom garment-dyed tee is chef's kiss.</figcaption>
+    </figure>
   </section>
 
   <section id="attainment" class="attainment">
