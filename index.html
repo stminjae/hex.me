@@ -16,7 +16,9 @@
     --muted: #6e6378;
     --line: #e7e2ec;
     --soft: #f6f3f8;
-    --accent: #6d4aff;
+    --accent: #a8424c;
+    --on-accent: #ffffff;
+    --pink: #f5c0c0;
     --note-bg: #fff6d6;
     --note-line: #e8c547;
     --note-text: #5c4a00;
@@ -28,7 +30,8 @@
       --muted: #a89fb1;
       --line: #2e2636;
       --soft: #221b28;
-      --accent: #a592ff;
+      --accent: #f5c0c0;
+      --on-accent: #17121b;
       --note-bg: #2e2810;
       --note-line: #8a7520;
       --note-text: #f0dc8c;
@@ -40,7 +43,8 @@
     --muted: #a89fb1;
     --line: #2e2636;
     --soft: #221b28;
-    --accent: #a592ff;
+    --accent: #f5c0c0;
+      --on-accent: #17121b;
     --note-bg: #2e2810;
     --note-line: #8a7520;
     --note-text: #f0dc8c;
@@ -108,7 +112,7 @@
   .flow .box span { color: var(--muted); line-height: 1.4; display: block; }
   .flow .arrow { align-self: center; color: var(--accent); font-size: 20px; }
 
-  blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--accent); font-size: 17px; font-style: italic; }
+  blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--pink); font-size: 17px; font-style: italic; }
   blockquote cite { display: block; margin-top: 8px; font-style: normal; font-size: 16px; color: var(--muted); }
   blockquote cite::before { content: "— "; }
   .lede blockquote { margin: 0 0 18px; }
@@ -120,7 +124,7 @@
   .feedback input, .feedback textarea { font: 400 16px/1.5 var(--font); color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
   .feedback input:focus, .feedback textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
   .feedback textarea { resize: vertical; min-height: 120px; }
-  .feedback button { justify-self: start; font: 600 16px var(--font); color: #fff; background: var(--accent); border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
+  .feedback button { justify-self: start; font: 600 16px var(--font); color: var(--on-accent); background: var(--accent); border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
   .feedback button:disabled { opacity: .6; cursor: default; }
   .feedback .hp { display: none; }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
