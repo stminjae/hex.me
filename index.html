@@ -233,15 +233,15 @@
   <section id="together">
     <h2><span class="num">03</span>Better together with dbt</h2>
 
-    <p>At dbt, partner motions usually centered on warehouses like Snowflake. Hex rarely came up, at least for me, even though Hex shows up big at dbt Summit and the product ties run deeper than most users realize. There is a clear story for selling a Hex Enterprise plan alongside the dbt platform.</p>
+    <p>At dbt, partner motions usually centered on warehouses like Snowflake. Hex rarely came up, at least for me, even though Hex shows up big at dbt Summit and the product ties run deeper than most users realize. There is a clear story for selling a Hex Enterprise plan alongside the dbt platform, with both used together: dbt governs the data, and Hex governs how people and agents use it. Together they give an enterprise agent rollout a trusted foundation.</p>
 
     <h3>How the integrations build an agent story</h3>
     <table class="layers">
-      <thead><tr><th>Priority</th><th>dbt platform (fka dbt Cloud) → Hex</th><th>Why it matters for agents</th></tr></thead>
+      <thead><tr><th>Priority</th><th>How dbt platform (fka dbt Cloud) and Hex work together</th><th>Why it matters for agents</th></tr></thead>
       <tbody>
-        <tr><td>1. Data quality</td><td>Hex pulls dbt model, source and column descriptions, test results, last run time and source freshness into its data browser, with links back to dbt docs.</td><td>People and agents can see whether a table is fresh and tested before they trust an answer built on it.</td></tr>
-        <tr><td>2. Data governance</td><td>Semantic Model Sync imports dbt MetricFlow measures, dimensions and joins into Hex semantic models.</td><td>Metrics are defined once in dbt, version controlled, and every Hex agent uses the same definition.</td></tr>
-        <tr><td>3. Agent governance</td><td>dbt metadata becomes context. Hex adds endorsements, Certified statuses, workspace rules and Context Studio on top.</td><td>The data team decides what agents can use and sees what they are asked.</td></tr>
+        <tr><td>1. Data quality</td><td>dbt runs the tests and freshness checks. Hex shows the results, along with dbt descriptions and last run time, in its data browser with links back to dbt docs.</td><td>People and agents can see whether a table is fresh and tested before they trust an answer built on it.</td></tr>
+        <tr><td>2. Data governance</td><td>Metrics are authored in dbt MetricFlow. Hex Semantic Model Sync brings those measures, dimensions and joins into Hex semantic models.</td><td>Metrics are defined once in dbt, version controlled, and every Hex agent uses the same definition.</td></tr>
+        <tr><td>3. Agent governance</td><td>dbt metadata feeds agent context. Hex adds endorsements, Certified statuses, workspace rules and Context Studio on top.</td><td>The data team decides what agents can use and sees what they are asked.</td></tr>
       </tbody>
     </table>
 
