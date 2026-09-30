@@ -148,6 +148,27 @@
     .layers td { border: 0; padding: 2px 0; }
     .layers td:first-child { font-weight: 600; color: var(--accent); }
   }
+  .stack { margin: 8px 0 24px; display: grid; gap: 12px; }
+  .stack-head, .layer { display: grid; grid-template-columns: 150px 1fr 1fr; gap: 10px; align-items: stretch; }
+  .stack-head b { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); text-align: center; }
+  .layer { background: var(--soft); border-radius: 12px; padding: 12px; position: relative; }
+  .layer-name { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+  .layer-name i { font-style: normal; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 13px; flex: none; }
+  .cell { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 15px; line-height: 1.45; position: relative; }
+  .cell.hex { border-color: var(--pink); }
+  .cell.hex::before { content: "+"; position: absolute; left: -10px; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 14px; font-weight: 700; line-height: 20px; text-align: center; }
+  .why { grid-column: 2 / 4; margin: 0; font-size: 14px; color: var(--muted); }
+  .outcome { display: grid; justify-items: center; gap: 4px; color: var(--accent); font-size: 20px; }
+  .outcome b { font-size: 16px; color: var(--on-accent); background: var(--accent); border-radius: 999px; padding: 8px 18px; }
+  @media (max-width: 600px) {
+    .stack-head { display: none; }
+    .layer { grid-template-columns: 1fr; }
+    .why { grid-column: auto; }
+    .cell::after { display: block; margin-top: 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .cell:not(.hex)::after { content: "dbt platform"; }
+    .cell.hex::after { content: "Hex Enterprise"; }
+    .cell.hex::before { left: 50%; top: -10px; }
+  }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
 
   /* Review notes: hidden unless the URL has ?review */
@@ -236,14 +257,28 @@
     <p>At dbt, partner motions usually centered on warehouses like Snowflake. Hex rarely came up, at least for me, even though Hex shows up big at dbt Summit and the product ties run deeper than most users realize. There is a clear story for selling a Hex Enterprise plan alongside the dbt platform, with both used together: dbt governs the data, and Hex governs how people and agents use it. Together they give an enterprise agent rollout a trusted foundation.</p>
 
     <h3>How the integrations build an agent story</h3>
-    <table class="layers">
-      <thead><tr><th>Priority</th><th>How dbt platform (fka dbt Cloud) and Hex work together</th><th>Why it matters for agents</th></tr></thead>
-      <tbody>
-        <tr><td>1. Data quality</td><td>dbt runs the tests and freshness checks. Hex shows the results, along with dbt descriptions and last run time, in its data browser with links back to dbt docs.</td><td>People and agents can see whether a table is fresh and tested before they trust an answer built on it.</td></tr>
-        <tr><td>2. Data governance</td><td>Metrics are authored in dbt MetricFlow. Hex Semantic Model Sync brings those measures, dimensions and joins into Hex semantic models.</td><td>Metrics are defined once in dbt, version controlled, and every Hex agent uses the same definition.</td></tr>
-        <tr><td>3. Agent governance</td><td>dbt metadata feeds agent context. Hex adds endorsements, Certified statuses, workspace rules and Context Studio on top.</td><td>The data team decides what agents can use and sees what they are asked.</td></tr>
-      </tbody>
-    </table>
+    <div class="stack" role="img" aria-label="Three layers where dbt platform and Hex work together: data quality, data governance, then agent governance, leading to a trusted enterprise agent rollout.">
+      <div class="stack-head"><span></span><b>dbt platform</b><b>Hex Enterprise</b></div>
+      <div class="layer">
+        <div class="layer-name"><i>1</i>Data quality</div>
+        <div class="cell">Runs tests and freshness checks, and holds model and column descriptions</div>
+        <div class="cell hex">Shows test results, freshness, last run time and descriptions in the data browser</div>
+        <p class="why">People and agents see whether a table is fresh and tested before they trust an answer.</p>
+      </div>
+      <div class="layer">
+        <div class="layer-name"><i>2</i>Data governance</div>
+        <div class="cell">Metrics authored once in MetricFlow and version controlled</div>
+        <div class="cell hex">Semantic Model Sync brings measures, dimensions and joins into Hex semantic models</div>
+        <p class="why">Every Hex agent uses the same metric definition.</p>
+      </div>
+      <div class="layer">
+        <div class="layer-name"><i>3</i>Agent governance</div>
+        <div class="cell">Metadata feeds agent context</div>
+        <div class="cell hex">Endorsements, Certified statuses, workspace rules and Context Studio</div>
+        <p class="why">The data team decides what agents can use and sees what they are asked.</p>
+      </div>
+      <div class="outcome">↓<b>A trusted enterprise agent rollout</b></div>
+    </div>
 
     <h3>A real scenario</h3>
     <p>A customer inherited a dbt platform contract through an acquisition. They had run dbt Core with Dagster for orchestration, and their BI had moved from Tableau to Mode to Hex. Their question was fair: why administer another tool? Telemetry showed the new admins had no dbt platform seat, and they were building Hex agents with no semantic model behind them.</p>
