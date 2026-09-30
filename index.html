@@ -336,11 +336,12 @@
 
   <section id="feedback" class="feedback">
     <h2>Send feedback directly to Minjae</h2>
-    <form id="feedback-form" action="https://formsubmit.co/st.minjae@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New feedback from your Hex op-ed page">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://stminjae.github.io/hex.me/#feedback">
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <form id="feedback-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="84953452-054a-433b-a0f8-147d01f77704">
+      <input type="hidden" name="subject" value="New feedback from your Hex op-ed page">
+      <input type="hidden" name="from_name" value="Hex op-ed page">
+      <input type="hidden" name="redirect" value="https://stminjae.github.io/hex.me/#feedback">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label>Name<input type="text" name="name" required autocomplete="name"></label>
       <label>Email<input type="email" name="email" required autocomplete="email"></label>
       <label>Share your thoughts and feedback<textarea name="message" rows="5" required></textarea></label>
@@ -377,7 +378,7 @@
     status.textContent = 'Sending...';
     const data = Object.fromEntries(new FormData(form).entries());
     try {
-      const res = await fetch('https://formsubmit.co/ajax/st.minjae@gmail.com', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(data)
@@ -392,7 +393,7 @@
         throw new Error('HTTP ' + res.status);
       }
     } catch (err) {
-      // Fall back to a regular form post, which FormSubmit handles without JavaScript
+      // Fall back to a regular form post, which Web3Forms handles without JavaScript
       status.textContent = 'Sending another way...';
       form.submit();
       return;
