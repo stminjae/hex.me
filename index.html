@@ -57,7 +57,9 @@
 
   h1 { font-family: Newsreader, Georgia, serif; font-weight: 500; font-size: 44px; line-height: 1.1; margin: 0 0 16px; letter-spacing: -.01em; }
   .byline { color: var(--muted); font-size: 17px; margin: 0 0 40px; }
-  .lede { font-family: Newsreader, Georgia, serif; font-size: 22px; line-height: 1.5; margin: 0 0 40px; }
+  .lede { font-size: 21px; line-height: 1.55; margin: 0 0 40px; }
+  .lede p { margin: 0 0 18px; }
+  .lede p:last-child { margin: 0; }
 
   h2 { font-size: 26px; font-weight: 600; margin: 0 0 4px; letter-spacing: -.01em; }
   h2 .num { color: var(--accent); margin-right: 8px; }
@@ -115,7 +117,7 @@
   @media (max-width: 600px) {
     main { padding-top: 48px; }
     h1 { font-size: 34px; }
-    .lede { font-size: 20px; }
+    .lede { font-size: 19px; }
     .stats { grid-template-columns: repeat(2, 1fr); }
     .flow { grid-template-columns: 1fr; }
     .flow .arrow { justify-self: center; transform: rotate(90deg); }
@@ -129,7 +131,11 @@
   <h1>How I'd sell Hex in 2026</h1>
   <p class="byline">By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
 
-  <p class="lede">Every data vendor is selling agents this year. From my time in post-sales at dbt Labs, I have seen what actually holds a rollout back: the business does not fully trust the numbers yet. Hex has a strong answer to that problem, and that is why I am confident selling it. Here is how I would do it, in four moves.</p>
+  <div class="lede">
+    <p>Every data vendor is selling agents this year. From my time in post-sales engineering at dbt Labs, this is what I have noticed: everyone is overindexing on the agent itself. The agentic story should start with data quality and richer context, because cleaning up and modeling structured data alone is not enough for agents to succeed.</p>
+    <p>Running agents is also getting harder. Teams juggle multiple agent frameworks and platforms, and it is hard to provision them and give each person the right access to contribute. More of those contributors will not be technical. So it matters to see what people ask agents, and to decide who keeps enriching their context, from transforming data to adding unstructured sources like documentation and videos that live outside the transformation layer.</p>
+    <p>That is the lens I bring to selling Hex. Here are the four moves I would lean into.</p>
+  </div>
 
   <ol class="tldr">
     <li><span class="n">1</span><a href="#trust"><b>Trust is the moat</b><small>Hex ships analytics agents fast. Its governance features are what make them reliable enough to scale across the enterprise.</small></a></li>
