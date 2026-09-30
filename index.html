@@ -162,18 +162,13 @@
     <h2><span class="num">01</span>Trust is the moat</h2>
 
     <p>Across 200+ dbt platform customers, I kept hearing the same worry from data teams: they are not part of the agent narrative. Many business teams assume that with agents, they will no longer need a data team.</p>
-    <p>Data teams are still central to the success of a deal. So my job is to help them step into two new roles: context engineers and AI analytics platform administrators. That starts with two things. First, check how confident stakeholders feel about the data, and if trust is low, close that gap quickly. Second, show how much better agents perform with business context that traditional data modeling cannot capture.</p>
-    <p>Hex lets a data team deploy analytics agents fast. The real power is what comes with that speed: governance that makes agents reliable to use and safe to scale across the enterprise. That is the story I would tell, step by step:</p>
+    <p>Data teams are still central to the success of a deal, so my job is to help them step into two new roles: context engineers and AI analytics platform administrators. That changes the pitch. Instead of telling prospects they can ship more and more agents with Hex, I would show them how to make the agents they build trustworthy. I would walk it in three steps:</p>
 
-    <table>
-      <thead><tr><th>When</th><th>What the data team controls in Hex</th></tr></thead>
-      <tbody>
-        <tr><td>Before a question</td><td>Statuses on tables and projects (In development, Certified). Admins and Managers endorse what agents should prefer and exclude what they should not touch.</td></tr>
-        <tr><td>While answering</td><td>Descriptions, a short workspace guide, and semantic models where precision must be exact. dbt tests and freshness show up next to the table.</td></tr>
-        <tr><td>After answering</td><td>Context Studio shows what agents were asked and where context is missing, then suggests fixes.</td></tr>
-        <tr><td>Over time</td><td><mark>Feedback from business users in Threads becomes context, so agents improve with use.</mark></td></tr>
-      </tbody>
-    </table>
+    <ol class="steps">
+      <li><b>Raise data quality.</b> Standardize data transformation, then add a semantic layer to govern metrics. Hex can author semantic models or sync them from dbt MetricFlow, Cube and Snowflake Semantic Views.</li>
+      <li><b>Make the agent's knowledge base smarter.</b> Context Studio shows what agents are asked, surfaces where context is missing, and suggests fixes.</li>
+      <li><b>Make the workspace trustworthy and governable.</b> Certified statuses and endorsements tell agents which tables and projects to prefer, and exclusions keep them away from the rest. <mark>Business users give feedback in Threads, and that feedback feeds back into context.</mark></li>
+    </ol>
     <aside class="note">Confirm exactly how feedback in Threads flows back into context (automatic vs. suggested and approved by an Admin). Pull one line from the Context Studio docs to cite.</aside>
 
     <p>This is a problem I have cared about for years. I have pushed for data mesh ownership, and for ideas like verified queries, verified metadata, and a review bot that approves or flags pull requests. Hex already ships the trust layer I kept asking for.</p>
