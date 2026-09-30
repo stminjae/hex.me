@@ -127,6 +127,9 @@
   .feedback button { justify-self: start; font: 600 16px var(--font); color: var(--on-accent); background: var(--accent); border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
   .feedback button:disabled { opacity: .6; cursor: default; }
   .feedback .hp { display: none; }
+  .demo-link { margin: 4px 0 24px; }
+  .demo-link a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 15px; color: var(--muted); background: var(--soft); border: 1px dashed var(--line); border-radius: 999px; padding: 8px 16px; text-decoration: none; cursor: not-allowed; }
+  .demo-link a[href] { color: var(--accent); border-style: solid; cursor: pointer; }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
 
   /* Review notes: hidden unless the URL has ?review */
@@ -205,7 +208,7 @@
         <tr><td>Head of Finance</td><td>From cost center to decision engine: what trusted self-serve changes for the business.</td></tr>
       </tbody>
     </table>
-    <aside class="note">Add Loom links for the four demo videos once recorded, or link a single demo page.</aside>
+    <p class="demo-link"><a aria-disabled="true" tabindex="-1">🔒 Demo videos: coming soon</a></p>
 
     <h3>Track record</h3>
     <div class="stats">
