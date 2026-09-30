@@ -132,8 +132,14 @@
   .demo-link a[href] { color: var(--accent); border-style: solid; cursor: pointer; }
   .attainment details summary { cursor: pointer; font-size: 20px; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 10px; }
   .attainment details summary::-webkit-details-marker { display: none; }
-  .attainment details summary::before { content: "+"; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--soft); color: var(--accent); font-weight: 600; flex: none; }
-  .attainment details[open] summary::before { content: "−"; }
+  .attainment details summary::before { content: ""; width: 26px; height: 26px; border-radius: 50%; flex: none;
+    background:
+      linear-gradient(var(--accent), var(--accent)) center / 12px 2px no-repeat,
+      linear-gradient(var(--accent), var(--accent)) center / 2px 12px no-repeat,
+      var(--soft); }
+  .attainment details[open] summary::before { background:
+      linear-gradient(var(--accent), var(--accent)) center / 12px 2px no-repeat,
+      var(--soft); }
   .attainment details[open] summary { margin-bottom: 20px; }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
 
