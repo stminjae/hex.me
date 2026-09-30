@@ -177,6 +177,12 @@
   .layer.featured { background: var(--pink-soft); border: 2px solid var(--pink); }
   .layer.featured .cell.hex { border-width: 2px; border-color: var(--accent); font-weight: 600; }
   .flag { position: absolute; top: -12px; right: 12px; background: var(--accent); color: var(--on-accent); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 3px 10px; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 16px; }
+  .gallery figure { margin: 0; }
+  .gallery img, .gallery .ph { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--line); }
+  .gallery .ph { display: grid; place-items: center; background: var(--soft); color: var(--muted); font-size: 14px; border-style: dashed; }
+  .gallery figcaption { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  @media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
 
   /* Review notes: hidden unless the URL has ?review */
@@ -295,12 +301,13 @@
     <p>There is a reason B2B companies with open source roots invest in user groups, communities, and conferences. In a crowded and anxious market, where every vendor is pitching agents, people buy from people they remember.</p>
     <p>At every conference I attend, the Hex activation is on my top two to visit, for the experience and for the merch. This matters more than it looks. Look at how OpenAI, Cursor and Claude are investing in creator partnerships. Every chief financial officer at an all hands asks how to expand the total addressable market. I believe the answer is to lower the barrier to entry: be approachable, sometimes fashionable, and willing to laugh at ourselves.</p>
 
-    <h3>How I would show up</h3>
-    <ol class="steps">
-      <li><b>Low ego, high curiosity.</b> Conversations that feel like a FaceTime with a friend.</li>
-      <li><b>Personality in the demo.</b> Customers link the person they talked to with the product and the brand.</li>
-      <li><b>Genuinely bought in.</b> I already use and follow Hex. Being proud of what I sell makes me better at selling it, and more fun to work with.</li>
-    </ol>
+    <h3>How I show up to work</h3>
+    <div class="gallery">
+      <figure class="slot"><div class="ph">Photo 1</div><figcaption>Caption</figcaption></figure>
+      <figure class="slot"><div class="ph">Photo 2</div><figcaption>Caption</figcaption></figure>
+      <figure class="slot"><div class="ph">Photo 3</div><figcaption>Caption</figcaption></figure>
+    </div>
+    <aside class="note">Gallery placeholders. Send photos and a short caption for each, and I will drop them in.</aside>
   </section>
 
   <section id="attainment" class="attainment">
