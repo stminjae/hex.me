@@ -130,6 +130,11 @@
   .demo-link { margin: 4px 0 24px; }
   .demo-link a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 15px; color: var(--muted); background: var(--soft); border: 1px dashed var(--line); border-radius: 999px; padding: 8px 16px; text-decoration: none; cursor: not-allowed; }
   .demo-link a[href] { color: var(--accent); border-style: solid; cursor: pointer; }
+  .attainment details summary { cursor: pointer; font-size: 20px; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 10px; }
+  .attainment details summary::-webkit-details-marker { display: none; }
+  .attainment details summary::before { content: "+"; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--soft); color: var(--accent); font-weight: 600; flex: none; }
+  .attainment details[open] summary::before { content: "−"; }
+  .attainment details[open] summary { margin-bottom: 20px; }
   .form-status { margin: 0; font-size: 16px; color: var(--muted); }
 
   /* Review notes: hidden unless the URL has ?review */
@@ -209,15 +214,6 @@
     </table>
     <p class="demo-link"><a href="https://www.loom.com/looms/videos/Hex-Demo-Videos-ef91fe57fd2c40ccb1e41bc1b7bd7453" target="_blank" rel="noopener">🔒 Demo videos: coming soon</a></p>
 
-    <h3>Track record</h3>
-    <div class="stats">
-      <div class="stat"><b>83</b><small>renewals and expansions closed</small></div>
-      <div class="stat"><b>$1.61M</b><small>ARR added</small></div>
-      <div class="stat"><b>128%</b><small>net retention</small></div>
-      <div class="stat"><b>17</b><small>AEs partnered with</small></div>
-    </div>
-    <p class="caption">dbt Labs, Jun 2025 to Aug 2026. Commercial segment alone: 36 deals, 121% net retention.</p>
-    <aside class="note">The source file is marked confidential. Confirm you are comfortable sharing these aggregate numbers on a public page. Remove this block if not.</aside>
   </section>
 
   <!-- 3 -->
@@ -262,6 +258,19 @@
       <li><b>Personality in the demo.</b> Customers link the person they talked to with the product and the brand.</li>
       <li><b>Genuinely bought in.</b> I already use and follow Hex. Being proud of what I sell makes me better at selling it, and more fun to work with.</li>
     </ol>
+  </section>
+
+  <section id="attainment" class="attainment">
+    <details>
+      <summary>In case you're wondering about my attainment</summary>
+      <div class="stats">
+        <div class="stat"><b>83</b><small>renewals and expansions closed</small></div>
+        <div class="stat"><b>$1.61M</b><small>ARR added</small></div>
+        <div class="stat"><b>128%</b><small>net retention</small></div>
+        <div class="stat"><b>17</b><small>AEs partnered with</small></div>
+      </div>
+      <p class="caption">dbt Labs, Jun 2025 to Aug 2026. Commercial segment alone: 36 deals, 121% net retention.</p>
+    </details>
   </section>
 
   <section id="feedback" class="feedback">
