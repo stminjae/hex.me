@@ -209,9 +209,13 @@
     td:first-child { white-space: normal; }
   }
   .tech-intro { margin: 24px 0 8px; }
-  .wide { width: min(1440px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); margin: 8px 0 32px; }
+  .wide { margin: 8px 0 32px; }
+  .wide.expanded { position: fixed; inset: 0; z-index: 50; margin: 0; padding: 20px 24px; background: var(--bg); overflow: auto; }
+  .wide.expanded .arch { min-width: 1160px; }
+  body.no-scroll { overflow: hidden; }
+  .controls .expand { margin-left: auto; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); background: var(--bg); padding: 12px; }
-  .arch { display: block; width: 100%; min-width: 1160px; height: auto; color: var(--text); font-family: var(--font); }
+  .arch { display: block; width: 100%; min-width: 0; height: auto; color: var(--text); font-family: var(--font); }
   .arch .cont { fill: none; stroke: var(--line); stroke-width: 1.5; }
   .arch .cont.dbt { stroke: var(--muted); }
   .arch .cont.hex { stroke: var(--muted); }
@@ -375,12 +379,13 @@
       </div>
     </div>
 
-    <p class="tech-intro">For a technical POV, this is the more detailed view I would walk a data team through: how the dbt platform APIs feed Hex Enterprise, and how Hex governance and interfaces sit on top. Click any part of it, or follow a flow.</p>
+    <p class="tech-intro">For a technical POV, this is the more detailed view I would walk a data team through: how the dbt platform APIs feed Hex Enterprise, and how Hex governance and interfaces sit on top. Click any part of it, follow a flow, or hit Expand to see it full size.</p>
   <figure class="wide">
       <div class="controls" role="group" aria-label="Flows">
         <button type="button" data-flow="metadata" aria-pressed="false">Follow the metadata</button>
         <button type="button" data-flow="metric" aria-pressed="false">Follow a metric query</button>
         <button type="button" class="reset">Reset</button>
+        <button type="button" class="expand" aria-expanded="false">Expand</button>
       </div>
       <div class="scroll">
   <svg viewBox="0 0 1610 560" role="img" aria-label="Interactive architecture of the dbt platform and Hex Enterprise. Select any part to see what it does and how it connects." class="arch" id="arch">
@@ -780,6 +785,15 @@
   });
   flowBtns.forEach(b => b.addEventListener('click', () => b.getAttribute('aria-pressed') === 'true' ? showDefault() : flow(b.dataset.flow)));
   document.querySelector('.controls .reset').addEventListener('click', showDefault);
+  const fig = svg.closest('figure'), expandBtn = fig.querySelector('.expand');
+  function setExpanded(on) {
+    fig.classList.toggle('expanded', on);
+    document.body.classList.toggle('no-scroll', on);
+    expandBtn.textContent = on ? 'Close' : 'Expand';
+    expandBtn.setAttribute('aria-expanded', String(on));
+  }
+  expandBtn.addEventListener('click', () => setExpanded(!fig.classList.contains('expanded')));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && fig.classList.contains('expanded')) setExpanded(false); });
   showDefault();
 })();
 </script>
