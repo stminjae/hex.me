@@ -235,6 +235,10 @@
   .arch .subcont { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 3; }
   .arch .gov { fill: var(--soft); stroke: var(--line); }
   .arch .v { font-size: 11.5px; font-style: italic; fill: currentColor; }
+  .arch .hexbadge rect { fill: var(--pink); }
+  .arch .hexbadge text { fill: #31263b; font-size: 10px; font-weight: 700; }
+  .arch .govchip rect { fill: var(--pink-soft); stroke: var(--pink); }
+  .arch .govchip text { fill: var(--text); font-size: 10px; font-weight: 600; }
   .arch .dbtbadge rect { fill: #ff694b; }
   .arch .dbtbadge text { fill: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: .02em; }
   .arch .col { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
@@ -454,23 +458,27 @@
   </g>
   <g class="node" data-id="gov" tabindex="0" role="button" aria-label="Hex governance + context">
     <rect x="775" y="44" width="415" height="404" rx="8" class="gov"/>
-    <text x="789" y="66" class="t">Hex governance + context</text>
-    <text x="789" y="84" class="s">endorsements, Certified statuses, workspace rules, Context Studio</text>
+    <text x="789" y="68" class="t">Hex governance + context</text>
+    <g class="hexbadge" aria-hidden="true"><rect x="1069" y="54" width="106" height="19" rx="4"/><text x="1122" y="67" text-anchor="middle">Managed by Hex</text></g>
+    <g class="govchip"><rect x="790" y="82" width="86" height="26" rx="13"/><text x="833" y="99" text-anchor="middle">Endorsements</text></g>
+    <g class="govchip"><rect x="882" y="82" width="68" height="26" rx="13"/><text x="916" y="99" text-anchor="middle">Certified</text></g>
+    <g class="govchip"><rect x="956" y="82" width="105" height="26" rx="13"/><text x="1008" y="99" text-anchor="middle">Workspace rules</text></g>
+    <g class="govchip"><rect x="1067" y="82" width="99" height="26" rx="13"/><text x="1116" y="99" text-anchor="middle">Context Studio</text></g>
   </g>
-  <rect x="790" y="126" width="385" height="310" rx="8" class="subcont" pointer-events="none"/>
-  <text x="805" y="142" class="sub" pointer-events="none">Powered by the dbt platform</text>
+  <rect x="790" y="140" width="385" height="296" rx="8" class="subcont" pointer-events="none"/>
+  <text x="805" y="156" class="sub" pointer-events="none">Powered by the dbt platform</text>
   <g class="node" data-id="conn" tabindex="0" role="button" aria-label="dbt connection">
-    <rect x="805" y="150" width="355" height="56" rx="8" class="box"/>
-    <text x="819" y="173" class="t">dbt connection</text>
-    <text x="819" y="193" class="s">token, environment ID and access URL, set up once</text>
-    <g class="dbtbadge" aria-hidden="true"><rect x="1114" y="160" width="34" height="17" rx="4"/><text x="1131" y="172" text-anchor="middle">dbt</text></g>
+    <rect x="805" y="164" width="355" height="56" rx="8" class="box"/>
+    <text x="819" y="187" class="t">dbt connection</text>
+    <text x="819" y="207" class="s">token, environment ID and access URL, set up once</text>
+    <g class="dbtbadge" aria-hidden="true"><rect x="1114" y="174" width="34" height="17" rx="4"/><text x="1131" y="186" text-anchor="middle">dbt</text></g>
   </g>
   <g class="node" data-id="browser" tabindex="0" role="button" aria-label="Data browser">
-    <rect x="805" y="250" width="355" height="82" rx="8" class="box hl"/>
-    <text x="819" y="273" class="t">Data browser</text>
-    <text x="819" y="292" class="s">test status, freshness, last run and docs link</text>
-    <text x="819" y="308" class="s">on every table</text>
-    <g class="dbtbadge" aria-hidden="true"><rect x="1114" y="260" width="34" height="17" rx="4"/><text x="1131" y="272" text-anchor="middle">dbt</text></g>
+    <rect x="805" y="258" width="355" height="84" rx="8" class="box hl"/>
+    <text x="819" y="281" class="t">Data browser</text>
+    <text x="819" y="300" class="s">test status, freshness, last run and docs link</text>
+    <text x="819" y="316" class="s">on every table</text>
+    <g class="dbtbadge" aria-hidden="true"><rect x="1114" y="268" width="34" height="17" rx="4"/><text x="1131" y="280" text-anchor="middle">dbt</text></g>
   </g>
   <g class="node" data-id="slcell" tabindex="0" role="button" aria-label="Semantic Layer cell">
     <rect x="805" y="355" width="355" height="75" rx="8" class="box hl"/>
@@ -542,20 +550,20 @@
     <text x="538" y="465" class="l" text-anchor="start">results</text>
   </g>
   <g class="edge" data-id="e8" pointer-events="none">
-    <line x1="620" y1="165" x2="803" y2="165" class="e" marker-end="url(#ah)"/>
-    <text x="712" y="157" class="l" text-anchor="middle">configured</text>
+    <line x1="620" y1="168" x2="803" y2="168" class="e" marker-end="url(#ah)"/>
+    <text x="712" y="160" class="l" text-anchor="middle">configured</text>
   </g>
   <g class="edge" data-id="e9" pointer-events="none">
-    <line x1="980" y1="206" x2="980" y2="248" class="e" marker-end="url(#ah)"/>
-    <text x="988" y="232" class="l" text-anchor="start">authenticates calls</text>
+    <line x1="980" y1="220" x2="980" y2="256" class="e" marker-end="url(#ah)"/>
+    <text x="988" y="243" class="l" text-anchor="start">authenticates calls</text>
   </g>
   <g class="edge" data-id="e10" pointer-events="none">
-    <line x1="803" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
-    <text x="712" y="255" class="l" text-anchor="middle">query</text>
+    <line x1="803" y1="270" x2="622" y2="270" class="e req" marker-end="url(#ah)"/>
+    <text x="712" y="263" class="l" text-anchor="middle">query</text>
   </g>
   <g class="edge" data-id="e11" pointer-events="none">
-    <line x1="622" y1="298" x2="803" y2="298" class="e acc" marker-end="url(#ahA)"/>
-    <text x="712" y="315" class="l la" text-anchor="middle">metadata</text>
+    <line x1="622" y1="304" x2="803" y2="304" class="e acc" marker-end="url(#ahA)"/>
+    <text x="712" y="321" class="l la" text-anchor="middle">metadata</text>
   </g>
   <g class="edge" data-id="e12" pointer-events="none">
     <line x1="803" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
@@ -566,8 +574,8 @@
     <text x="712" y="420" class="l la" text-anchor="middle">metric results</text>
   </g>
   <g class="edge" data-id="e14" pointer-events="none">
-    <line x1="980" y1="126" x2="980" y2="98" class="e" marker-end="url(#ah)"/>
-    <text x="990" y="117" class="l" text-anchor="start">dbt metadata + metrics enrich it</text>
+    <line x1="980" y1="140" x2="980" y2="114" class="e" marker-end="url(#ah)"/>
+    <text x="990" y="131" class="l" text-anchor="start">dbt metadata + metrics enrich it</text>
   </g>
   <g class="edge" data-id="e15" pointer-events="none">
   </g>
