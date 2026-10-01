@@ -228,6 +228,8 @@
   .arch .e.acc { stroke: var(--accent); stroke-width: 2.4; opacity: 1; }
   .arch .e.req { stroke-dasharray: 4 3; }
   .arch .box.api { fill: var(--bg); stroke: var(--accent); stroke-width: 1.5; }
+  .arch .sub { font-size: 11px; font-weight: 600; fill: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
+  .arch .divider { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
   .arch .col { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
   .arch .fillA { fill: var(--accent); }
   .wide figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
@@ -273,16 +275,18 @@
 
   <figure class="wide">
     <div class="scroll">
-<svg viewBox="0 0 1240 610" role="img" aria-label="Workflow between the dbt platform and Hex Enterprise. In the dbt platform, a dbt project in Git is deployed to scheduled jobs that build and test tables in your warehouse and write run metadata. The dbt platform exposes that metadata through the Discovery API and exposes MetricFlow metrics through the Semantic Layer API. A service token created once in the dbt platform is configured in Hex. Hex calls the Discovery API with a GraphQL query and receives test status, freshness and docs for its data browser. Hex sends metric requests to the Semantic Layer API, which compiles and runs SQL in the warehouse and returns governed results to the Hex Semantic Layer cell. Hex adds governance and serves people and agents." class="arch">
+<svg viewBox="0 0 1240 610" role="img" aria-label="Workflow between the dbt platform and Hex Enterprise. In the dbt platform, a dbt project in Git is deployed to scheduled jobs that build and test tables in your warehouse and write run metadata. The dbt platform exposes that metadata through its Discovery API and exposes MetricFlow metrics through the Semantic Layer API. A service token created once in the dbt platform is configured in Hex. Hex calls the Discovery API with a GraphQL query and receives test status, freshness and docs for its data browser. Hex sends metric requests to the Semantic Layer API, which compiles and runs SQL in the warehouse and returns governed results to the Hex Semantic Layer cell. Hex adds governance and serves people and agents." class="arch">
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
     <marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fillA"/></marker>
   </defs>
-  <text x="20" y="26" class="col">dbt platform (fka dbt Cloud)</text>
-  <text x="360" y="26" class="col">API layer</text>
+  <text x="20" y="26" class="col">dbt platform</text>
   <text x="740" y="26" class="col">Hex Enterprise</text>
 
-  <rect x="20" y="40" width="280" height="400" rx="10" class="cont dbt"/>
+  <rect x="20" y="36" width="620" height="408" rx="10" class="cont dbt"/>
+  <line x1="330" y1="48" x2="330" y2="432" class="divider"/>
+  <text x="36" y="53" class="sub">Build and run</text>
+  <text x="374" y="53" class="sub">Platform APIs</text>
   <rect x="36" y="60" width="248" height="70" rx="8" class="box"/>
   <text x="50" y="86" class="t">dbt project in Git</text>
   <text x="50" y="106" class="s">models, tests, docs, MetricFlow</text>
@@ -304,7 +308,7 @@
 
   <rect x="360" y="60" width="260" height="110" rx="8" class="box api"/>
   <text x="374" y="86" class="t">Service token</text>
-  <text x="374" y="106" class="s">created once in dbt platform</text>
+  <text x="374" y="106" class="s">created once</text>
   <text x="374" y="123" class="s">Metadata Only + Job Admin</text>
   <text x="374" y="140" class="s">plus Semantic Layer environment ID</text>
   <rect x="360" y="240" width="260" height="80" rx="8" class="box api"/>
@@ -323,12 +327,12 @@
   <rect x="20" y="480" width="600" height="60" rx="8" class="box"/>
   <text x="36" y="506" class="t">Your warehouse</text>
   <text x="36" y="525" class="s">Snowflake · BigQuery · Redshift · Databricks</text>
-  <line x1="250" y1="440" x2="250" y2="478" class="e" marker-end="url(#ah)"/>
-  <text x="242" y="463" class="l" text-anchor="end">builds + tests tables</text>
+  <line x1="250" y1="444" x2="250" y2="478" class="e" marker-end="url(#ah)"/>
+  <text x="242" y="465" class="l" text-anchor="end">builds + tests tables</text>
   <line x1="470" y1="425" x2="470" y2="478" class="e" marker-end="url(#ah)"/>
-  <text x="462" y="456" class="l" text-anchor="end">runs compiled SQL</text>
+  <text x="462" y="465" class="l" text-anchor="end">runs compiled SQL</text>
   <line x1="530" y1="478" x2="530" y2="427" class="e" marker-end="url(#ah)"/>
-  <text x="538" y="456" class="l">results</text>
+  <text x="538" y="465" class="l">results</text>
 
   <rect x="740" y="40" width="480" height="500" rx="10" class="cont hex"/>
   <rect x="760" y="60" width="240" height="110" rx="8" class="box"/>
@@ -336,7 +340,7 @@
   <text x="774" y="106" class="s">token, environment ID and</text>
   <text x="774" y="123" class="s">access URL, set up once</text>
   <line x1="620" y1="115" x2="758" y2="115" class="e" marker-end="url(#ah)"/>
-  <text x="690" y="107" class="l" text-anchor="middle">configured</text>
+  <text x="700" y="107" class="l" text-anchor="middle">configured</text>
   <line x1="880" y1="170" x2="880" y2="238" class="e" marker-end="url(#ah)"/>
   <text x="888" y="208" class="l">authenticates calls</text>
 
@@ -350,13 +354,13 @@
   <text x="774" y="408" class="s">time grain, no SQL</text>
 
   <line x1="758" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
-  <text x="690" y="255" class="l" text-anchor="middle">GraphQL query</text>
+  <text x="700" y="255" class="l" text-anchor="middle">query</text>
   <line x1="622" y1="298" x2="758" y2="298" class="e acc" marker-end="url(#ahA)"/>
-  <text x="690" y="315" class="l la" text-anchor="middle">metadata</text>
+  <text x="700" y="315" class="l la" text-anchor="middle">metadata</text>
   <line x1="758" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
-  <text x="690" y="360" class="l" text-anchor="middle">metric request</text>
+  <text x="700" y="360" class="l" text-anchor="middle">metric query</text>
   <line x1="622" y1="403" x2="758" y2="403" class="e acc" marker-end="url(#ahA)"/>
-  <text x="690" y="420" class="l la" text-anchor="middle">governed results</text>
+  <text x="700" y="420" class="l la" text-anchor="middle">metric results</text>
 
   <rect x="1030" y="240" width="170" height="185" rx="8" class="box"/>
   <text x="1044" y="266" class="t">People + agents</text>
@@ -380,7 +384,7 @@
   <text x="548" y="589" class="l">Hex feature powered by the dbt platform</text>
 </svg>
     </div>
-    <figcaption>The dbt platform turns your project, runs and metrics into two APIs. Hex calls them (dashed) and gets back metadata and governed metric results (solid), which power the highlighted Hex features. Scroll sideways on a phone.</figcaption>
+    <figcaption>The dbt platform builds and runs your project, then exposes the results through its own APIs. Hex calls them (dashed) and gets back metadata and governed metric results (solid), which power the highlighted Hex features. Scroll sideways on a phone.</figcaption>
   </figure>
 
   <section>
