@@ -289,6 +289,31 @@
   .panel ol { margin: 6px 0 0; padding-left: 22px; font-size: 16px; } .panel ol li { margin-bottom: 6px; }
   .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
   .chips button { font: 500 13px var(--font); color: var(--accent); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; cursor: pointer; }
+  .preview { margin-top: 14px; }
+  .mock { border: 1px solid var(--line); background: var(--bg); border-radius: 8px; overflow: hidden; font-size: 14px; max-width: 900px; }
+  .mock-bar { background: var(--soft); border-bottom: 1px solid var(--line); padding: 8px 12px; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .mock-bar span { margin: 0 4px; }
+  .mock-body { padding: 14px; }
+  .mock-title { font-size: 18px; font-weight: 700; font-family: ui-monospace, Menlo, monospace; }
+  .mock-desc { color: var(--muted); margin: 6px 0 10px !important; font-size: 14px !important; }
+  .mock-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .pill { display: inline-block; white-space: nowrap; margin: 2px 0; }
+  .mock-badges span, .pill { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; background: var(--soft); }
+  .mock-badges .ok { border-color: var(--ok, #3c8a5a); color: var(--ok, #2f7a4c); }
+  :root[data-theme="dark"] .mock-badges .ok { --ok: #7fd1a0; }
+  .link { color: var(--accent); font-weight: 600; font-size: 12px; }
+  .mock-table { font-size: 13px; margin: 0; }
+  .mock-table td:first-child { font-family: ui-monospace, Menlo, monospace; }
+  .mock-pickers { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; font-size: 13px; }
+  .mock-pickers span { border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; background: var(--soft); }
+  .mock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .mock-grid p { font-size: 13px !important; margin: 0 0 8px !important; }
+  .mock-grid ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  .mock-h { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .pill.cert { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .pill.muted { color: var(--muted); }
+  .gap { border-left: 3px solid var(--accent); padding-left: 8px; }
+  @media (max-width: 700px) { .mock-grid { grid-template-columns: 1fr; } }
   .chips-label { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
 </style>
 </head>
@@ -323,8 +348,7 @@
   <text x="374" y="53" class="sub">Platform APIs</text>
   <rect x="760" y="36" width="620" height="420" rx="10" class="cont hex"/>
   <text x="1215" y="61" class="sub">Hex interfaces</text>
-  <rect x="775" y="44" width="250" height="400" rx="8" class="subcont"/>
-  <text x="790" y="61" class="sub">Powered by the dbt platform</text>
+  
   <g class="edge" data-id="e1">
     <line x1="160" y1="130" x2="160" y2="148" class="e" marker-end="url(#ah)"/>
     <text x="168" y="143" class="l" text-anchor="start">deploys</text>
@@ -354,46 +378,44 @@
     <text x="538" y="465" class="l" text-anchor="start">results</text>
   </g>
   <g class="edge" data-id="e8">
-    <line x1="620" y1="115" x2="788" y2="115" class="e" marker-end="url(#ah)"/>
-    <text x="705" y="107" class="l" text-anchor="middle">configured</text>
+    <line x1="620" y1="150" x2="803" y2="150" class="e" marker-end="url(#ah)"/>
+    <text x="712" y="142" class="l" text-anchor="middle">configured</text>
   </g>
   <g class="edge" data-id="e9">
-    <line x1="900" y1="150" x2="900" y2="238" class="e" marker-end="url(#ah)"/>
-    <text x="908" y="198" class="l" text-anchor="start">authenticates calls</text>
+    <line x1="980" y1="188" x2="980" y2="238" class="e" marker-end="url(#ah)"/>
+    <text x="988" y="218" class="l" text-anchor="start">authenticates calls</text>
   </g>
   <g class="edge" data-id="e10">
-    <line x1="788" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
-    <text x="705" y="255" class="l" text-anchor="middle">query</text>
+    <line x1="803" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
+    <text x="712" y="255" class="l" text-anchor="middle">query</text>
   </g>
   <g class="edge" data-id="e11">
-    <line x1="622" y1="298" x2="788" y2="298" class="e acc" marker-end="url(#ahA)"/>
-    <text x="705" y="315" class="l la" text-anchor="middle">metadata</text>
+    <line x1="622" y1="298" x2="803" y2="298" class="e acc" marker-end="url(#ahA)"/>
+    <text x="712" y="315" class="l la" text-anchor="middle">metadata</text>
   </g>
   <g class="edge" data-id="e12">
-    <line x1="788" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
-    <text x="705" y="360" class="l" text-anchor="middle">metric query</text>
+    <line x1="803" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
+    <text x="712" y="360" class="l" text-anchor="middle">metric query</text>
   </g>
   <g class="edge" data-id="e13">
-    <line x1="622" y1="403" x2="788" y2="403" class="e acc" marker-end="url(#ahA)"/>
-    <text x="705" y="420" class="l la" text-anchor="middle">metric results</text>
+    <line x1="622" y1="403" x2="803" y2="403" class="e acc" marker-end="url(#ahA)"/>
+    <text x="712" y="420" class="l la" text-anchor="middle">metric results</text>
   </g>
   <g class="edge" data-id="e14">
-    <line x1="1010" y1="286" x2="1043" y2="286" class="e" marker-end="url(#ah)"/>
   </g>
   <g class="edge" data-id="e15">
-    <line x1="1010" y1="391" x2="1043" y2="391" class="e" marker-end="url(#ah)"/>
   </g>
   <g class="edge" data-id="e16">
-    <line x1="1185" y1="112" x2="1213" y2="112" class="e" marker-end="url(#ah)"/>
+    <line x1="1190" y1="112" x2="1213" y2="112" class="e" marker-end="url(#ah)"/>
   </g>
   <g class="edge" data-id="e17">
-    <line x1="1185" y1="202" x2="1213" y2="202" class="e" marker-end="url(#ah)"/>
+    <line x1="1190" y1="202" x2="1213" y2="202" class="e" marker-end="url(#ah)"/>
   </g>
   <g class="edge" data-id="e18">
-    <line x1="1185" y1="292" x2="1213" y2="292" class="e" marker-end="url(#ah)"/>
+    <line x1="1190" y1="292" x2="1213" y2="292" class="e" marker-end="url(#ah)"/>
   </g>
   <g class="edge" data-id="e19">
-    <line x1="1185" y1="382" x2="1213" y2="382" class="e" marker-end="url(#ah)"/>
+    <line x1="1190" y1="382" x2="1213" y2="382" class="e" marker-end="url(#ah)"/>
   </g>
   <g class="edge" data-id="e20">
     <line x1="1365" y1="112" x2="1428" y2="112" class="e" marker-end="url(#ah)"/>
@@ -457,39 +479,30 @@
     <text x="34" y="506" class="t">Your warehouse</text>
     <text x="34" y="525" class="s">Snowflake · BigQuery · Redshift · Databricks</text>
   </g>
+  <g class="node" data-id="gov" tabindex="0" role="button" aria-label="Hex governance + context">
+    <rect x="775" y="44" width="415" height="400" rx="8" class="gov"/>
+    <text x="789" y="66" class="t">Hex governance + context</text>
+    <text x="789" y="84" class="s">endorsements, Certified statuses, workspace rules, Context Studio</text>
+  </g>
+  <rect x="790" y="96" width="385" height="340" rx="8" class="subcont" pointer-events="none"/>
+  <text x="805" y="112" class="sub" pointer-events="none">Powered by the dbt platform</text>
   <g class="node" data-id="conn" tabindex="0" role="button" aria-label="dbt connection">
-    <rect x="790" y="72" width="220" height="78" rx="8" class="box"/>
-    <text x="804" y="96" class="t">dbt connection</text>
-    <text x="804" y="116" class="s">token, environment ID and</text>
-    <text x="804" y="133" class="s">access URL, set up once</text>
+    <rect x="805" y="120" width="355" height="68" rx="8" class="box"/>
+    <text x="819" y="146" class="t">dbt connection</text>
+    <text x="819" y="166" class="s">token, environment ID and access URL, set up once</text>
   </g>
   <g class="node" data-id="browser" tabindex="0" role="button" aria-label="Data browser">
-    <rect x="790" y="240" width="220" height="92" rx="8" class="box hl"/>
-    <text x="804" y="263" class="t">Data browser</text>
-    <text x="804" y="282" class="s">test status, freshness, last run</text>
-    <text x="804" y="298" class="s">and docs link on every table</text>
-    <text x="804" y="319" class="v">Trust tables before querying</text>
+    <rect x="805" y="240" width="355" height="92" rx="8" class="box hl"/>
+    <text x="819" y="263" class="t">Data browser</text>
+    <text x="819" y="282" class="s">test status, freshness, last run and docs link</text>
+    <text x="819" y="298" class="s">on every table</text>
+    <text x="819" y="319" class="v">Trust tables before querying</text>
   </g>
   <g class="node" data-id="slcell" tabindex="0" role="button" aria-label="Semantic Layer cell">
-    <rect x="790" y="345" width="220" height="92" rx="8" class="box hl"/>
-    <text x="804" y="368" class="t">Semantic Layer cell</text>
-    <text x="804" y="387" class="s">pick metrics, dimensions and</text>
-    <text x="804" y="403" class="s">time grain, no SQL</text>
-    <text x="804" y="424" class="v">One metric definition for all</text>
-  </g>
-  <g class="node" data-id="gov" tabindex="0" role="button" aria-label="Governance">
-    <rect x="1045" y="44" width="140" height="400" rx="8" class="gov"/>
-    <text x="1059" y="66" class="sub">Hex on top</text>
-    <text x="1059" y="92" class="t">Governance</text>
-    <text x="1059" y="110" class="t">+ context</text>
-    <text x="1059" y="140" class="s">Endorsements</text>
-    <text x="1059" y="158" class="s">Certified statuses</text>
-    <text x="1059" y="176" class="s">Workspace rules</text>
-    <text x="1059" y="194" class="s">Context Studio</text>
-    <text x="1059" y="236" class="v">Steer agents to</text>
-    <text x="1059" y="253" class="v">trusted data and</text>
-    <text x="1059" y="270" class="v">see what they</text>
-    <text x="1059" y="287" class="v">are asked</text>
+    <rect x="805" y="345" width="355" height="85" rx="8" class="box hl"/>
+    <text x="819" y="368" class="t">Semantic Layer cell</text>
+    <text x="819" y="387" class="s">pick metrics, dimensions and time grain, no SQL</text>
+    <text x="819" y="412" class="v">One metric definition for all</text>
   </g>
   <g class="node" data-id="nb" tabindex="0" role="button" aria-label="Notebooks + apps">
     <rect x="1215" y="72" width="150" height="80" rx="8" class="box"/>
@@ -560,9 +573,9 @@
     slapi: { area: 'dbt platform API', title: 'Semantic Layer API', what: 'Takes a request for metrics and dimensions, compiles it to SQL, runs it in your warehouse and returns the results.', why: 'Every tool that calls it gets the same governed number.' },
     wh: { area: 'Your data', title: 'Your warehouse', what: 'Snowflake, BigQuery, Redshift or Databricks. dbt builds and tests your tables here, and the Semantic Layer API runs compiled metric SQL here.', why: 'Your data stays in your warehouse. Both platforms work on top of it.' },
     conn: { area: 'Hex Enterprise', title: 'dbt connection in Hex', what: 'An admin adds the service token, environment ID and access URL to Hex once.', why: 'From then on, Hex calls the dbt platform APIs on your behalf.' },
-    browser: { area: 'Hex Enterprise · powered by the dbt platform', title: 'Data browser', what: 'Next to each table, Hex shows its dbt test status, source freshness, last run time, descriptions and a link to its dbt docs page.', why: 'People see whether a table is fresh and tested before they query it.' },
-    slcell: { area: 'Hex Enterprise · powered by the dbt platform', title: 'Semantic Layer cell', what: 'Anyone can pick metrics, dimensions and a time grain, with no SQL. Hex sends the request to the Semantic Layer API and gets governed results back.', why: 'Every team works from one metric definition.' },
-    gov: { area: 'Hex Enterprise · on top', title: 'Governance + context', what: 'Hex adds its own layer on top of the dbt context: endorsements and Certified statuses mark what is trusted, workspace rules guide agents, and Context Studio shows what agents are asked and where context is missing.', why: 'Your data team steers agents to trusted data and sees how they are used.' },
+    browser: { area: 'Hex Enterprise · powered by the dbt platform', title: 'Data browser', what: 'Next to each table, Hex shows its dbt test status, source freshness, last run time, descriptions and a link to its dbt docs page.', why: 'People see whether a table is fresh and tested before they query it.', preview: `<div class="mock"><div class="mock-bar">Data browser <span>›</span> analytics <span>›</span> fct_orders</div><div class="mock-body"><div class="mock-title">fct_orders</div><p class="mock-desc">One row per order. Built from Shopify orders and Stripe payments.</p><div class="mock-badges"><span class="ok">✓ 12 of 12 dbt tests passed</span><span class="ok">✓ Source freshness: 2 hours ago</span><span>Last dbt run: today, 6:00 AM</span><span class="link">View in dbt docs ↗</span></div><table class="mock-table"><tr><th>Column</th><th>dbt description</th><th>Tests</th></tr><tr><td>order_id</td><td>Primary key for an order</td><td>unique, not_null</td></tr><tr><td>customer_id</td><td>Customer who placed the order</td><td>not_null, relationships</td></tr><tr><td>revenue_usd</td><td>Order total after discounts, in USD</td><td>not_null</td></tr></table></div></div>` },
+    slcell: { area: 'Hex Enterprise · powered by the dbt platform', title: 'Semantic Layer cell', what: 'Anyone can pick metrics, dimensions and a time grain, with no SQL. Hex sends the request to the Semantic Layer API and gets governed results back.', why: 'Every team works from one metric definition.', preview: `<div class="mock"><div class="mock-bar">Semantic Layer cell</div><div class="mock-body"><div class="mock-pickers"><span><b>Metrics</b> revenue · orders</span><span><b>Group by</b> region</span><span><b>Time grain</b> month</span></div><table class="mock-table"><tr><th>month</th><th>region</th><th>revenue</th><th>orders</th></tr><tr><td>2026-08</td><td>North America</td><td>1,284,500</td><td>9,812</td></tr><tr><td>2026-08</td><td>Europe</td><td>742,300</td><td>6,045</td></tr><tr><td>2026-09</td><td>North America</td><td>1,331,900</td><td>10,127</td></tr></table><p class="mock-desc">Defined once in dbt MetricFlow. No SQL written in Hex.</p></div></div>` },
+    gov: { area: 'Hex Enterprise · on top', title: 'Hex governance + context', what: 'An umbrella Hex adds over everything the dbt platform provides: endorsements and Certified statuses mark what is trusted, workspace rules guide agents, and Context Studio shows what agents are asked and where context is missing.', why: 'Your data team steers agents to trusted data and sees how they are used.', preview: `<div class="mock"><div class="mock-bar">Hex governance + context</div><div class="mock-body"><div class="mock-grid"><div><div class="mock-h">Statuses + endorsements</div><p><b>fct_orders</b> <span class="pill cert">Certified</span> <span class="pill">Endorsed for agents</span></p><p><b>scratch_orders_v2</b> <span class="pill muted">In development</span> <span class="pill muted">Excluded from agents</span></p></div><div><div class="mock-h">Workspace rules</div><ul><li>Use fct_orders for revenue questions.</li><li>Revenue means revenue_usd, after discounts.</li><li>Never use tables in the scratch schema.</li></ul></div><div><div class="mock-h">Context Studio</div><p>Shows what agents were asked this week and where context was missing, with suggested fixes.</p><p class="gap">Gap found: dim_customers.region has no description. <span class="link">Add description</span></p></div></div></div></div>` },
     nb: { area: 'Hex Enterprise · interfaces', title: 'Notebooks + apps', what: 'Where analysts explore data with SQL and Python and publish data apps for the business.', why: 'Every notebook and app is built on the same tested tables and governed metrics.' },
     threads: { area: 'Hex Enterprise · interfaces', title: 'Threads', what: 'Business users ask questions in plain language and Hex agents answer.', why: 'Answers come from endorsed data and governed metrics, not guesses.' },
     nbagent: { area: 'Hex Enterprise · interfaces', title: 'Notebook Agent', what: 'An AI agent inside Hex notebooks that helps analysts write and run analysis.', why: 'It works from the same governed context as the rest of your team.' },
@@ -599,7 +612,7 @@
   function showDefault() {
     clear();
     panel.replaceChildren(el('p', 'kicker', 'Explore'), el('h2', null, 'Click any box to see what it does'),
-      el('p', null, 'Or use the buttons above to follow the metadata or a metric query from the dbt platform into Hex.'));
+      el('p', null, 'Select the data browser, the Semantic Layer cell or the governance layer to see an example view. Or use the buttons above to follow a flow.'));
   }
   function select(id) {
     clear();
@@ -610,7 +623,10 @@
     const d = NODES[id];
     const chips = el('div', 'chips');
     [...new Set(ids.slice(1))].forEach(n => { const b = el('button', null, NODES[n].title); b.type = 'button'; b.onclick = () => select(n); chips.append(b); });
-    panel.replaceChildren(el('p', 'kicker', d.area), el('h2', null, d.title), el('p', null, d.what), el('p', 'why', d.why), el('p', 'chips-label', 'Connected to'), chips);
+    const parts = [el('p', 'kicker', d.area), el('h2', null, d.title), el('p', null, d.what), el('p', 'why', d.why)];
+    if (d.preview) { const w = el('div', 'preview'); w.append(el('p', 'chips-label', 'Example view (sample data)')); const box = document.createElement('div'); box.innerHTML = d.preview; w.append(box.firstElementChild); parts.push(w); }
+    parts.push(el('p', 'chips-label', 'Connected to'), chips);
+    panel.replaceChildren(...parts);
   }
   function flow(key) {
     clear();
