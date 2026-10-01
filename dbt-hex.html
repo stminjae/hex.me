@@ -211,9 +211,9 @@
 </style>
 <style>
   .back { font-size: 15px; }
-  .wide { width: min(1280px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); margin: 8px 0 32px; }
+  .wide { width: min(1440px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); margin: 8px 0 32px; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); background: var(--bg); padding: 12px; }
-  .arch { display: block; width: 100%; min-width: 1040px; height: auto; color: var(--text); font-family: var(--font); }
+  .arch { display: block; width: 100%; min-width: 1160px; height: auto; color: var(--text); font-family: var(--font); }
   .arch .cont { fill: none; stroke: var(--line); stroke-width: 1.5; }
   .arch .cont.dbt { stroke: var(--muted); }
   .arch .cont.hex { stroke: var(--muted); }
@@ -309,19 +309,20 @@
       <button type="button" class="reset">Reset</button>
     </div>
     <div class="scroll">
-<svg viewBox="0 0 1420 560" role="img" aria-label="Interactive architecture of the dbt platform and Hex Enterprise. Select any part to see what it does and how it connects." class="arch" id="arch">
+<svg viewBox="0 0 1610 560" role="img" aria-label="Interactive architecture of the dbt platform and Hex Enterprise. Select any part to see what it does and how it connects." class="arch" id="arch">
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
     <marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fillA"/></marker>
   </defs>
   <text x="20" y="26" class="col">dbt platform</text>
   <text x="760" y="26" class="col">Hex Enterprise</text>
-  <text x="1250" y="26" class="col">People and agents</text>
+  <text x="1430" y="26" class="col">People and agents</text>
   <rect x="20" y="36" width="620" height="408" rx="10" class="cont dbt"/>
   <line x1="330" y1="48" x2="330" y2="432" class="divider"/>
   <text x="36" y="53" class="sub">Build and run</text>
   <text x="374" y="53" class="sub">Platform APIs</text>
-  <rect x="760" y="36" width="440" height="420" rx="10" class="cont hex"/>
+  <rect x="760" y="36" width="620" height="420" rx="10" class="cont hex"/>
+  <text x="1215" y="61" class="sub">Hex interfaces</text>
   <rect x="775" y="44" width="250" height="400" rx="8" class="subcont"/>
   <text x="790" y="61" class="sub">Powered by the dbt platform</text>
   <g class="edge" data-id="e1">
@@ -383,12 +384,32 @@
     <line x1="1010" y1="391" x2="1043" y2="391" class="e" marker-end="url(#ah)"/>
   </g>
   <g class="edge" data-id="e16">
-    <line x1="1185" y1="134" x2="1248" y2="134" class="e" marker-end="url(#ah)"/>
-    <text x="1225" y="126" class="l" text-anchor="middle">answers</text>
+    <line x1="1185" y1="112" x2="1213" y2="112" class="e" marker-end="url(#ah)"/>
   </g>
   <g class="edge" data-id="e17">
-    <line x1="1185" y1="354" x2="1248" y2="354" class="e" marker-end="url(#ah)"/>
-    <text x="1225" y="346" class="l" text-anchor="middle">context</text>
+    <line x1="1185" y1="202" x2="1213" y2="202" class="e" marker-end="url(#ah)"/>
+  </g>
+  <g class="edge" data-id="e18">
+    <line x1="1185" y1="292" x2="1213" y2="292" class="e" marker-end="url(#ah)"/>
+  </g>
+  <g class="edge" data-id="e19">
+    <line x1="1185" y1="382" x2="1213" y2="382" class="e" marker-end="url(#ah)"/>
+  </g>
+  <g class="edge" data-id="e20">
+    <line x1="1365" y1="112" x2="1428" y2="112" class="e" marker-end="url(#ah)"/>
+    <text x="1405" y="104" class="l" text-anchor="middle">use</text>
+  </g>
+  <g class="edge" data-id="e21">
+    <line x1="1365" y1="202" x2="1428" y2="202" class="e" marker-end="url(#ah)"/>
+    <text x="1405" y="194" class="l" text-anchor="middle">ask</text>
+  </g>
+  <g class="edge" data-id="e22">
+    <line x1="1365" y1="292" x2="1428" y2="292" class="e" marker-end="url(#ah)"/>
+    <text x="1405" y="284" class="l" text-anchor="middle">assists</text>
+  </g>
+  <g class="edge" data-id="e23">
+    <line x1="1365" y1="382" x2="1428" y2="382" class="e" marker-end="url(#ah)"/>
+    <text x="1405" y="374" class="l" text-anchor="middle">MCP</text>
   </g>
   <g class="node" data-id="git" tabindex="0" role="button" aria-label="dbt project in Git">
     <rect x="36" y="60" width="248" height="70" rx="8" class="box"/>
@@ -470,20 +491,40 @@
     <text x="1059" y="270" class="v">see what they</text>
     <text x="1059" y="287" class="v">are asked</text>
   </g>
+  <g class="node" data-id="nb" tabindex="0" role="button" aria-label="Notebooks + apps">
+    <rect x="1215" y="72" width="150" height="80" rx="8" class="box"/>
+    <text x="1229" y="98" class="t">Notebooks + apps</text>
+    <text x="1229" y="118" class="s">analysis, data apps</text>
+  </g>
+  <g class="node" data-id="threads" tabindex="0" role="button" aria-label="Threads">
+    <rect x="1215" y="162" width="150" height="80" rx="8" class="box"/>
+    <text x="1229" y="188" class="t">Threads</text>
+    <text x="1229" y="208" class="s">questions in plain</text>
+    <text x="1229" y="224" class="s">language</text>
+  </g>
+  <g class="node" data-id="nbagent" tabindex="0" role="button" aria-label="Notebook Agent">
+    <rect x="1215" y="252" width="150" height="80" rx="8" class="box"/>
+    <text x="1229" y="278" class="t">Notebook Agent</text>
+    <text x="1229" y="298" class="s">AI help inside</text>
+    <text x="1229" y="314" class="s">notebooks</text>
+  </g>
+  <g class="node" data-id="mcp" tabindex="0" role="button" aria-label="Hex MCP server">
+    <rect x="1215" y="342" width="150" height="80" rx="8" class="box"/>
+    <text x="1229" y="368" class="t">Hex MCP server</text>
+    <text x="1229" y="388" class="s">Hex from outside</text>
+    <text x="1229" y="404" class="s">the Hex app</text>
+  </g>
   <g class="node" data-id="people" tabindex="0" role="button" aria-label="People">
-    <rect x="1250" y="44" width="165" height="180" rx="8" class="box"/>
-    <text x="1264" y="70" class="t">People</text>
-    <text x="1264" y="94" class="s">analysts</text>
-    <text x="1264" y="112" class="s">business users</text>
-    <text x="1264" y="140" class="s">notebooks, apps,</text>
-    <text x="1264" y="157" class="s">Threads</text>
+    <rect x="1430" y="72" width="165" height="250" rx="8" class="box"/>
+    <text x="1444" y="98" class="t">People</text>
+    <text x="1444" y="122" class="s">analysts</text>
+    <text x="1444" y="140" class="s">business users</text>
   </g>
   <g class="node" data-id="agents" tabindex="0" role="button" aria-label="Agents">
-    <rect x="1250" y="264" width="165" height="180" rx="8" class="box"/>
-    <text x="1264" y="290" class="t">Agents</text>
-    <text x="1264" y="314" class="s">Threads</text>
-    <text x="1264" y="332" class="s">Notebook Agent</text>
-    <text x="1264" y="350" class="s">MCP clients</text>
+    <rect x="1430" y="342" width="165" height="80" rx="8" class="box"/>
+    <text x="1444" y="368" class="t">Agents</text>
+    <text x="1444" y="388" class="s">MCP clients,</text>
+    <text x="1444" y="404" class="s">such as Claude</text>
   </g>
 </svg>
     </div>
@@ -508,7 +549,7 @@
     });
   })();
 
-  const EDGES = {"e1": ["git", "jobs"], "e2": ["jobs", "meta"], "e3": ["meta", "disc"], "e4": ["sl", "slapi"], "e5": ["jobs", "wh"], "e6": ["slapi", "wh"], "e7": ["wh", "slapi"], "e8": ["token", "conn"], "e9": ["conn", "browser"], "e10": ["browser", "disc"], "e11": ["disc", "browser"], "e12": ["slcell", "slapi"], "e13": ["slapi", "slcell"], "e14": ["browser", "gov"], "e15": ["slcell", "gov"], "e16": ["gov", "people"], "e17": ["gov", "agents"]};
+  const EDGES = {"e1": ["git", "jobs"], "e2": ["jobs", "meta"], "e3": ["meta", "disc"], "e4": ["sl", "slapi"], "e5": ["jobs", "wh"], "e6": ["slapi", "wh"], "e7": ["wh", "slapi"], "e8": ["token", "conn"], "e9": ["conn", "browser"], "e10": ["browser", "disc"], "e11": ["disc", "browser"], "e12": ["slcell", "slapi"], "e13": ["slapi", "slcell"], "e14": ["browser", "gov"], "e15": ["slcell", "gov"], "e16": ["gov", "nb"], "e17": ["gov", "threads"], "e18": ["gov", "nbagent"], "e19": ["gov", "mcp"], "e20": ["nb", "people"], "e21": ["threads", "people"], "e22": ["nbagent", "people"], "e23": ["mcp", "agents"]};
   const NODES = {
     git: { area: 'dbt platform', title: 'dbt project in Git', what: 'Your models, tests, documentation and MetricFlow metric definitions live in one version-controlled project.', why: 'Every downstream answer traces back to logic your data team reviews and owns.' },
     jobs: { area: 'dbt platform', title: 'Scheduled jobs', what: 'The dbt platform runs dbt build on a schedule: it builds your tables, runs your tests and generates docs.', why: 'Each run leaves behind fresh, tested tables in your warehouse and fresh metadata about them.' },
@@ -522,14 +563,18 @@
     browser: { area: 'Hex Enterprise · powered by the dbt platform', title: 'Data browser', what: 'Next to each table, Hex shows its dbt test status, source freshness, last run time, descriptions and a link to its dbt docs page.', why: 'People see whether a table is fresh and tested before they query it.' },
     slcell: { area: 'Hex Enterprise · powered by the dbt platform', title: 'Semantic Layer cell', what: 'Anyone can pick metrics, dimensions and a time grain, with no SQL. Hex sends the request to the Semantic Layer API and gets governed results back.', why: 'Every team works from one metric definition.' },
     gov: { area: 'Hex Enterprise · on top', title: 'Governance + context', what: 'Hex adds its own layer on top of the dbt context: endorsements and Certified statuses mark what is trusted, workspace rules guide agents, and Context Studio shows what agents are asked and where context is missing.', why: 'Your data team steers agents to trusted data and sees how they are used.' },
-    people: { area: 'People and agents', title: 'People', what: 'Analysts and business users working in Hex notebooks, apps and Threads.', why: 'They get answers built on tested tables and governed metrics.' },
-    agents: { area: 'People and agents', title: 'Agents', what: 'Threads, the Notebook Agent and MCP clients all use the same governed context.', why: 'Agents answer from the same trusted foundation as your people.' }
+    nb: { area: 'Hex Enterprise · interfaces', title: 'Notebooks + apps', what: 'Where analysts explore data with SQL and Python and publish data apps for the business.', why: 'Every notebook and app is built on the same tested tables and governed metrics.' },
+    threads: { area: 'Hex Enterprise · interfaces', title: 'Threads', what: 'Business users ask questions in plain language and Hex agents answer.', why: 'Answers come from endorsed data and governed metrics, not guesses.' },
+    nbagent: { area: 'Hex Enterprise · interfaces', title: 'Notebook Agent', what: 'An AI agent inside Hex notebooks that helps analysts write and run analysis.', why: 'It works from the same governed context as the rest of your team.' },
+    mcp: { area: 'Hex Enterprise · interfaces', title: 'Hex MCP server', what: 'Lets MCP clients start and continue Threads, search projects, and create and run notebook cells from outside the Hex app.', why: 'Your Hex context reaches agents wherever your team works.' },
+    people: { area: 'People and agents', title: 'People', what: 'Analysts and business users working through Hex notebooks, apps, Threads and the Notebook Agent.', why: 'They get answers built on tested tables and governed metrics.' },
+    agents: { area: 'People and agents', title: 'Agents', what: 'MCP clients, such as Claude, that connect to Hex through the Hex MCP server.', why: 'Outside agents answer from the same trusted foundation as your people.' }
   };
   const FLOWS = {
-    metadata: { title: 'Follow the metadata', nodes: ['git','jobs','meta','disc','token','conn','browser','gov','people','agents'], edges: ['e1','e2','e3','e8','e9','e10','e11','e14','e16','e17'],
-      steps: ['The dbt platform deploys your project and runs scheduled jobs.', 'Each run writes test results, freshness and docs as run metadata.', 'The Discovery API exposes that metadata.', 'Hex, authenticated with your service token, queries the Discovery API.', 'The Hex data browser shows test status, freshness and docs next to every table.', 'Hex governance sits on top, so people and agents work from trusted data.'] },
-    metric: { title: 'Follow a metric query', nodes: ['sl','slapi','wh','token','conn','slcell','gov','people','agents'], edges: ['e4','e6','e7','e8','e12','e13','e15','e16','e17'],
-      steps: ['Your metrics are defined once in the dbt Semantic Layer.', 'Someone picks metrics, dimensions and a time grain in a Hex Semantic Layer cell.', 'Hex sends the metric query to the Semantic Layer API.', 'The API compiles it to SQL and runs it in your warehouse.', 'Governed results come back to Hex.', 'Hex governance sits on top, so people and agents use the same number.'] }
+    metadata: { title: 'Follow the metadata', nodes: ['git','jobs','meta','disc','token','conn','browser','gov','nb','threads','nbagent','mcp','people','agents'], edges: ['e1','e2','e3','e8','e9','e10','e11','e14','e16','e17','e18','e19','e20','e21','e22','e23'],
+      steps: ['The dbt platform deploys your project and runs scheduled jobs.', 'Each run writes test results, freshness and docs as run metadata.', 'The Discovery API exposes that metadata.', 'Hex, authenticated with your service token, queries the Discovery API.', 'The Hex data browser shows test status, freshness and docs next to every table.', 'Hex governance sits on top, and people and agents reach it through notebooks, apps, Threads, the Notebook Agent and the Hex MCP server.'] },
+    metric: { title: 'Follow a metric query', nodes: ['sl','slapi','wh','token','conn','slcell','gov','nb','threads','nbagent','mcp','people','agents'], edges: ['e4','e6','e7','e8','e12','e13','e15','e16','e17','e18','e19','e20','e21','e22','e23'],
+      steps: ['Your metrics are defined once in the dbt Semantic Layer.', 'Someone picks metrics, dimensions and a time grain in a Hex Semantic Layer cell.', 'Hex sends the metric query to the Semantic Layer API.', 'The API compiles it to SQL and runs it in your warehouse.', 'Governed results come back to Hex.', 'Hex governance sits on top, and every Hex interface, from Threads to the MCP server, serves the same number.'] }
   };
 
   const svg = document.getElementById('arch');
