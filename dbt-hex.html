@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>dbt platform + Hex</title>
-<meta name="description" content="Field guide for AEs and SEs: how the dbt platform and Hex Enterprise work together, with a technical architecture diagram.">
+<meta name="description" content="How the dbt platform and Hex Enterprise work together to give your analytics and AI agents a trusted foundation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -226,13 +226,17 @@
   .arch .la { fill: var(--accent); font-weight: 600; }
   .arch .e { fill: none; stroke: currentColor; stroke-width: 1.4; opacity: .75; }
   .arch .e.acc { stroke: var(--accent); stroke-width: 2.4; opacity: 1; }
-  .arch .e.dash { stroke-dasharray: 5 4; }
+  .arch .e.req { stroke-dasharray: 4 3; }
+  .arch .box.api { fill: var(--bg); stroke: var(--accent); stroke-width: 1.5; }
+  .arch .col { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
   .arch .fillA { fill: var(--accent); }
   .wide figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
   .pitch { font-size: 19px; line-height: 1.55; border-left: 3px solid var(--pink); padding-left: 16px; margin: 0 0 32px; }
   td.y { color: var(--accent); font-weight: 600; }
   td.n { color: var(--muted); }
   .cmp td:first-child { white-space: normal; }
+  .unlock td { width: 50%; }
+  .unlock td:first-child { white-space: normal; }
   ol.q { padding-left: 20px; } ol.q li { margin-bottom: 8px; }
   .sources { font-size: 14px; color: var(--muted); } .sources li { margin-bottom: 4px; }
   @media (max-width: 600px) {
@@ -262,149 +266,144 @@
     <span class="label">Light</span>
   </button>
 
-  <p class="back"><a href="./#together">Back to How I'd sell Hex</a></p>
   <h1>dbt platform + Hex Enterprise</h1>
-  <p class="byline">A field guide for account executives and sales engineers · By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
+  <p class="byline">How the two platforms work together for trusted analytics and AI agents</p>
 
-  <p class="pitch">dbt is where a data team builds, tests and documents its logic. Hex is where people and agents use it. With the managed dbt platform, Hex reads that work directly: test results and freshness show up next to every table, and governed metrics are queryable with no SQL. Together they give an enterprise agent rollout a foundation the data team can stand behind.</p>
+  <p class="pitch">dbt is where your data team builds, tests and documents its logic. Hex is where your people and agents use it. The dbt platform packages that work as APIs, and Hex Enterprise calls them directly: test results and freshness appear next to every table, and governed metrics are queryable with no SQL. Together they give your agent rollout a foundation your data team can stand behind.</p>
 
   <figure class="wide">
     <div class="scroll">
-<svg viewBox="0 0 1080 620" role="img" aria-label="Architecture: a dbt project in Git is deployed to the dbt platform, whose scheduler builds and tests tables in the warehouse. The dbt platform Discovery API sends descriptions, test results and freshness to the Hex data browser, and the Semantic Layer API serves governed metrics to the Hex Semantic Layer cell. Both of these connections need the dbt platform. MetricFlow files also sync from GitHub into Hex semantic models, which works with dbt Core too. Hex adds governance and serves people and agents." class="arch">
+<svg viewBox="0 0 1240 610" role="img" aria-label="Workflow between the dbt platform and Hex Enterprise. In the dbt platform, a dbt project in Git is deployed to scheduled jobs that build and test tables in your warehouse and write run metadata. The dbt platform exposes that metadata through the Discovery API and exposes MetricFlow metrics through the Semantic Layer API. A service token created once in the dbt platform is configured in Hex. Hex calls the Discovery API with a GraphQL query and receives test status, freshness and docs for its data browser. Hex sends metric requests to the Semantic Layer API, which compiles and runs SQL in the warehouse and returns governed results to the Hex Semantic Layer cell. Hex adds governance and serves people and agents." class="arch">
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
-    <marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fillA"/></marker>
+    <marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fillA"/></marker>
   </defs>
+  <text x="20" y="26" class="col">dbt platform (fka dbt Cloud)</text>
+  <text x="360" y="26" class="col">API layer</text>
+  <text x="740" y="26" class="col">Hex Enterprise</text>
 
-  <!-- containers -->
-  <rect x="240" y="40" width="250" height="330" rx="10" class="cont dbt"/>
-  <text x="256" y="60" class="ctitle">dbt platform (fka dbt Cloud)</text>
-  <rect x="610" y="40" width="250" height="500" rx="10" class="cont hex"/>
-  <text x="626" y="60" class="ctitle">Hex Enterprise</text>
+  <rect x="20" y="40" width="280" height="400" rx="10" class="cont dbt"/>
+  <rect x="36" y="60" width="248" height="70" rx="8" class="box"/>
+  <text x="50" y="86" class="t">dbt project in Git</text>
+  <text x="50" y="106" class="s">models, tests, docs, MetricFlow</text>
+  <rect x="36" y="150" width="248" height="70" rx="8" class="box"/>
+  <text x="50" y="176" class="t">Scheduled jobs</text>
+  <text x="50" y="196" class="s">dbt build, tests, docs generate</text>
+  <rect x="36" y="240" width="248" height="80" rx="8" class="box"/>
+  <text x="50" y="266" class="t">Run metadata</text>
+  <text x="50" y="286" class="s">test results, source freshness,</text>
+  <text x="50" y="303" class="s">last run, descriptions, docs</text>
+  <rect x="36" y="345" width="248" height="80" rx="8" class="box"/>
+  <text x="50" y="371" class="t">Semantic Layer</text>
+  <text x="50" y="391" class="s">MetricFlow metrics, dimensions,</text>
+  <text x="50" y="408" class="s">time grains</text>
+  <line x1="160" y1="130" x2="160" y2="148" class="e" marker-end="url(#ah)"/>
+  <text x="168" y="143" class="l">deploys</text>
+  <line x1="160" y1="220" x2="160" y2="238" class="e" marker-end="url(#ah)"/>
+  <text x="168" y="233" class="l">writes results</text>
 
-  <!-- Git -->
-  <rect x="20" y="80" width="170" height="220" rx="8" class="box"/>
-  <text x="34" y="104" class="t">Git repo</text>
-  <text x="34" y="122" class="s">dbt project</text>
-  <text x="34" y="152" class="s">• models (SQL)</text>
-  <text x="34" y="172" class="s">• tests</text>
-  <text x="34" y="192" class="s">• docs (YAML)</text>
-  <text x="34" y="212" class="s">• MetricFlow semantic</text>
-  <text x="44" y="228" class="s">models</text>
+  <rect x="360" y="60" width="260" height="110" rx="8" class="box api"/>
+  <text x="374" y="86" class="t">Service token</text>
+  <text x="374" y="106" class="s">created once in dbt platform</text>
+  <text x="374" y="123" class="s">Metadata Only + Job Admin</text>
+  <text x="374" y="140" class="s">plus Semantic Layer environment ID</text>
+  <rect x="360" y="240" width="260" height="80" rx="8" class="box api"/>
+  <text x="374" y="266" class="t">Discovery API</text>
+  <text x="374" y="286" class="s">GraphQL endpoint for project</text>
+  <text x="374" y="303" class="s">and run metadata</text>
+  <rect x="360" y="345" width="260" height="80" rx="8" class="box api"/>
+  <text x="374" y="371" class="t">Semantic Layer API</text>
+  <text x="374" y="391" class="s">query interface for governed</text>
+  <text x="374" y="408" class="s">metrics</text>
+  <line x1="300" y1="280" x2="358" y2="280" class="e" marker-end="url(#ah)"/>
+  <text x="329" y="272" class="l" text-anchor="middle">exposes</text>
+  <line x1="300" y1="385" x2="358" y2="385" class="e" marker-end="url(#ah)"/>
+  <text x="329" y="377" class="l" text-anchor="middle">exposes</text>
 
-  <!-- dbt platform inner -->
-  <rect x="260" y="70" width="210" height="70" rx="8" class="box"/>
-  <text x="274" y="96" class="t">Scheduler</text>
-  <text x="274" y="116" class="s">jobs: dbt build + docs</text>
-  <rect x="260" y="170" width="210" height="70" rx="8" class="box"/>
-  <text x="274" y="196" class="t">Discovery API</text>
-  <text x="274" y="216" class="s">models, tests, freshness, docs</text>
-  <rect x="260" y="270" width="210" height="80" rx="8" class="box"/>
-  <text x="274" y="296" class="t">Semantic Layer API</text>
-  <text x="274" y="316" class="s">serves MetricFlow metrics</text>
-  <text x="274" y="334" class="s">to downstream tools</text>
+  <rect x="20" y="480" width="600" height="60" rx="8" class="box"/>
+  <text x="36" y="506" class="t">Your warehouse</text>
+  <text x="36" y="525" class="s">Snowflake · BigQuery · Redshift · Databricks</text>
+  <line x1="250" y1="440" x2="250" y2="478" class="e" marker-end="url(#ah)"/>
+  <text x="242" y="463" class="l" text-anchor="end">builds + tests tables</text>
+  <line x1="470" y1="425" x2="470" y2="478" class="e" marker-end="url(#ah)"/>
+  <text x="462" y="456" class="l" text-anchor="end">runs compiled SQL</text>
+  <line x1="530" y1="478" x2="530" y2="427" class="e" marker-end="url(#ah)"/>
+  <text x="538" y="456" class="l">results</text>
 
-  <!-- Warehouse -->
-  <rect x="240" y="440" width="250" height="90" rx="8" class="box"/>
-  <text x="256" y="466" class="t">Warehouse</text>
-  <text x="256" y="486" class="s">Snowflake · BigQuery ·</text>
-  <text x="256" y="503" class="s">Redshift · Databricks</text>
-  <text x="256" y="520" class="s">built, tested tables</text>
+  <rect x="740" y="40" width="480" height="500" rx="10" class="cont hex"/>
+  <rect x="760" y="60" width="240" height="110" rx="8" class="box"/>
+  <text x="774" y="86" class="t">dbt connection in Hex</text>
+  <text x="774" y="106" class="s">token, environment ID and</text>
+  <text x="774" y="123" class="s">access URL, set up once</text>
+  <line x1="620" y1="115" x2="758" y2="115" class="e" marker-end="url(#ah)"/>
+  <text x="690" y="107" class="l" text-anchor="middle">configured</text>
+  <line x1="880" y1="170" x2="880" y2="238" class="e" marker-end="url(#ah)"/>
+  <text x="888" y="208" class="l">authenticates calls</text>
 
-  <!-- Hex inner -->
-  <rect x="630" y="70" width="210" height="70" rx="8" class="box"/>
-  <text x="644" y="96" class="t">Hex semantic models</text>
-  <text x="644" y="116" class="s">measures, dimensions, joins</text>
-  <rect x="630" y="170" width="210" height="70" rx="8" class="box hl"/>
-  <text x="644" y="196" class="t">Data browser</text>
-  <text x="644" y="216" class="s">test status, freshness, last</text>
-  <text x="644" y="231" class="s">run, docs link per table</text>
-  <rect x="630" y="270" width="210" height="80" rx="8" class="box hl"/>
-  <text x="644" y="296" class="t">Semantic Layer cell</text>
-  <text x="644" y="316" class="s">pick metrics, dimensions,</text>
-  <text x="644" y="334" class="s">time grain; no SQL</text>
-  <rect x="630" y="375" width="210" height="65" rx="8" class="box"/>
-  <text x="644" y="400" class="t">Governance + context</text>
-  <text x="644" y="420" class="s">endorsements, statuses,</text>
-  <text x="644" y="434" class="s">rules, Context Studio</text>
-  <rect x="630" y="455" width="210" height="65" rx="8" class="box"/>
-  <text x="644" y="480" class="t">Data connection</text>
-  <text x="644" y="500" class="s">same warehouse, live SQL</text>
+  <rect x="760" y="240" width="240" height="80" rx="8" class="box hl"/>
+  <text x="774" y="266" class="t">Data browser</text>
+  <text x="774" y="286" class="s">test status, freshness, last run</text>
+  <text x="774" y="303" class="s">and docs link on every table</text>
+  <rect x="760" y="345" width="240" height="80" rx="8" class="box hl"/>
+  <text x="774" y="371" class="t">Semantic Layer cell</text>
+  <text x="774" y="391" class="s">pick metrics, dimensions and</text>
+  <text x="774" y="408" class="s">time grain, no SQL</text>
 
-  <!-- consumers -->
-  <rect x="920" y="70" width="140" height="160" rx="8" class="box"/>
-  <text x="934" y="96" class="t">People</text>
-  <text x="934" y="120" class="s">analysts</text>
-  <text x="934" y="138" class="s">business users</text>
-  <text x="934" y="166" class="s">notebooks, apps,</text>
-  <text x="934" y="182" class="s">Threads</text>
-  <rect x="920" y="290" width="140" height="160" rx="8" class="box"/>
-  <text x="934" y="316" class="t">Agents</text>
-  <text x="934" y="340" class="s">Notebook Agent</text>
-  <text x="934" y="358" class="s">Threads</text>
-  <text x="934" y="376" class="s">MCP clients</text>
+  <line x1="758" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
+  <text x="690" y="255" class="l" text-anchor="middle">GraphQL query</text>
+  <line x1="622" y1="298" x2="758" y2="298" class="e acc" marker-end="url(#ahA)"/>
+  <text x="690" y="315" class="l la" text-anchor="middle">metadata</text>
+  <line x1="758" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
+  <text x="690" y="360" class="l" text-anchor="middle">metric request</text>
+  <line x1="622" y1="403" x2="758" y2="403" class="e acc" marker-end="url(#ahA)"/>
+  <text x="690" y="420" class="l la" text-anchor="middle">governed results</text>
 
-  <!-- edges: neutral -->
-  <line x1="190" y1="105" x2="258" y2="105" class="e" marker-end="url(#ah)"/>
-  <text x="213" y="97" class="l" text-anchor="middle">deploy</text>
-  <polyline points="260,125 222,125 222,485 238,485" class="e" marker-end="url(#ah)"/>
-  <text x="214" y="420" class="l" text-anchor="middle" transform="rotate(-90 214 420)">builds + tests</text>
-  <line x1="365" y1="140" x2="365" y2="168" class="e" marker-end="url(#ah)"/>
-  <text x="374" y="158" class="l">run artifacts</text>
-  <line x1="365" y1="350" x2="365" y2="438" class="e" marker-end="url(#ah)"/>
-  <text x="374" y="398" class="l">compiles metric SQL</text>
-  <line x1="490" y1="487" x2="628" y2="487" class="e" marker-end="url(#ah)"/>
-  <text x="559" y="479" class="l" text-anchor="middle">SQL queries</text>
-  <polyline points="105,80 105,22 590,22 590,105 628,105" class="e dash" marker-end="url(#ah)"/>
-  <text x="347" y="15" class="l" text-anchor="middle">Semantic Model Sync: MetricFlow YAML from GitHub (dbt Core works too)</text>
-  <line x1="860" y1="150" x2="918" y2="150" class="e" marker-end="url(#ah)"/>
-  <text x="889" y="142" class="l" text-anchor="middle">answers</text>
-  <line x1="860" y1="370" x2="918" y2="370" class="e" marker-end="url(#ah)"/>
-  <text x="889" y="362" class="l" text-anchor="middle">context</text>
+  <rect x="1030" y="240" width="170" height="185" rx="8" class="box"/>
+  <text x="1044" y="266" class="t">People + agents</text>
+  <text x="1044" y="290" class="s">analysts, business users</text>
+  <text x="1044" y="308" class="s">notebooks and apps</text>
+  <text x="1044" y="326" class="s">Threads</text>
+  <text x="1044" y="344" class="s">Notebook Agent</text>
+  <text x="1044" y="362" class="s">MCP clients</text>
+  <line x1="1000" y1="280" x2="1028" y2="280" class="e" marker-end="url(#ah)"/>
+  <line x1="1000" y1="385" x2="1028" y2="385" class="e" marker-end="url(#ah)"/>
 
-  <!-- edges: need dbt platform -->
-  <line x1="470" y1="205" x2="628" y2="205" class="e acc" marker-end="url(#ahA)"/>
-  <text x="549" y="196" class="l la" text-anchor="middle">metadata</text>
-  <text x="549" y="222" class="l la" text-anchor="middle">service token</text>
-  <line x1="470" y1="310" x2="628" y2="310" class="e acc" marker-end="url(#ahA)"/>
-  <text x="549" y="301" class="l la" text-anchor="middle">governed metrics</text>
-  <text x="549" y="327" class="l la" text-anchor="middle">env ID + token</text>
+  <rect x="760" y="450" width="440" height="70" rx="8" class="box"/>
+  <text x="774" y="476" class="t">Hex governance on top</text>
+  <text x="774" y="496" class="s">endorsements, Certified statuses, workspace rules, Context Studio</text>
 
-  <!-- legend -->
-  <line x1="20" y1="590" x2="60" y2="590" class="e acc"/>
-  <text x="68" y="594" class="l">needs dbt platform</text>
-  <line x1="210" y1="590" x2="250" y2="590" class="e dash"/>
-  <text x="258" y="594" class="l">works with dbt Core too</text>
-  <rect x="420" y="582" width="30" height="16" rx="3" class="box hl"/>
-  <text x="458" y="594" class="l">Hex feature unlocked by dbt platform</text>
+  <line x1="20" y1="585" x2="60" y2="585" class="e req"/>
+  <text x="68" y="589" class="l">Hex calls a dbt platform API</text>
+  <line x1="250" y1="585" x2="290" y2="585" class="e acc"/>
+  <text x="298" y="589" class="l">dbt platform returns data to Hex</text>
+  <rect x="510" y="577" width="30" height="16" rx="3" class="box hl"/>
+  <text x="548" y="589" class="l">Hex feature powered by the dbt platform</text>
 </svg>
     </div>
-    <figcaption>The two thick lines are the reason to buy both. The Discovery API and the Semantic Layer API exist only on the dbt platform, and they are what light up the highlighted Hex features. Scroll sideways on a phone.</figcaption>
+    <figcaption>The dbt platform turns your project, runs and metrics into two APIs. Hex calls them (dashed) and gets back metadata and governed metric results (solid), which power the highlighted Hex features. Scroll sideways on a phone.</figcaption>
   </figure>
 
   <section>
-    <h2><span class="num">01</span>What changes with dbt Core vs. the dbt platform</h2>
-    <table class="cmp">
-      <thead><tr><th>In Hex Enterprise</th><th>dbt Core</th><th>dbt platform</th></tr></thead>
+    <h2><span class="num">01</span>What the dbt platform unlocks in Hex Enterprise</h2>
+    <table class="unlock">
+      <thead><tr><th>dbt platform</th><th>Hex Enterprise</th></tr></thead>
       <tbody>
-        <tr><td>Test status, source freshness and last run time next to each table in the data browser</td><td data-label="dbt Core" class="n">Not available</td><td data-label="dbt platform" class="y">Yes, via Discovery API</td></tr>
-        <tr><td>Links from a table to its dbt docs page</td><td data-label="dbt Core" class="n">Not available</td><td data-label="dbt platform" class="y">Yes</td></tr>
-        <tr><td>Query governed metrics live in a Semantic Layer cell, no SQL</td><td data-label="dbt Core" class="n">Not available. MetricFlow runs locally only, with no served API</td><td data-label="dbt platform" class="y">Yes, via Semantic Layer API</td></tr>
-        <tr><td>Import MetricFlow definitions into Hex semantic models</td><td data-label="dbt Core">Yes, synced from GitHub</td><td data-label="dbt platform">Yes, synced from GitHub</td></tr>
-        <tr><td>Table and column descriptions in the data browser</td><td data-label="dbt Core">Only if written to the warehouse (for example with persist_docs)</td><td data-label="dbt platform" class="y">Yes, pulled from dbt docs</td></tr>
-        <tr><td>Scheduled builds, tests and docs generation</td><td data-label="dbt Core">Self-managed orchestrator</td><td data-label="dbt platform" class="y">dbt platform scheduler</td></tr>
+        <tr><td>Scheduled jobs run your models and tests and generate docs</td><td>Test status, source freshness and last run time appear next to each table in the data browser</td></tr>
+        <tr><td>Discovery API serves descriptions and docs</td><td>Table and column descriptions, plus a link to each table's dbt docs page</td></tr>
+        <tr><td>Semantic Layer API serves MetricFlow metrics</td><td>Anyone can query governed metrics in a Semantic Layer cell, no SQL</td></tr>
+        <tr><td>One project, tested and documented in one place</td><td>Endorsements, Certified statuses, workspace rules and Context Studio build on top of it for agents</td></tr>
       </tbody>
     </table>
   </section>
 
   <section>
-    <h2><span class="num">02</span>What each persona notices in Hex</h2>
+    <h2><span class="num">02</span>What each team gets</h2>
     <table>
-      <thead><tr><th>Persona</th><th>Day-to-day difference</th></tr></thead>
+      <thead><tr><th>Team</th><th>Day to day in Hex</th></tr></thead>
       <tbody>
         <tr><td>Analyst</td><td>Sees whether a table passed its tests and how fresh it is before writing a query.</td></tr>
         <tr><td>Business user</td><td>Pulls a governed metric in a Semantic Layer cell or asks in Threads, and gets the same number finance uses.</td></tr>
-        <tr><td>Analytics engineer</td><td>Defines logic, tests, docs and metrics once in dbt. Hex picks them up with no second copy to maintain.</td></tr>
+        <tr><td>Analytics engineer</td><td>Defines logic, tests, docs and metrics once in the dbt platform. Hex picks them up with no second copy to maintain.</td></tr>
         <tr><td>Data leader</td><td>Can roll out agents knowing they run on tested tables and governed metrics, with Hex governance on top.</td></tr>
       </tbody>
     </table>
@@ -412,39 +411,26 @@
 
   <section>
     <h2><span class="num">03</span>Why dbt matters to Hex</h2>
-    <p>Hex agents are only as good as the context behind them. dbt is where most of that context is born: the models, the tests that prove them, the descriptions that explain them, and the metrics that define the business. The dbt platform turns that work into APIs Hex can read. The stronger the dbt project, the better every Hex agent answers.</p>
+    <p>Agents are only as good as the context behind them. dbt is where most of that context is born: the models, the tests that prove them, the descriptions that explain them, and the metrics that define your business. The dbt platform turns that work into APIs Hex can read, so the stronger your dbt project, the better every Hex agent answers.</p>
   </section>
 
   <section>
-    <h2><span class="num">04</span>Discovery questions for a joint deal</h2>
-    <ol class="q">
-      <li>Are you on dbt Core or the dbt platform today, and who runs your orchestration?</li>
-      <li>When someone in Hex picks a table, how do they know it passed its tests and is up to date?</li>
-      <li>Where do your metric definitions live, and how many tools redefine them?</li>
-      <li>You are rolling out agents. What do they use as the source of truth for metrics?</li>
-      <li>Who owns data quality when an agent gives the business a wrong number?</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2><span class="num">05</span>Setup in brief</h2>
+    <h2><span class="num">04</span>Getting started</h2>
     <table>
-      <thead><tr><th>Integration</th><th>What the customer needs</th></tr></thead>
+      <thead><tr><th>Integration</th><th>What you need</th></tr></thead>
       <tbody>
         <tr><td>dbt metadata in the data browser</td><td>A dbt platform service token with Metadata Only and Job Admin permissions, and at least one scheduled job with docs generation that has run successfully.</td></tr>
         <tr><td>Semantic Layer cell</td><td>The dbt Semantic Layer access URL, environment ID and a service token. Supported on Snowflake, BigQuery, Redshift and Databricks.</td></tr>
-        <tr><td>Semantic Model Sync</td><td>MetricFlow files in GitHub, synced with the Hex CLI or the Hex Context Toolkit GitHub Action. Available on Hex Team and Enterprise plans.</td></tr>
       </tbody>
     </table>
   </section>
 
   <section>
-    <h3>Sources</h3>
+    <h3>References</h3>
     <ul class="sources">
       <li><a href="https://learn.hex.tech/docs/connect-to-data/data-connections/dbt-integration">Hex docs: dbt integrations</a></li>
-      <li><a href="https://learn.hex.tech/docs/connect-to-data/semantic-models/semantic-model-sync/intro">Hex docs: Semantic Model Sync</a></li>
       <li><a href="https://hex.tech/blog/dbt-semantic-layer-integration/">Hex blog: dbt Semantic Layer integration</a></li>
-      <li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs">dbt docs: Semantic Layer FAQs (Core vs. platform)</a></li>
+      <li><a href="https://docs.getdbt.com/docs/use-dbt-semantic-layer/sl-faqs">dbt docs: Semantic Layer FAQs</a></li>
       <li><a href="https://docs.getdbt.com/docs/dbt-apis/discovery-querying">dbt docs: Discovery API</a></li>
     </ul>
   </section>
