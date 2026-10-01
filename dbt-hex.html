@@ -211,9 +211,9 @@
 </style>
 <style>
   .back { font-size: 15px; }
-  .wide { width: min(1100px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); margin: 8px 0 32px; }
+  .wide { width: min(1280px, calc(100vw - 32px)); position: relative; left: 50%; transform: translateX(-50%); margin: 8px 0 32px; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); background: var(--bg); padding: 12px; }
-  .arch { display: block; width: 100%; min-width: 900px; height: auto; color: var(--text); font-family: var(--font); }
+  .arch { display: block; width: 100%; min-width: 1040px; height: auto; color: var(--text); font-family: var(--font); }
   .arch .cont { fill: none; stroke: var(--line); stroke-width: 1.5; }
   .arch .cont.dbt { stroke: var(--accent); stroke-dasharray: 0; }
   .arch .cont.hex { stroke: var(--pink); stroke-width: 2; }
@@ -230,6 +230,9 @@
   .arch .box.api { fill: var(--bg); stroke: var(--accent); stroke-width: 1.5; }
   .arch .sub { font-size: 11px; font-weight: 600; fill: var(--accent); letter-spacing: .06em; text-transform: uppercase; }
   .arch .divider { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+  .arch .subcont { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3 3; }
+  .arch .gov { fill: var(--soft); stroke: var(--text); stroke-width: 1.5; }
+  .arch .v { font-size: 11.5px; font-style: italic; font-weight: 600; fill: var(--accent); }
   .arch .col { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
   .arch .fillA { fill: var(--accent); }
   .wide figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
@@ -275,14 +278,16 @@
 
   <figure class="wide">
     <div class="scroll">
-<svg viewBox="0 0 1240 610" role="img" aria-label="Workflow between the dbt platform and Hex Enterprise. In the dbt platform, a dbt project in Git is deployed to scheduled jobs that build and test tables in your warehouse and write run metadata. The dbt platform exposes that metadata through its Discovery API and exposes MetricFlow metrics through the Semantic Layer API. A service token created once in the dbt platform is configured in Hex. Hex calls the Discovery API with a GraphQL query and receives test status, freshness and docs for its data browser. Hex sends metric requests to the Semantic Layer API, which compiles and runs SQL in the warehouse and returns governed results to the Hex Semantic Layer cell. Hex adds governance and serves people and agents." class="arch">
+<svg viewBox="0 0 1420 610" role="img" aria-label="Workflow between the dbt platform, Hex Enterprise, and your people and agents. Inside the dbt platform, a dbt project in Git is deployed to scheduled jobs that build and test tables in your warehouse and write run metadata, and the Semantic Layer holds MetricFlow metrics. The dbt platform exposes these through its own APIs: a service token, the Discovery API and the Semantic Layer API. Inside Hex Enterprise, the dbt connection uses that token. The Hex data browser queries the Discovery API and gets back test status, freshness and docs, so people can trust a table before they query it. The Hex Semantic Layer cell sends metric queries to the Semantic Layer API, which runs SQL in the warehouse and returns metric results, so every team uses one definition. Hex governance sits on top of these dbt features: endorsements, Certified statuses, workspace rules and Context Studio steer agents to trusted data. People and agents use the result." class="arch">
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
     <marker id="ahA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="fillA"/></marker>
   </defs>
   <text x="20" y="26" class="col">dbt platform</text>
-  <text x="740" y="26" class="col">Hex Enterprise</text>
+  <text x="760" y="26" class="col">Hex Enterprise</text>
+  <text x="1250" y="26" class="col">People and agents</text>
 
+  <!-- dbt platform -->
   <rect x="20" y="36" width="620" height="408" rx="10" class="cont dbt"/>
   <line x1="330" y1="48" x2="330" y2="432" class="divider"/>
   <text x="36" y="53" class="sub">Build and run</text>
@@ -319,12 +324,13 @@
   <text x="374" y="371" class="t">Semantic Layer API</text>
   <text x="374" y="391" class="s">query interface for governed</text>
   <text x="374" y="408" class="s">metrics</text>
-  <line x1="300" y1="280" x2="358" y2="280" class="e" marker-end="url(#ah)"/>
-  <text x="329" y="272" class="l" text-anchor="middle">exposes</text>
-  <line x1="300" y1="385" x2="358" y2="385" class="e" marker-end="url(#ah)"/>
-  <text x="329" y="377" class="l" text-anchor="middle">exposes</text>
+  <line x1="284" y1="280" x2="358" y2="280" class="e" marker-end="url(#ah)"/>
+  <text x="300" y="272" class="l">exposes</text>
+  <line x1="284" y1="385" x2="358" y2="385" class="e" marker-end="url(#ah)"/>
+  <text x="300" y="377" class="l">exposes</text>
 
-  <rect x="20" y="480" width="600" height="60" rx="8" class="box"/>
+  <!-- warehouse -->
+  <rect x="20" y="480" width="620" height="60" rx="8" class="box"/>
   <text x="36" y="506" class="t">Your warehouse</text>
   <text x="36" y="525" class="s">Snowflake · BigQuery · Redshift · Databricks</text>
   <line x1="250" y1="444" x2="250" y2="478" class="e" marker-end="url(#ah)"/>
@@ -334,57 +340,81 @@
   <line x1="530" y1="478" x2="530" y2="427" class="e" marker-end="url(#ah)"/>
   <text x="538" y="465" class="l">results</text>
 
-  <rect x="740" y="40" width="480" height="500" rx="10" class="cont hex"/>
-  <rect x="760" y="60" width="240" height="110" rx="8" class="box"/>
-  <text x="774" y="86" class="t">dbt connection in Hex</text>
-  <text x="774" y="106" class="s">token, environment ID and</text>
-  <text x="774" y="123" class="s">access URL, set up once</text>
-  <line x1="620" y1="115" x2="758" y2="115" class="e" marker-end="url(#ah)"/>
-  <text x="700" y="107" class="l" text-anchor="middle">configured</text>
-  <line x1="880" y1="170" x2="880" y2="238" class="e" marker-end="url(#ah)"/>
-  <text x="888" y="208" class="l">authenticates calls</text>
+  <!-- Hex Enterprise -->
+  <rect x="760" y="36" width="440" height="420" rx="10" class="cont hex"/>
+  <rect x="775" y="44" width="250" height="400" rx="8" class="subcont"/>
+  <text x="790" y="61" class="sub">Powered by the dbt platform</text>
 
-  <rect x="760" y="240" width="240" height="80" rx="8" class="box hl"/>
-  <text x="774" y="266" class="t">Data browser</text>
-  <text x="774" y="286" class="s">test status, freshness, last run</text>
-  <text x="774" y="303" class="s">and docs link on every table</text>
-  <rect x="760" y="345" width="240" height="80" rx="8" class="box hl"/>
-  <text x="774" y="371" class="t">Semantic Layer cell</text>
-  <text x="774" y="391" class="s">pick metrics, dimensions and</text>
-  <text x="774" y="408" class="s">time grain, no SQL</text>
+  <rect x="790" y="72" width="220" height="78" rx="8" class="box"/>
+  <text x="804" y="96" class="t">dbt connection</text>
+  <text x="804" y="116" class="s">token, environment ID and</text>
+  <text x="804" y="133" class="s">access URL, set up once</text>
+  <line x1="620" y1="115" x2="788" y2="115" class="e" marker-end="url(#ah)"/>
+  <text x="705" y="107" class="l" text-anchor="middle">configured</text>
+  <line x1="900" y1="150" x2="900" y2="238" class="e" marker-end="url(#ah)"/>
+  <text x="908" y="198" class="l">authenticates calls</text>
 
-  <line x1="758" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
-  <text x="700" y="255" class="l" text-anchor="middle">query</text>
-  <line x1="622" y1="298" x2="758" y2="298" class="e acc" marker-end="url(#ahA)"/>
-  <text x="700" y="315" class="l la" text-anchor="middle">metadata</text>
-  <line x1="758" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
-  <text x="700" y="360" class="l" text-anchor="middle">metric query</text>
-  <line x1="622" y1="403" x2="758" y2="403" class="e acc" marker-end="url(#ahA)"/>
-  <text x="700" y="420" class="l la" text-anchor="middle">metric results</text>
+  <rect x="790" y="240" width="220" height="92" rx="8" class="box hl"/>
+  <text x="804" y="263" class="t">Data browser</text>
+  <text x="804" y="282" class="s">test status, freshness, last run</text>
+  <text x="804" y="298" class="s">and docs link on every table</text>
+  <text x="804" y="319" class="v">Trust tables before querying</text>
+  <rect x="790" y="345" width="220" height="92" rx="8" class="box hl"/>
+  <text x="804" y="368" class="t">Semantic Layer cell</text>
+  <text x="804" y="387" class="s">pick metrics, dimensions and</text>
+  <text x="804" y="403" class="s">time grain, no SQL</text>
+  <text x="804" y="424" class="v">One metric definition for all</text>
 
-  <rect x="1030" y="240" width="170" height="185" rx="8" class="box"/>
-  <text x="1044" y="266" class="t">People + agents</text>
-  <text x="1044" y="290" class="s">analysts, business users</text>
-  <text x="1044" y="308" class="s">notebooks and apps</text>
-  <text x="1044" y="326" class="s">Threads</text>
-  <text x="1044" y="344" class="s">Notebook Agent</text>
-  <text x="1044" y="362" class="s">MCP clients</text>
-  <line x1="1000" y1="280" x2="1028" y2="280" class="e" marker-end="url(#ah)"/>
-  <line x1="1000" y1="385" x2="1028" y2="385" class="e" marker-end="url(#ah)"/>
+  <line x1="788" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
+  <text x="705" y="255" class="l" text-anchor="middle">query</text>
+  <line x1="622" y1="298" x2="788" y2="298" class="e acc" marker-end="url(#ahA)"/>
+  <text x="705" y="315" class="l la" text-anchor="middle">metadata</text>
+  <line x1="788" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
+  <text x="705" y="360" class="l" text-anchor="middle">metric query</text>
+  <line x1="622" y1="403" x2="788" y2="403" class="e acc" marker-end="url(#ahA)"/>
+  <text x="705" y="420" class="l la" text-anchor="middle">metric results</text>
 
-  <rect x="760" y="450" width="440" height="70" rx="8" class="box"/>
-  <text x="774" y="476" class="t">Hex governance on top</text>
-  <text x="774" y="496" class="s">endorsements, Certified statuses, workspace rules, Context Studio</text>
+  <!-- Hex governance layer on top -->
+  <rect x="1045" y="44" width="140" height="400" rx="8" class="gov"/>
+  <text x="1059" y="66" class="sub">Hex on top</text>
+  <text x="1059" y="92" class="t">Governance</text>
+  <text x="1059" y="110" class="t">+ context</text>
+  <text x="1059" y="140" class="s">Endorsements</text>
+  <text x="1059" y="158" class="s">Certified statuses</text>
+  <text x="1059" y="176" class="s">Workspace rules</text>
+  <text x="1059" y="194" class="s">Context Studio</text>
+  <text x="1059" y="236" class="v">Steer agents to</text>
+  <text x="1059" y="253" class="v">trusted data and</text>
+  <text x="1059" y="270" class="v">see what they</text>
+  <text x="1059" y="287" class="v">are asked</text>
+  <line x1="1010" y1="286" x2="1043" y2="286" class="e" marker-end="url(#ah)"/>
+  <line x1="1010" y1="391" x2="1043" y2="391" class="e" marker-end="url(#ah)"/>
 
+  <!-- People and agents -->
+  <rect x="1250" y="44" width="165" height="180" rx="8" class="box"/>
+  <text x="1264" y="70" class="t">People</text>
+  <text x="1264" y="94" class="s">analysts</text>
+  <text x="1264" y="112" class="s">business users</text>
+  <text x="1264" y="140" class="s">notebooks, apps,</text>
+  <text x="1264" y="157" class="s">Threads</text>
+  <rect x="1250" y="264" width="165" height="180" rx="8" class="box"/>
+  <text x="1264" y="290" class="t">Agents</text>
+  <text x="1264" y="314" class="s">Threads</text>
+  <text x="1264" y="332" class="s">Notebook Agent</text>
+  <text x="1264" y="350" class="s">MCP clients</text>
+  <line x1="1185" y1="134" x2="1248" y2="134" class="e" marker-end="url(#ah)"/>
+  <text x="1225" y="126" class="l" text-anchor="middle">answers</text>
+  <line x1="1185" y1="354" x2="1248" y2="354" class="e" marker-end="url(#ah)"/>
+  <text x="1225" y="346" class="l" text-anchor="middle">context</text>
+
+  <!-- legend -->
   <line x1="20" y1="585" x2="60" y2="585" class="e req"/>
   <text x="68" y="589" class="l">Hex calls a dbt platform API</text>
   <line x1="250" y1="585" x2="290" y2="585" class="e acc"/>
   <text x="298" y="589" class="l">dbt platform returns data to Hex</text>
-  <rect x="510" y="577" width="30" height="16" rx="3" class="box hl"/>
-  <text x="548" y="589" class="l">Hex feature powered by the dbt platform</text>
 </svg>
     </div>
-    <figcaption>The dbt platform builds and runs your project, then exposes the results through its own APIs. Hex calls them (dashed) and gets back metadata and governed metric results (solid), which power the highlighted Hex features. Scroll sideways on a phone.</figcaption>
+    <figcaption>The dbt platform builds and runs your project, then exposes the results through its own APIs. Hex calls them (dashed) and gets back metadata and metric results (solid), which power the highlighted features. Hex governance sits on top before anything reaches your people and agents. Scroll sideways on a phone.</figcaption>
   </figure>
 
   <section>
