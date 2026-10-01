@@ -235,6 +235,8 @@
   .arch .subcont { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 3; }
   .arch .gov { fill: var(--soft); stroke: var(--line); }
   .arch .v { font-size: 11.5px; font-style: italic; fill: currentColor; }
+  .arch .dbtbadge rect { fill: #ff694b; }
+  .arch .dbtbadge text { fill: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: .02em; }
   .arch .col { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
   .arch .fillA { fill: var(--accent); }
   .wide figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
@@ -461,6 +463,7 @@
     <rect x="805" y="120" width="355" height="68" rx="8" class="box"/>
     <text x="819" y="146" class="t">dbt connection</text>
     <text x="819" y="166" class="s">token, environment ID and access URL, set up once</text>
+    <g class="dbtbadge" aria-hidden="true"><rect x="1114" y="130" width="34" height="17" rx="4"/><text x="1131" y="142" text-anchor="middle">dbt</text></g>
   </g>
   <g class="node" data-id="browser" tabindex="0" role="button" aria-label="Data browser">
     <rect x="805" y="240" width="355" height="92" rx="8" class="box hl"/>
@@ -468,12 +471,14 @@
     <text x="819" y="282" class="s">test status, freshness, last run and docs link</text>
     <text x="819" y="298" class="s">on every table</text>
     <text x="819" y="319" class="v">Trust tables before querying</text>
+    <g class="dbtbadge" aria-hidden="true"><rect x="1114" y="250" width="34" height="17" rx="4"/><text x="1131" y="262" text-anchor="middle">dbt</text></g>
   </g>
   <g class="node" data-id="slcell" tabindex="0" role="button" aria-label="Semantic Layer cell">
     <rect x="805" y="345" width="355" height="85" rx="8" class="box hl"/>
     <text x="819" y="368" class="t">Semantic Layer cell</text>
     <text x="819" y="387" class="s">pick metrics, dimensions and time grain, no SQL</text>
     <text x="819" y="412" class="v">One metric definition for all</text>
+    <g class="dbtbadge" aria-hidden="true"><rect x="1114" y="355" width="34" height="17" rx="4"/><text x="1131" y="367" text-anchor="middle">dbt</text></g>
   </g>
   <g class="node" data-id="people" tabindex="0" role="button" aria-label="People">
     <rect x="1215" y="72" width="150" height="260" rx="8" class="box"/>
