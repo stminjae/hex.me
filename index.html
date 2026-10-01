@@ -237,6 +237,8 @@
   .arch .v { font-size: 11.5px; font-style: italic; fill: currentColor; }
   .arch .hexbadge rect { fill: var(--pink); }
   .arch .hexbadge text { fill: #31263b; font-size: 10px; font-weight: 700; }
+  .arch .hexi { fill: var(--pink); stroke: var(--pink); }
+  .arch .hexi ~ text { fill: #31263b; }
   .arch .govchip rect { fill: var(--pink); }
   .arch .govchip text { fill: #31263b; font-size: 10px; font-weight: 600; }
   .arch .dbtbadge rect { fill: #ff694b; }
@@ -407,7 +409,6 @@
   <text x="36" y="53" class="sub">Build and run</text>
   <text x="374" y="53" class="sub">Platform APIs</text>
   <rect x="760" y="36" width="935" height="456" rx="10" class="cont hex"/>
-  <text x="1315" y="61" class="sub">People and agents</text>
   <text x="1520" y="61" class="sub">Hex interfaces</text>
   
   <g class="node" data-id="git" tabindex="0" role="button" aria-label="dbt project in Git">
@@ -498,24 +499,24 @@
     <text x="1329" y="404" class="s">such as Claude</text>
   </g>
   <g class="node" data-id="nb" tabindex="0" role="button" aria-label="Notebooks + apps">
-    <rect x="1520" y="72" width="155" height="80" rx="8" class="box"/>
+    <rect x="1520" y="72" width="155" height="80" rx="8" class="box hexi"/>
     <text x="1534" y="98" class="t">Notebooks + apps</text>
     <text x="1534" y="118" class="s">analysis, data apps</text>
   </g>
   <g class="node" data-id="threads" tabindex="0" role="button" aria-label="Threads">
-    <rect x="1520" y="162" width="155" height="80" rx="8" class="box"/>
+    <rect x="1520" y="162" width="155" height="80" rx="8" class="box hexi"/>
     <text x="1534" y="188" class="t">Threads</text>
     <text x="1534" y="208" class="s">questions in plain</text>
     <text x="1534" y="224" class="s">language</text>
   </g>
   <g class="node" data-id="nbagent" tabindex="0" role="button" aria-label="Notebook Agent">
-    <rect x="1520" y="252" width="155" height="80" rx="8" class="box"/>
+    <rect x="1520" y="252" width="155" height="80" rx="8" class="box hexi"/>
     <text x="1534" y="278" class="t">Notebook Agent</text>
     <text x="1534" y="298" class="s">AI help inside</text>
     <text x="1534" y="314" class="s">notebooks</text>
   </g>
   <g class="node" data-id="mcp" tabindex="0" role="button" aria-label="Hex MCP server">
-    <rect x="1520" y="342" width="155" height="80" rx="8" class="box"/>
+    <rect x="1520" y="342" width="155" height="80" rx="8" class="box hexi"/>
     <text x="1534" y="368" class="t">Hex MCP server</text>
     <text x="1534" y="388" class="s">Hex from outside</text>
     <text x="1534" y="404" class="s">the Hex app</text>
