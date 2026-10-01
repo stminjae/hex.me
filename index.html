@@ -404,88 +404,6 @@
   <text x="1215" y="61" class="sub">People and agents</text>
   <text x="1420" y="61" class="sub">Hex interfaces</text>
   
-  <g class="edge" data-id="e1">
-    <line x1="160" y1="130" x2="160" y2="148" class="e" marker-end="url(#ah)"/>
-    <text x="168" y="143" class="l" text-anchor="start">deploys</text>
-  </g>
-  <g class="edge" data-id="e2">
-    <line x1="160" y1="220" x2="160" y2="238" class="e" marker-end="url(#ah)"/>
-    <text x="168" y="233" class="l" text-anchor="start">writes results</text>
-  </g>
-  <g class="edge" data-id="e3">
-    <line x1="284" y1="280" x2="358" y2="280" class="e" marker-end="url(#ah)"/>
-    <text x="300" y="272" class="l" text-anchor="start">exposes</text>
-  </g>
-  <g class="edge" data-id="e4">
-    <line x1="284" y1="385" x2="358" y2="385" class="e" marker-end="url(#ah)"/>
-    <text x="300" y="377" class="l" text-anchor="start">exposes</text>
-  </g>
-  <g class="edge" data-id="e5">
-    <line x1="250" y1="444" x2="250" y2="478" class="e" marker-end="url(#ah)"/>
-    <text x="242" y="465" class="l" text-anchor="end">builds + tests tables</text>
-  </g>
-  <g class="edge" data-id="e6">
-    <line x1="470" y1="425" x2="470" y2="478" class="e" marker-end="url(#ah)"/>
-    <text x="462" y="465" class="l" text-anchor="end">runs compiled SQL</text>
-  </g>
-  <g class="edge" data-id="e7">
-    <line x1="530" y1="478" x2="530" y2="427" class="e" marker-end="url(#ah)"/>
-    <text x="538" y="465" class="l" text-anchor="start">results</text>
-  </g>
-  <g class="edge" data-id="e8">
-    <line x1="620" y1="150" x2="803" y2="150" class="e" marker-end="url(#ah)"/>
-    <text x="712" y="142" class="l" text-anchor="middle">configured</text>
-  </g>
-  <g class="edge" data-id="e9">
-    <line x1="980" y1="188" x2="980" y2="238" class="e" marker-end="url(#ah)"/>
-    <text x="988" y="218" class="l" text-anchor="start">authenticates calls</text>
-  </g>
-  <g class="edge" data-id="e10">
-    <line x1="803" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
-    <text x="712" y="255" class="l" text-anchor="middle">query</text>
-  </g>
-  <g class="edge" data-id="e11">
-    <line x1="622" y1="298" x2="803" y2="298" class="e acc" marker-end="url(#ahA)"/>
-    <text x="712" y="315" class="l la" text-anchor="middle">metadata</text>
-  </g>
-  <g class="edge" data-id="e12">
-    <line x1="803" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
-    <text x="712" y="360" class="l" text-anchor="middle">metric query</text>
-  </g>
-  <g class="edge" data-id="e13">
-    <line x1="622" y1="403" x2="803" y2="403" class="e acc" marker-end="url(#ahA)"/>
-    <text x="712" y="420" class="l la" text-anchor="middle">metric results</text>
-  </g>
-  <g class="edge" data-id="e14">
-  </g>
-  <g class="edge" data-id="e15">
-  </g>
-  <g class="edge" data-id="e16">
-    <polyline points="1497,422 1497,474 1000,474 1000,446" class="e" marker-end="url(#ah)"/>
-    <text x="1250" y="466" class="l" text-anchor="middle">interfaces read governed data + context</text>
-  </g>
-  <g class="edge" data-id="e17">
-  </g>
-  <g class="edge" data-id="e18">
-  </g>
-  <g class="edge" data-id="e19">
-  </g>
-  <g class="edge" data-id="e20">
-    <line x1="1365" y1="112" x2="1418" y2="112" class="e" marker-end="url(#ah)"/>
-    <text x="1392" y="104" class="l" text-anchor="middle">explore</text>
-  </g>
-  <g class="edge" data-id="e21">
-    <line x1="1365" y1="202" x2="1418" y2="202" class="e" marker-end="url(#ah)"/>
-    <text x="1392" y="194" class="l" text-anchor="middle">ask</text>
-  </g>
-  <g class="edge" data-id="e22">
-    <line x1="1365" y1="292" x2="1418" y2="292" class="e" marker-end="url(#ah)"/>
-    <text x="1392" y="284" class="l" text-anchor="middle">prompt</text>
-  </g>
-  <g class="edge" data-id="e23">
-    <line x1="1365" y1="382" x2="1418" y2="382" class="e" marker-end="url(#ah)"/>
-    <text x="1392" y="374" class="l" text-anchor="middle">MCP</text>
-  </g>
   <g class="node" data-id="git" tabindex="0" role="button" aria-label="dbt project in Git">
     <rect x="36" y="60" width="248" height="70" rx="8" class="box"/>
     <text x="50" y="86" class="t">dbt project in Git</text>
@@ -591,6 +509,88 @@
     <text x="1434" y="368" class="t">Hex MCP server</text>
     <text x="1434" y="388" class="s">Hex from outside</text>
     <text x="1434" y="404" class="s">the Hex app</text>
+  </g>
+  <g class="edge" data-id="e1" pointer-events="none">
+    <line x1="160" y1="130" x2="160" y2="148" class="e" marker-end="url(#ah)"/>
+    <text x="168" y="143" class="l" text-anchor="start">deploys</text>
+  </g>
+  <g class="edge" data-id="e2" pointer-events="none">
+    <line x1="160" y1="220" x2="160" y2="238" class="e" marker-end="url(#ah)"/>
+    <text x="168" y="233" class="l" text-anchor="start">writes results</text>
+  </g>
+  <g class="edge" data-id="e3" pointer-events="none">
+    <line x1="284" y1="280" x2="358" y2="280" class="e" marker-end="url(#ah)"/>
+    <text x="300" y="272" class="l" text-anchor="start">exposes</text>
+  </g>
+  <g class="edge" data-id="e4" pointer-events="none">
+    <line x1="284" y1="385" x2="358" y2="385" class="e" marker-end="url(#ah)"/>
+    <text x="300" y="377" class="l" text-anchor="start">exposes</text>
+  </g>
+  <g class="edge" data-id="e5" pointer-events="none">
+    <line x1="250" y1="444" x2="250" y2="478" class="e" marker-end="url(#ah)"/>
+    <text x="242" y="465" class="l" text-anchor="end">builds + tests tables</text>
+  </g>
+  <g class="edge" data-id="e6" pointer-events="none">
+    <line x1="470" y1="425" x2="470" y2="478" class="e" marker-end="url(#ah)"/>
+    <text x="462" y="465" class="l" text-anchor="end">runs compiled SQL</text>
+  </g>
+  <g class="edge" data-id="e7" pointer-events="none">
+    <line x1="530" y1="478" x2="530" y2="427" class="e" marker-end="url(#ah)"/>
+    <text x="538" y="465" class="l" text-anchor="start">results</text>
+  </g>
+  <g class="edge" data-id="e8" pointer-events="none">
+    <line x1="620" y1="150" x2="803" y2="150" class="e" marker-end="url(#ah)"/>
+    <text x="712" y="142" class="l" text-anchor="middle">configured</text>
+  </g>
+  <g class="edge" data-id="e9" pointer-events="none">
+    <line x1="980" y1="188" x2="980" y2="238" class="e" marker-end="url(#ah)"/>
+    <text x="988" y="218" class="l" text-anchor="start">authenticates calls</text>
+  </g>
+  <g class="edge" data-id="e10" pointer-events="none">
+    <line x1="803" y1="262" x2="622" y2="262" class="e req" marker-end="url(#ah)"/>
+    <text x="712" y="255" class="l" text-anchor="middle">query</text>
+  </g>
+  <g class="edge" data-id="e11" pointer-events="none">
+    <line x1="622" y1="298" x2="803" y2="298" class="e acc" marker-end="url(#ahA)"/>
+    <text x="712" y="315" class="l la" text-anchor="middle">metadata</text>
+  </g>
+  <g class="edge" data-id="e12" pointer-events="none">
+    <line x1="803" y1="367" x2="622" y2="367" class="e req" marker-end="url(#ah)"/>
+    <text x="712" y="360" class="l" text-anchor="middle">metric query</text>
+  </g>
+  <g class="edge" data-id="e13" pointer-events="none">
+    <line x1="622" y1="403" x2="803" y2="403" class="e acc" marker-end="url(#ahA)"/>
+    <text x="712" y="420" class="l la" text-anchor="middle">metric results</text>
+  </g>
+  <g class="edge" data-id="e14" pointer-events="none">
+  </g>
+  <g class="edge" data-id="e15" pointer-events="none">
+  </g>
+  <g class="edge" data-id="e16" pointer-events="none">
+    <polyline points="1497,422 1497,474 1000,474 1000,446" class="e" marker-end="url(#ah)"/>
+    <text x="1250" y="466" class="l" text-anchor="middle">interfaces read governed data + context</text>
+  </g>
+  <g class="edge" data-id="e17" pointer-events="none">
+  </g>
+  <g class="edge" data-id="e18" pointer-events="none">
+  </g>
+  <g class="edge" data-id="e19" pointer-events="none">
+  </g>
+  <g class="edge" data-id="e20" pointer-events="none">
+    <line x1="1365" y1="112" x2="1418" y2="112" class="e" marker-end="url(#ah)"/>
+    <text x="1392" y="104" class="l" text-anchor="middle">explore</text>
+  </g>
+  <g class="edge" data-id="e21" pointer-events="none">
+    <line x1="1365" y1="202" x2="1418" y2="202" class="e" marker-end="url(#ah)"/>
+    <text x="1392" y="194" class="l" text-anchor="middle">ask</text>
+  </g>
+  <g class="edge" data-id="e22" pointer-events="none">
+    <line x1="1365" y1="292" x2="1418" y2="292" class="e" marker-end="url(#ah)"/>
+    <text x="1392" y="284" class="l" text-anchor="middle">prompt</text>
+  </g>
+  <g class="edge" data-id="e23" pointer-events="none">
+    <line x1="1365" y1="382" x2="1418" y2="382" class="e" marker-end="url(#ah)"/>
+    <text x="1392" y="374" class="l" text-anchor="middle">MCP</text>
   </g>
 </svg>
       </div>
