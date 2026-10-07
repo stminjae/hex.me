@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Product Feedback</title>
+<meta name="description" content="Constructive product feedback on Hex from Minjae Lee, organized by product area.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font: Cinetype, "Instrument Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bg: #ffffff;
+    --text: #31263b;
+    --muted: #6e6378;
+    --line: #e7e2ec;
+    --soft: #f6f3f8;
+    --accent: #a8424c;
+    --on-accent: #ffffff;
+    --pink: #f5c0c0;
+    --pink-soft: #fdf0f0;
+    --note-bg: #fff6d6;
+    --note-line: #e8c547;
+    --note-text: #5c4a00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17121b;
+      --text: #efe9f3;
+      --muted: #a89fb1;
+      --line: #2e2636;
+      --soft: #221b28;
+      --accent: #f5c0c0;
+      --on-accent: #17121b;
+      --pink-soft: #2c1d25;
+      --note-bg: #2e2810;
+      --note-line: #8a7520;
+      --note-text: #f0dc8c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17121b;
+    --text: #efe9f3;
+    --muted: #a89fb1;
+    --line: #2e2636;
+    --soft: #221b28;
+    --accent: #f5c0c0;
+      --on-accent: #17121b;
+      --pink-soft: #2c1d25;
+    --note-bg: #2e2810;
+    --note-line: #8a7520;
+    --note-text: #f0dc8c;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.65 var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; padding: 72px 16px 96px; position: relative; }
+  .theme-toggle { position: absolute; top: 20px; right: 16px; display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+  .theme-toggle:hover { color: var(--text); }
+  .back-link { position: absolute; top: 20px; left: 16px; display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; text-decoration: none; }
+  .back-link:hover { color: var(--text); }
+  .theme-toggle svg { width: 16px; height: 16px; }
+  .theme-toggle .moon, :root[data-theme="dark"] .theme-toggle .sun { display: none; }
+  :root[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+  h1 { font-weight: 600; font-size: 44px; line-height: 1.1; margin: 0 0 16px; letter-spacing: -.02em; }
+  .byline { color: var(--muted); font-size: 17px; margin: 0 0 40px; }
+  .lede { font-size: 19px; line-height: 1.6; margin: 0 0 40px; }
+  .lede p { margin: 0 0 18px; }
+  .lede p:last-child { margin: 0; }
+
+  h2 { font-size: 26px; font-weight: 600; margin: 0 0 4px; letter-spacing: -.01em; }
+  h2 .num { color: var(--accent); margin-right: 8px; }
+  .thesis { font-style: italic; font-size: 17px; color: var(--muted); margin: 0 0 20px; }
+  h3 { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 28px 0 10px; }
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); }
+
+  /* TL;DR */
+  .tldr { list-style: none; padding: 0; margin: 0 0 48px; display: grid; gap: 10px; }
+  .tldr li { display: grid; grid-template-columns: 28px 1fr; gap: 8px; padding: 14px 16px; background: var(--soft); border-radius: 10px; }
+  .tldr a { color: inherit; text-decoration: none; }
+  .tldr b { display: block; }
+  .tldr span.n { color: var(--accent); font-weight: 600; }
+  .tldr small { color: var(--muted); font-size: 16px; line-height: 1.45; display: block; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .stat b { display: block; font-size: 24px; font-weight: 600; }
+  .stat small { color: var(--muted); font-size: 15px; line-height: 1.3; display: block; }
+  .caption { color: var(--muted); font-size: 15px; margin: 0 0 16px; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 17px; margin: 0 0 16px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 10px 10px 0; border-bottom: 1px solid var(--line); }
+  th { font-size: 14px; font-weight: 600; color: var(--muted); }
+  td:first-child { font-weight: 500; white-space: nowrap; }
+
+  /* Steps */
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0 0 16px; }
+  ol.steps li { counter-increment: s; position: relative; padding: 0 0 14px 40px; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 0; top: 1px; width: 26px; height: 26px; border-radius: 50%; background: var(--soft); color: var(--accent); font-weight: 600; font-size: 14px; display: grid; place-items: center; }
+
+  /* Flow diagram */
+  .flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 8px; margin: 8px 0 20px; font-size: 16px; }
+  .flow .box { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--soft); }
+  .flow .box b { display: block; margin-bottom: 4px; }
+  .flow .box span { color: var(--muted); line-height: 1.4; display: block; }
+  .flow .arrow { align-self: center; color: var(--accent); font-size: 20px; }
+
+  blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--pink); font-size: 17px; font-style: italic; }
+  blockquote cite { display: block; margin-top: 8px; font-style: normal; font-size: 16px; color: var(--muted); }
+  blockquote cite::before { content: "— "; }
+  .lede blockquote { margin: 0 0 18px; }
+
+  .close { font-size: 19px; line-height: 1.55; }
+  .feedback h2 { margin-bottom: 20px; }
+  .feedback form { display: grid; gap: 16px; }
+  .feedback label { display: grid; gap: 6px; font-size: 16px; font-weight: 600; }
+  .feedback input, .feedback textarea { font: 400 16px/1.5 var(--font); color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; width: 100%; }
+  .feedback input:focus, .feedback textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent; }
+  .feedback textarea { resize: vertical; min-height: 120px; }
+  .feedback button { justify-self: start; font: 600 16px var(--font); color: var(--on-accent); background: var(--accent); border: 0; border-radius: 8px; padding: 10px 22px; cursor: pointer; }
+  .feedback button:disabled { opacity: .6; cursor: default; }
+  .feedback .hp { display: none; }
+  .demo-link { margin: 4px 0 24px; }
+  .demo-link a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 15px; color: var(--muted); background: var(--soft); border: 1px dashed var(--line); border-radius: 999px; padding: 8px 16px; text-decoration: none; cursor: not-allowed; }
+  .demo-link a[href] { color: var(--on-accent); background: var(--accent); border: 0; padding: 12px 22px; font-size: 16px; cursor: pointer; }
+  .attainment details summary { cursor: pointer; font-size: 20px; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 10px; }
+  .attainment details summary::-webkit-details-marker { display: none; }
+  .attainment details summary::before { content: ""; width: 26px; height: 26px; border-radius: 50%; flex: none;
+    background:
+      linear-gradient(var(--accent), var(--accent)) center / 12px 2px no-repeat,
+      linear-gradient(var(--accent), var(--accent)) center / 2px 12px no-repeat,
+      var(--soft); }
+  .attainment details[open] summary::before { background:
+      linear-gradient(var(--accent), var(--accent)) center / 12px 2px no-repeat,
+      var(--soft); }
+  .attainment details[open] summary { margin-bottom: 20px; }
+  @media (max-width: 600px) {
+    .layers thead { display: none; }
+    .layers tr, .layers td { display: block; }
+    .layers tr { border-bottom: 1px solid var(--line); padding: 12px 0; }
+    .layers td { border: 0; padding: 2px 0; }
+    .layers td:first-child { font-weight: 600; color: var(--accent); }
+  }
+  .stack { margin: 8px 0 24px; display: grid; gap: 12px; }
+  .stack-head, .layer { display: grid; grid-template-columns: 150px 1fr 1fr; gap: 10px; align-items: stretch; }
+  .stack-head b { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); text-align: center; }
+  .layer { background: var(--soft); border-radius: 12px; padding: 12px; position: relative; }
+  .layer-name { display: flex; align-items: center; gap: 8px; font-weight: 600; }
+  .layer-name i { font-style: normal; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 13px; flex: none; }
+  .cell { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px; font-size: 15px; line-height: 1.45; position: relative; }
+  .cell.hex { border-color: var(--pink); }
+  .cell.hex::before { content: "+"; position: absolute; left: -10px; top: 50%; transform: translate(-50%, -50%); width: 20px; height: 20px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 14px; font-weight: 700; line-height: 20px; text-align: center; }
+  .why { grid-column: 2 / 4; margin: 0; font-size: 14px; color: var(--muted); }
+  .outcome { display: grid; justify-items: center; gap: 4px; color: var(--accent); font-size: 20px; }
+  .outcome b { font-size: 16px; color: var(--on-accent); background: var(--accent); border-radius: 999px; padding: 8px 18px; }
+  @media (max-width: 600px) {
+    .stack-head { display: none; }
+    .layer { grid-template-columns: 1fr; }
+    .why { grid-column: auto; }
+    .cell::after { display: block; margin-top: 4px; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+    .cell:not(.hex)::after { content: "dbt platform"; }
+    .cell.hex::after { content: "Hex Enterprise"; }
+    .cell.hex::before { left: 50%; top: -10px; }
+  }
+  .meme { margin: -16px 0 40px; }
+  .meme img { display: block; margin: 0 auto; width: 100%; max-width: 420px; height: auto; aspect-ratio: 800 / 755; object-fit: cover; object-position: top; border: 1px solid var(--line); }
+  .layer.featured { background: var(--pink-soft); border: 2px solid var(--pink); }
+  .layer.featured .cell.hex { border-width: 2px; border-color: var(--accent); font-weight: 600; }
+  .flag { position: absolute; top: -12px; right: 12px; background: var(--accent); color: var(--on-accent); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; border-radius: 999px; padding: 3px 10px; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 0 0 16px; }
+  .gallery figure { margin: 0; }
+  .gallery img, .gallery .ph { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--line); }
+  .gallery .ph { display: grid; place-items: center; background: var(--soft); color: var(--muted); font-size: 14px; border-style: dashed; }
+  .gallery figcaption { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  @media (max-width: 600px) { .gallery { grid-template-columns: repeat(2, 1fr); } }
+  .photo { margin: 24px 0 0; }
+  .photo img { display: block; margin: 0 auto; width: 100%; max-width: 360px; height: auto; border: 1px solid var(--line); }
+  .photo figcaption { max-width: 360px; margin: 10px auto 0; font-size: 15px; color: var(--muted); line-height: 1.5; }
+  .posts { margin: 32px 0 0; }
+  .posts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+  .posts-grid img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+  .posts figcaption { text-align: center; margin-top: 10px; font-size: 15px; color: var(--muted); }
+  .form-status { margin: 0; font-size: 16px; color: var(--muted); }
+
+  /* Review notes: hidden unless the URL has ?review */
+  .note { display: none; background: var(--note-bg); border-left: 3px solid var(--note-line); color: var(--note-text); font-size: 16px; padding: 10px 14px; border-radius: 6px; margin: 0 0 16px; }
+  .note::before { content: "Revisit: "; font-weight: 700; }
+  body.review .note { display: block; }
+  body.review mark { background: var(--note-bg); color: inherit; }
+  mark { background: none; color: inherit; }
+
+  @media (max-width: 600px) {
+    main { padding-top: 72px; }
+    h1 { font-size: 34px; }
+    .lede { font-size: 18px; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .flow { grid-template-columns: 1fr; }
+    .flow .arrow { justify-self: center; transform: rotate(90deg); }
+    td:first-child { white-space: normal; }
+  }
+  .tech-intro { margin: 24px 0 8px; }
+  .wide { margin: 8px 0 32px; }
+  .wide.expanded { position: fixed; inset: 0; z-index: 50; margin: 0; padding: 20px 24px; background: var(--bg); overflow: auto; }
+  .wide.expanded .arch { min-width: 1160px; }
+  body.no-scroll { overflow: hidden; }
+  .controls .expand { margin-left: auto; }
+  .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); background: var(--bg); padding: 12px; }
+  .arch { display: block; width: 100%; min-width: 0; height: auto; color: var(--text); font-family: var(--font); }
+  .arch .cont { fill: none; stroke: var(--line); stroke-width: 1.5; }
+  .arch .cont.dbt { stroke: var(--muted); }
+  .arch .cont.hex { stroke: var(--muted); }
+  .arch .ctitle { font-size: 13px; font-weight: 700; fill: var(--muted); letter-spacing: .02em; }
+  .arch .box { fill: var(--soft); stroke: var(--line); }
+  .arch .box.hl { fill: var(--soft); stroke: var(--line); }
+  .arch .t { font-size: 13px; font-weight: 700; fill: currentColor; }
+  .arch .s { font-size: 11.5px; fill: var(--muted); }
+  .arch .l { font-size: 11px; fill: var(--muted); }
+  .arch .la { fill: var(--accent); font-weight: 600; }
+  .arch .e { fill: none; stroke: currentColor; stroke-width: 1.4; opacity: .75; }
+  .arch .e.acc { stroke: var(--accent); stroke-width: 2.4; opacity: 1; }
+  .arch .e.req { stroke-dasharray: 4 3; }
+  .arch .box.api { fill: var(--soft); stroke: var(--line); }
+  .arch .sub { font-size: 11px; font-weight: 600; fill: var(--muted); letter-spacing: .06em; text-transform: uppercase; }
+  .arch .divider { stroke: var(--line); stroke-width: 1; stroke-dasharray: 2 4; }
+  .arch .subcont { fill: none; stroke: var(--line); stroke-width: 1; stroke-dasharray: 3 3; }
+  .arch .gov { fill: var(--soft); stroke: var(--line); }
+  .arch .v { font-size: 11.5px; font-style: italic; fill: currentColor; }
+  .arch .hexbadge rect { fill: var(--pink); }
+  .arch .hexbadge text { fill: #31263b; font-size: 10px; font-weight: 700; }
+  .arch .hexi { fill: var(--pink); stroke: var(--pink); }
+  .arch .hexi ~ text { fill: #31263b; }
+  .arch .govchip rect { fill: var(--pink); }
+  .arch .govchip text { fill: #31263b; font-size: 10px; font-weight: 600; }
+  .arch .dbtbadge rect { fill: #ff694b; }
+  .arch .dbtbadge text { fill: #ffffff; font-size: 11px; font-weight: 700; letter-spacing: .02em; }
+  .arch .col { font-size: 12px; font-weight: 700; fill: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+  .arch .fillA { fill: var(--accent); }
+  .wide figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+  .controls button { font: 600 14px var(--font); color: var(--text); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+  .controls button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+  .controls button.reset { background: none; color: var(--muted); }
+  .arch .node { cursor: pointer; outline: none; }
+  .arch .node rect { transition: stroke .15s, stroke-width .15s; }
+  .arch .node:hover rect, .arch .node:focus-visible rect { stroke: var(--accent); stroke-width: 2; }
+  .arch .node.sel rect { stroke: var(--accent); stroke-width: 3; }
+  .arch .node, .arch .edge { transition: opacity .2s; }
+  .arch.dim .node:not(.on), .arch.dim .edge:not(.on) { opacity: .15; }
+  .arch.dim .edge.on .e { stroke-width: 2; opacity: 1; }
+  .arch.dim .edge.on .e.acc { stroke-width: 2.8; }
+  .legend { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; color: var(--muted); margin: 10px 0 0; }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .legend i { display: inline-block; width: 32px; height: 0; border-top: 2px dashed var(--muted); }
+  .legend i.acc { border-top: 3px solid var(--accent); }
+  .panel { margin-top: 16px; background: var(--soft); border: 1px solid var(--line); border-left: 4px solid var(--accent); padding: 18px 20px; min-height: 140px; }
+  .panel .kicker { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 4px; }
+  .panel h2 { font-size: 22px; margin: 0 0 8px; }
+  .panel p { margin: 0 0 10px; font-size: 16px; }
+  .panel .why { font-weight: 600; }
+  .panel ol { margin: 6px 0 0; padding-left: 22px; font-size: 16px; } .panel ol li { margin-bottom: 6px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .chips button { font: 500 13px var(--font); color: var(--accent); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; cursor: pointer; }
+  .preview { margin-top: 14px; }
+  .mock { border: 1px solid var(--line); background: var(--bg); border-radius: 8px; overflow: hidden; font-size: 14px; max-width: 900px; }
+  .mock-bar { background: var(--soft); border-bottom: 1px solid var(--line); padding: 8px 12px; font-size: 13px; font-weight: 600; color: var(--muted); }
+  .mock-bar span { margin: 0 4px; }
+  .mock-body { padding: 14px; }
+  .mock-title { font-size: 18px; font-weight: 700; font-family: ui-monospace, Menlo, monospace; }
+  .mock-desc { color: var(--muted); margin: 6px 0 10px !important; font-size: 14px !important; }
+  .mock-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .pill { display: inline-block; white-space: nowrap; margin: 2px 0; }
+  .mock-badges span, .pill { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 9px; background: var(--soft); }
+  .mock-badges .ok { border-color: var(--ok, #3c8a5a); color: var(--ok, #2f7a4c); }
+  :root[data-theme="dark"] .mock-badges .ok { --ok: #7fd1a0; }
+  .link { color: var(--accent); font-weight: 600; font-size: 12px; }
+  .mock-table { font-size: 13px; margin: 0; }
+  .mock-table td:first-child { font-family: ui-monospace, Menlo, monospace; }
+  .mock-pickers { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; font-size: 13px; }
+  .mock-pickers span { border: 1px solid var(--line); border-radius: 6px; padding: 5px 10px; background: var(--soft); }
+  .mock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .mock-grid p { font-size: 13px !important; margin: 0 0 8px !important; }
+  .mock-grid ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  .mock-h { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .pill.cert { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+  .pill.muted { color: var(--muted); }
+  .gap { border-left: 3px solid var(--accent); padding-left: 8px; }
+  @media (max-width: 700px) { .mock-grid { grid-template-columns: 1fr; } }
+  .chips-label { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+
+  .area-intro { color: var(--muted); margin: -8px 0 20px; }
+  .fb-group { margin: 0 0 24px; }
+  .fb-tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; border-radius: 999px; padding: 4px 10px; margin: 0 0 12px; }
+  .fb-tag.works { color: var(--muted); background: var(--soft); border: 1px solid var(--line); }
+  .fb-tag.improve { color: var(--on-accent); background: var(--accent); }
+  .fb-card { position: relative; background: var(--soft); border: 1px solid var(--line); border-left: 4px solid var(--line); border-radius: 10px; padding: 16px 18px; margin: 0 0 12px; }
+  .fb-card.improve { border-left-color: var(--accent); }
+  .fb-card h3 { font-size: 17px; margin: 0 0 6px; text-transform: none; letter-spacing: normal; color: var(--text); }
+  .fb-card p { margin: 0 0 6px; }
+  .fb-card .ask { margin-top: 10px; font-weight: 600; color: var(--accent); }
+  .fb-card details { margin-top: 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 15px; color: var(--muted); }
+  .fb-card summary { cursor: pointer; font-weight: 600; color: var(--text); }
+  .fb-card details ul { margin: 8px 0 0; padding-left: 20px; }
+  .fb-card details p { margin: 8px 0 0; }
+  .fb-card code { font: 13.5px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--line); color: var(--text); padding: 1px 5px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back-link" href="../">← Back</a>
+  <button class="theme-toggle" type="button" aria-label="Switch light or dark mode">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <span class="label">Light</span>
+  </button>
+
+  <h1>My Product Feedback</h1>
+  <p class="byline">By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
+
+  <div class="lede">
+    <p>I built a notebook and a Generative App in Hex, then kept working on them from Claude through the Hex MCP server. Here is what helped me and what I would change, grouped by product area.</p>
+  </div>
+
+  <ol class="tldr">
+    <li><span class="n">1</span><a href="#notebooks"><b>Notebooks</b><small>Run modes, staleness markers and SQL to Python with no switching cost.</small></a></li>
+    <li><span class="n">2</span><a href="#agent"><b>Notebook Agent</b><small>Reviewable diffs. It needs business context to pick the right columns.</small></a></li>
+    <li><span class="n">3</span><a href="#apps"><b>Generative Apps</b><small>My top priority: hard to finish without writing code.</small></a></li>
+    <li><span class="n">4</span><a href="#mcp"><b>Hex MCP server</b><small>Sees the whole notebook, then stops at the notebook's edge.</small></a></li>
+  </ol>
+
+  <section id="notebooks">
+    <h2><span class="num">01</span>Notebooks</h2>
+    <p class="area-intro">The core editing experience.</p>
+    <div class="fb-group">
+      <span class="fb-tag works">What works</span>
+      <div class="fb-card"><h3>Run modes and staleness</h3><p>Hex knows which cells depend on which, so I never have to remember what to rerun.</p><p>A stale marker means I never trust an old number, which matters more once an agent is writing cells.</p></div>
+      <div class="fb-card"><h3>SQL to Python, no switching cost</h3><p>My SQL result was already a dataframe, so I did the what-if math in Python with no export step.</p></div>
+      <div class="fb-card"><h3>SQL formatting</h3><p>One click formats SQL to a house style, so agent-written queries are easy to review.</p></div>
+    </div>
+  </section>
+
+  <section id="agent">
+    <h2><span class="num">02</span>Notebook Agent</h2>
+    <p class="area-intro">The AI that writes and edits cells inside a notebook.</p>
+    <div class="fb-group">
+      <span class="fb-tag works">What works</span>
+      <div class="fb-card"><h3>Diff review</h3><p>The agent showed its changes like a pull request and flagged its own risk.</p></div>
+    </div>
+    <div class="fb-group">
+      <span class="fb-tag improve">What I'd improve</span>
+      <div class="fb-card improve"><h3>The agent needs context</h3><p>With plain business language, it picked the wrong columns.</p><p class="ask">Ask: nudge new users to add a semantic model or table descriptions first.</p><details><summary>The details</summary><p>In my notebook, a loyal customer is <code>orders &gt;= 7</code>, but the agent can't know that without a definition. Hex's own AI setup guide lists semantic models and column descriptions as the fix, yet nothing in the product prompts you to do it.</p></details></div>
+    </div>
+  </section>
+
+  <section id="apps">
+    <h2><span class="num">03</span>Generative Apps</h2>
+    <p class="area-intro">Turning notebook results into an app people can use.</p>
+    <div class="fb-group">
+      <span class="fb-tag improve">What I'd improve</span>
+      <div class="fb-card improve"><span class="flag">Top priority</span><h3>Hard to finish without code</h3><p>Editing needs JavaScript, even for a label or a chart's data source.</p><p>I couldn't see which dataframe feeds which chart, only a cell ID.</p><p>A new cell I connected loaded forever, with no error.</p><p class="ask">Ask: click a chart to see and change its source, and show a clear error when data fails to load.</p><details><summary>The details</summary><p>Each chart in <code>charts.js</code> reads data with <code>useHexData("&lt;cellId&gt;")</code>. The ID is an opaque string, not a dataframe name, so I added my own Source caption under all 7 charts to trace them. Repointing a chart means hand-editing that ID.</p></details></div>
+    </div>
+  </section>
+
+  <section id="mcp">
+    <h2><span class="num">04</span>Hex MCP server</h2>
+    <p class="area-intro">Working on Hex from Claude, outside the Hex app.</p>
+    <div class="fb-group">
+      <span class="fb-tag works">What works</span>
+      <div class="fb-card"><h3>Whole-notebook view</h3><p>Claude saw every cell at once, caught the loyalty rule repeated about 12 times, and suggested defining it once upstream.</p></div>
+    </div>
+    <div class="fb-group">
+      <span class="fb-tag improve">What I'd improve</span>
+      <div class="fb-card improve"><h3>MCP stops at the notebook</h3><p>It can't touch app code, cell names or cell order, or read Python outputs.</p><p class="ask">Ask: app-code access, plus move-cell and rename-cell tools.</p><details><summary>The details</summary><ul><li><code>update_cell</code> changes only the source and data connection. There is no label or location.</li><li><code>create_cell</code> does take <code>label</code> and <code>insertAfterCellId</code>, so moving a cell means delete and recreate. That issues a new cell ID and breaks the app's <code>useHexData</code> link.</li><li><code>get_cell_output</code> is documented as SQL-only, so my <code>market_conversion</code> Python cell can't be read back.</li><li><code>list_cells</code> returns code, SQL and markdown. No tool reads or writes <code>App.js</code> or <code>charts.js</code>.</li></ul></details></div>
+    </div>
+  </section>
+
+</main>
+<script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('.theme-toggle');
+    const label = btn.querySelector('.label');
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    const systemDark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+    const apply = (t) => { root.setAttribute('data-theme', t); label.textContent = t === 'dark' ? 'Dark' : 'Light'; };
+    apply(saved || (systemDark ? 'dark' : 'light'));
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>
