@@ -368,7 +368,7 @@
     <p class="area-intro">Turning notebook results into an app people can use.</p>
     <div class="fb-group">
       <span class="fb-tag improve">What I'd improve</span>
-      <div class="fb-card improve"><span class="flag">Top priority</span><h3>Hard to finish without code</h3><p>Editing needs JavaScript, even for a label or a chart's data source.</p><p>I couldn't see which dataframe feeds which chart, only a cell ID.</p><p>A new cell I connected loaded forever, with no error.</p><p class="ask">Ask: click a chart to see and change its source, and show a clear error when data fails to load.</p><details><summary>The details</summary><p>Each chart in <code>charts.js</code> reads data with <code>useHexData("&lt;cellId&gt;")</code>. The ID is an opaque string, not a dataframe name, so I added my own Source caption under all 7 charts to trace them. Repointing a chart means hand-editing that ID.</p></details></div>
+      <div class="fb-card improve"><h3>Hard to finish without code</h3><p>Editing needs JavaScript, even for a label or a chart's data source.</p><p>I couldn't see which dataframe feeds which chart, only a cell ID.</p><p>A new cell I connected loaded forever, with no error.</p><p class="ask">Ask: click a chart to see and change its source, and show a clear error when data fails to load.</p><details><summary>The details</summary><p>Each chart in <code>charts.js</code> reads data with <code>useHexData("&lt;cellId&gt;")</code>. The ID is an opaque string, not a dataframe name, so I added my own Source caption under all 7 charts to trace them. Repointing a chart means hand-editing that ID.</p></details></div>
     </div>
   </section>
 
