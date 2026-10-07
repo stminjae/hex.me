@@ -298,6 +298,10 @@
   .gap { border-left: 3px solid var(--accent); padding-left: 8px; }
   @media (max-width: 700px) { .mock-grid { grid-template-columns: 1fr; } }
   .chips-label { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+  .share { margin: 56px 0 0; padding: 24px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .share p { margin: 0; font-weight: 600; }
+  .share small { display: block; color: var(--muted); font-weight: 400; font-size: 15px; }
+  .share button { font: 600 16px var(--font); color: var(--on-accent); background: var(--accent); border: 0; border-radius: 8px; padding: 10px 20px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -672,6 +676,10 @@
     </form>
   </section>
 
+  <aside class="share">
+    <p>Know someone who should read this?<small>Copy the link to this op-ed and send it their way.</small></p>
+    <button type="button" data-url="https://stminjae.github.io/hex.me/how-i-sell-hex/">Copy link</button>
+  </aside>
 </main>
 <script>
   (function () {
@@ -820,6 +828,23 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && fig.classList.contains('expanded')) setExpanded(false); });
   showDefault();
 })();
+</script>
+<script>
+  document.querySelectorAll('.share button').forEach((b) => {
+    b.addEventListener('click', async () => {
+      const url = b.dataset.url;
+      let ok = false;
+      try { await navigator.clipboard.writeText(url); ok = true; } catch (e) {}
+      if (!ok) {
+        const t = document.createElement('textarea');
+        t.value = url; document.body.append(t); t.select();
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        t.remove();
+      }
+      b.textContent = ok ? 'Link copied' : url;
+      setTimeout(() => { b.textContent = 'Copy link'; }, 2500);
+    });
+  });
 </script>
 </body>
 </html>
