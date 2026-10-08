@@ -211,6 +211,9 @@
     .flow .arrow { justify-self: center; transform: rotate(90deg); }
     td:first-child { white-space: normal; }
   }
+  .dl { margin: 0 0 24px; }
+  .dl a { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; text-decoration: none; }
+  .dl a:hover { color: var(--text); }
   .tech-intro { margin: 24px 0 8px; }
   .wide { margin: 8px 0 32px; }
   .wide.expanded { position: fixed; inset: 0; z-index: 50; margin: 0; padding: 20px 24px; background: var(--bg); overflow: auto; }
@@ -397,7 +400,8 @@
       </div>
     </div>
 
-    <p class="tech-intro">For a technical POV, this is the more detailed view I would walk a data team through: how the dbt platform and your semantic models feed Hex Enterprise, and how Hex governance and interfaces sit on top. Click any part of it, follow a flow, or hit Expand to see it full size.</p>
+    <p class="dl"><a href="../images/dbt-hex-synergy.png" download>Download as PNG</a></p>
+    <p class="tech-intro">For a technical POV, this is the more detailed view I would walk a data team through: how the dbt platform and your semantic models feed Hex Enterprise, and how Hex governance and interfaces sit on top. Click any part of it, follow the metadata, or hit Expand to see it full size.</p>
   <figure class="wide">
       <div class="controls" role="group" aria-label="Flows">
         <button type="button" data-flow="metadata" aria-pressed="false">Follow the metadata</button>
@@ -623,6 +627,7 @@
 </svg>
       </div>
       <div class="legend"><span><i></i>Hex calls a dbt platform API</span><span><i class="acc"></i>dbt platform returns data to Hex</span></div>
+      <p class="dl"><a href="../images/dbt-hex-architecture.png" download>Download as PNG</a></p>
       <div class="panel" id="panel" aria-live="polite"></div>
     </figure>
   </section>
