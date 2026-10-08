@@ -211,15 +211,15 @@
     .flow .arrow { justify-self: center; transform: rotate(90deg); }
     td:first-child { white-space: normal; }
   }
-  .dl { margin: 0 0 24px; }
-  .dl a { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; text-decoration: none; }
-  .dl a:hover { color: var(--text); }
+  .dl-row { display: flex; justify-content: flex-end; margin: 0 0 10px; }
+  .dl-btn { display: inline-flex; align-items: center; font: 600 14px var(--font); color: var(--on-accent); background: var(--accent); border-radius: 8px; padding: 8px 14px; text-decoration: none; }
+  .controls .dl-btn { margin-left: auto; }
   .tech-intro { margin: 24px 0 8px; }
   .wide { margin: 8px 0 32px; }
   .wide.expanded { position: fixed; inset: 0; z-index: 50; margin: 0; padding: 20px 24px; background: var(--bg); overflow: auto; }
   .wide.expanded .arch { min-width: 1160px; }
   body.no-scroll { overflow: hidden; }
-  .controls .expand { margin-left: auto; }
+  .controls .expand { margin-left: 0; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); background: var(--bg); padding: 12px; }
   .arch { display: block; width: 100%; min-width: 0; height: auto; color: var(--text); font-family: var(--font); }
   .arch .cont { fill: none; stroke: var(--line); stroke-width: 1.5; }
@@ -381,6 +381,7 @@
 
     <p>At dbt, partner motions usually centered on warehouses like Snowflake. Hex rarely came up, at least for me, even though Hex shows up big at dbt Summit and the product ties run deeper than most users realize. There is a clear story for selling a Hex Enterprise plan alongside the dbt platform, with both used together: dbt governs the data, and Hex governs how people and agents use it. Together they give an enterprise agent rollout a trusted foundation.</p>
 
+    <div class="dl-row"><a class="dl-btn" href="../images/dbt-hex-synergy.png" download>Download PNG</a></div>
     <div class="stack" role="img" aria-label="Three layers where dbt platform and Hex work together: data quality, data governance, then agent governance, leading to a trusted enterprise agent rollout.">
       <div class="stack-head"><span></span><b>dbt platform</b><b>Hex Enterprise</b></div>
       <div class="layer">
@@ -399,13 +400,12 @@
         <div class="cell hex">Endorsements, Certified statuses, workspace rules and Context Studio</div>
       </div>
     </div>
-
-    <p class="dl"><a href="../images/dbt-hex-synergy.png" download>Download as PNG</a></p>
     <p class="tech-intro">For a technical POV, this is the more detailed view I would walk a data team through: how the dbt platform and your semantic models feed Hex Enterprise, and how Hex governance and interfaces sit on top. Click any part of it, follow the metadata, or hit Expand to see it full size.</p>
   <figure class="wide">
       <div class="controls" role="group" aria-label="Flows">
         <button type="button" data-flow="metadata" aria-pressed="false">Follow the metadata</button>
         <button type="button" class="reset">Reset</button>
+        <a class="dl-btn" href="../images/dbt-hex-architecture.png" download>Download PNG</a>
         <button type="button" class="expand" aria-expanded="false">Expand</button>
       </div>
       <div class="scroll">
@@ -627,7 +627,6 @@
 </svg>
       </div>
       <div class="legend"><span><i></i>Hex calls a dbt platform API</span><span><i class="acc"></i>dbt platform returns data to Hex</span></div>
-      <p class="dl"><a href="../images/dbt-hex-architecture.png" download>Download as PNG</a></p>
       <div class="panel" id="panel" aria-live="polite"></div>
     </figure>
   </section>
