@@ -212,7 +212,9 @@
     td:first-child { white-space: normal; }
   }
   .dl-row { display: flex; justify-content: flex-end; margin: 0 0 10px; }
-  .dl-btn { display: inline-flex; align-items: center; font: 600 14px var(--font); color: var(--on-accent); background: var(--accent); border-radius: 8px; padding: 8px 14px; text-decoration: none; }
+  .dl-btn { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; text-decoration: none; }
+  .dl-btn:hover { color: var(--text); }
+  .dl-btn svg { width: 15px; height: 15px; }
   .controls .dl-btn { margin-left: auto; }
   .tech-intro { margin: 24px 0 8px; }
   .wide { margin: 8px 0 32px; }
@@ -381,7 +383,7 @@
 
     <p>At dbt, partner motions usually centered on warehouses like Snowflake. Hex rarely came up, at least for me, even though Hex shows up big at dbt Summit and the product ties run deeper than most users realize. There is a clear story for selling a Hex Enterprise plan alongside the dbt platform, with both used together: dbt governs the data, and Hex governs how people and agents use it. Together they give an enterprise agent rollout a trusted foundation.</p>
 
-    <div class="dl-row"><a class="dl-btn" href="../images/dbt-hex-synergy.png" download>Download PNG</a></div>
+    <div class="dl-row"><a class="dl-btn" href="../images/dbt-hex-synergy.png"  download aria-label="Export as PNG"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Export</a></div>
     <div class="stack" role="img" aria-label="Three layers where dbt platform and Hex work together: data quality, data governance, then agent governance, leading to a trusted enterprise agent rollout.">
       <div class="stack-head"><span></span><b>dbt platform</b><b>Hex Enterprise</b></div>
       <div class="layer">
@@ -405,7 +407,7 @@
       <div class="controls" role="group" aria-label="Flows">
         <button type="button" data-flow="metadata" aria-pressed="false">Follow the metadata</button>
         <button type="button" class="reset">Reset</button>
-        <a class="dl-btn" href="../images/dbt-hex-architecture.png" download>Download PNG</a>
+        <a class="dl-btn" href="../images/dbt-hex-architecture.png"  download aria-label="Export as PNG"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>Export</a>
         <button type="button" class="expand" aria-expanded="false">Expand</button>
       </div>
       <div class="scroll">
