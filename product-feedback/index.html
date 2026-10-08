@@ -211,12 +211,17 @@
     .flow .arrow { justify-self: center; transform: rotate(90deg); }
     td:first-child { white-space: normal; }
   }
+  .dl-row { display: flex; justify-content: flex-end; margin: 0 0 10px; }
+  .dl-btn { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; text-decoration: none; }
+  .dl-btn:hover { color: var(--text); }
+  .dl-btn svg { width: 15px; height: 15px; }
+  .controls .dl-btn { margin-left: auto; }
   .tech-intro { margin: 24px 0 8px; }
   .wide { margin: 8px 0 32px; }
   .wide.expanded { position: fixed; inset: 0; z-index: 50; margin: 0; padding: 20px 24px; background: var(--bg); overflow: auto; }
   .wide.expanded .arch { min-width: 1160px; }
   body.no-scroll { overflow: hidden; }
-  .controls .expand { margin-left: auto; }
+  .controls .expand { margin-left: 0; }
   .scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--line); background: var(--bg); padding: 12px; }
   .arch { display: block; width: 100%; min-width: 0; height: auto; color: var(--text); font-family: var(--font); }
   .arch .cont { fill: none; stroke: var(--line); stroke-width: 1.5; }
@@ -242,6 +247,8 @@
   .arch .hexbadge text { fill: #31263b; font-size: 10px; font-weight: 700; }
   .arch .hexi { fill: var(--pink); stroke: var(--pink); }
   .arch .hexi ~ text { fill: #31263b; }
+  .arch .srcchip rect { fill: var(--bg); stroke: var(--line); }
+  .arch .srcchip text { fill: var(--text); font-size: 11px; font-weight: 600; }
   .arch .govchip rect { fill: var(--pink); }
   .arch .govchip text { fill: #31263b; font-size: 10px; font-weight: 600; }
   .arch .dbtbadge rect { fill: #ff694b; }
@@ -299,10 +306,11 @@
   .gap { border-left: 3px solid var(--accent); padding-left: 8px; }
   @media (max-width: 700px) { .mock-grid { grid-template-columns: 1fr; } }
   .chips-label { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
-  .share { margin: 56px 0 0; padding: 24px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
-  .share p { margin: 0; font-weight: 600; }
-  .share small { display: block; color: var(--muted); font-weight: 400; font-size: 15px; }
-  .share button { font: 600 16px var(--font); color: var(--on-accent); background: var(--accent); border: 0; border-radius: 8px; padding: 10px 20px; cursor: pointer; }
+  .meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 40px; }
+  .meta .byline { margin: 0; }
+  .share-btn { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
+  .share-btn:hover { color: var(--text); }
+  .share-btn svg { width: 15px; height: 15px; }
 
   .area-intro { color: var(--muted); margin: -8px 0 20px; }
   .fb-group { margin: 0 0 24px; }
@@ -319,10 +327,11 @@
   .fb-card details ul { margin: 8px 0 0; padding-left: 20px; }
   .fb-card details p { margin: 8px 0 0; }
   .fb-card code { font: 13.5px ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--line); color: var(--text); padding: 1px 5px; border-radius: 4px; }
-  .share { margin: 56px 0 0; padding: 24px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
-  .share p { margin: 0; font-weight: 600; }
-  .share small { display: block; color: var(--muted); font-weight: 400; font-size: 15px; }
-  .share button { font: 600 16px var(--font); color: var(--on-accent); background: var(--accent); border: 0; border-radius: 8px; padding: 10px 20px; cursor: pointer; }
+  .meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 40px; }
+  .meta .byline { margin: 0; }
+  .share-btn { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
+  .share-btn:hover { color: var(--text); }
+  .share-btn svg { width: 15px; height: 15px; }
 </style>
 </head>
 <body>
@@ -335,7 +344,10 @@
   </button>
 
   <h1>My Product Feedback</h1>
-  <p class="byline">By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
+  <div class="meta">
+    <p class="byline">By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
+    <button type="button" class="share-btn" data-url="https://stminjae.github.io/hex.me/product-feedback/" aria-label="Copy a link to this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>Share</span></button>
+  </div>
 
   <div class="lede">
     <p>I built a notebook and a Generative App in Hex, then kept working on them from Claude through the Hex MCP server. Here is what helped me and what I would change, grouped by product area.</p>
@@ -394,10 +406,6 @@
     </div>
   </section>
 
-  <aside class="share">
-    <p>Know someone who should read this?<small>Copy the link to this feedback and send it their way.</small></p>
-    <button type="button" data-url="https://stminjae.github.io/hex.me/product-feedback/">Copy link</button>
-  </aside>
 </main>
 <script>
   (function () {
@@ -417,7 +425,8 @@
   })();
 </script>
 <script>
-  document.querySelectorAll('.share button').forEach((b) => {
+  document.querySelectorAll('.share-btn').forEach((b) => {
+    const label = b.querySelector('span');
     b.addEventListener('click', async () => {
       const url = b.dataset.url;
       let ok = false;
@@ -428,8 +437,8 @@
         try { ok = document.execCommand('copy'); } catch (e) {}
         t.remove();
       }
-      b.textContent = ok ? 'Link copied' : url;
-      setTimeout(() => { b.textContent = 'Copy link'; }, 2500);
+      label.textContent = ok ? 'Link copied' : url;
+      setTimeout(() => { label.textContent = 'Share'; }, 2500);
     });
   });
 </script>
