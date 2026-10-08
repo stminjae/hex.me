@@ -666,22 +666,6 @@
     </details>
   </section>
 
-  <section id="feedback" class="feedback">
-    <h2>Send feedback directly to Minjae</h2>
-    <form id="feedback-form" action="https://api.web3forms.com/submit" method="POST">
-      <input type="hidden" name="access_key" value="84953452-054a-433b-a0f8-147d01f77704">
-      <input type="hidden" name="subject" value="New feedback from your Hex op-ed page">
-      <input type="hidden" name="from_name" value="Hex op-ed page">
-      <input type="hidden" name="redirect" value="https://stminjae.github.io/hex.me/#feedback">
-      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <label>Name<input type="text" name="name" required autocomplete="name"></label>
-      <label>Email<input type="email" name="email" required autocomplete="email"></label>
-      <label>Share your thoughts and feedback<textarea name="message" rows="5" required></textarea></label>
-      <button type="submit">Submit</button>
-      <p class="form-status" role="status" aria-live="polite"></p>
-    </form>
-  </section>
-
   <aside class="share">
     <p>Know someone who should read this?<small>Copy the link to this op-ed and send it their way.</small></p>
     <button type="button" data-url="https://stminjae.github.io/hex.me/how-i-sell-hex/">Copy link</button>
@@ -705,38 +689,6 @@
   })();
   if (/[?&#]review\b/.test(location.search + location.hash)) document.body.classList.add('review');
 
-  const form = document.getElementById('feedback-form');
-  const status = form.querySelector('.form-status');
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const button = form.querySelector('button');
-    button.disabled = true;
-    status.textContent = 'Sending...';
-    const data = Object.fromEntries(new FormData(form).entries());
-    try {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(data)
-      });
-      const body = await res.json().catch(() => ({}));
-      if (res.ok && String(body.success) === 'true') {
-        form.reset();
-        status.textContent = 'Thank you. Your feedback was sent to Minjae.';
-      } else if (body.message) {
-        status.textContent = body.message;
-      } else {
-        throw new Error('HTTP ' + res.status);
-      }
-    } catch (err) {
-      // Fall back to a regular form post, which Web3Forms handles without JavaScript
-      status.textContent = 'Sending another way...';
-      form.submit();
-      return;
-    } finally {
-      button.disabled = false;
-    }
-  });
 </script>
 <script>
 (function () {
