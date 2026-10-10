@@ -94,6 +94,19 @@
   .stat small { color: var(--muted); font-size: 15px; line-height: 1.3; display: block; }
   .caption { color: var(--muted); font-size: 15px; margin: 0 0 40px; }
   @media (max-width: 600px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stories-intro { font-size: 19px; line-height: 1.6; margin: 0 0 28px; }
+  .story { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 18px; margin: 0 0 20px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; }
+  .tags li { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+  .tags li.vertical { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
+  .moment { font-size: 14px; color: var(--muted); margin: 0 0 4px; }
+  .story h3 { font-size: 24px; line-height: 1.25; font-weight: 600; letter-spacing: -.01em; margin: 0 0 18px; }
+  .beats { margin: 0; display: grid; gap: 14px; }
+  .beats dt { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin: 0 0 2px; }
+  .beats dd { margin: 0; font-size: 16px; line-height: 1.55; }
+  .beats ul { margin: 0; padding-left: 20px; }
+  .shows { margin: 18px 0 0; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 15px; color: var(--muted); }
+  .shows b { color: var(--text); }
 </style>
 </head>
 <body>
@@ -122,15 +135,41 @@
     <p class="caption">Mid-market segment alone: 36 deals, 121% net retention.</p>
   </section>
 
-  <span class="soon">Coming soon</span>
-  <div class="lede">
-    <p>Three deals I won as the customer lead: the person who owned the technical side of the deal, from first demo to signed contract. Together, they show how I exceed quota.</p>
-    <ol class="outline">
-      <li>Customer story 1</li>
-      <li>Customer story 2</li>
-      <li>Customer story 3</li>
-    </ol>
-  </div>
+  <p class="stories-intro">Three customers, three business moments. As the customer lead, I owned the technical side of each deal, from first conversation to signed contract.</p>
+
+  <article class="story">
+    <ul class="tags"><li class="vertical">Retail</li><li>Public company</li><li>Expanding internationally</li></ul>
+    <p class="moment">Business moment: Protecting margins in a volatile economy</p>
+    <h3>Trusted metrics, ready for AI agents</h3>
+    <dl class="beats">
+      <div><dt>The problem</dt><dd>In a volatile U.S. economy, even household-name restaurant brands fight for every point of margin. Leadership needed an accurate read on customer loyalty and retention, seamless restaurant and supply chain operations, and less manual work, all while expanding outside the U.S.</dd></div>
+      <div><dt>How I sold it</dt><dd>I tied their AI ambition to data trust. Agents can only automate operations if loyalty, retention and supply chain metrics mean the same thing in every team and every market. One governed definition of each metric became the foundation for their agentic AI plans.</dd></div>
+      <div><dt>The outcome</dt><dd>A trusted metric foundation for agentic AI, from customer loyalty to the supply chain, built to scale into new markets.</dd></div>
+    </dl>
+    <p class="shows"><b>What it shows:</b> Connecting data work to what the executive team actually cares about, and to AI.</p>
+  </article>
+  <article class="story">
+    <ul class="tags"><li class="vertical">Energy</li><li>Renewables</li><li>Going through an acquisition</li></ul>
+    <p class="moment">Business moment: Preparing for an exit</p>
+    <h3>A renewal that gave the data team the upper hand</h3>
+    <dl class="beats">
+      <div><dt>The problem</dt><dd>The business was being acquired. In a merger, the buyer often decides whose tools and whose teams stay. The data team needed to show their stack was the one worth keeping.</dd></div>
+      <div><dt>How I sold it</dt><dd>I framed the renewal around their position, not ours. Their architecture was already mature, scalable and efficient, built on current best practices. Renewing kept that foundation in place and gave the team proof they were running the cutting edge.</dd></div>
+      <div><dt>The outcome</dt><dd>Renewal closed. The data team went into the merger with a stack the acquirer could not easily replace, and a real say in what comes next. A win for both sides.</dd></div>
+    </dl>
+    <p class="shows"><b>What it shows:</b> Selling to the customer&#8217;s position, not just the product.</p>
+  </article>
+  <article class="story">
+    <ul class="tags"><li class="vertical">Financial services</li><li>Member-owned</li><li>Insurance and auto</li></ul>
+    <p class="moment">Business moment: Modernizing a legacy stack</p>
+    <h3>Legacy ETL retired, multi-year signed</h3>
+    <dl class="beats">
+      <div><dt>The problem</dt><dd>A legacy ETL tool was burning through an expensive contract, and the team needed to modernize without slowing the business down.</dd></div>
+      <div><dt>How I sold it</dt><dd>I built the business case to cut that spend and get started right away. I paired the platform with a professional services engagement so the team could move fast, and I built the relationship in person at Coalesce (now dbt Summit).</dd></div>
+      <div><dt>The outcome</dt><dd><ul><li>Legacy ETL tool deprecated quickly</li><li>Multi-year agreement signed, based on the long-term potential they saw</li><li>Professional services engagement extended</li></ul></dd></div>
+    </dl>
+    <p class="shows"><b>What it shows:</b> Moving across go-to-market swim lanes: platform, professional services and in-person events.</p>
+  </article>
 
 </main>
 <script>
