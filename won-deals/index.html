@@ -87,6 +87,13 @@
   .outline { background: var(--soft); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px 16px 38px; margin: 0; }
   .outline li { margin: 0 0 6px; }
   .outline li:last-child { margin: 0; }
+  .summary-label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .stat b { display: block; font-size: 24px; font-weight: 600; }
+  .stat small { color: var(--muted); font-size: 15px; line-height: 1.3; display: block; }
+  .caption { color: var(--muted); font-size: 15px; margin: 0 0 40px; }
+  @media (max-width: 600px) { .stats { grid-template-columns: repeat(2, 1fr); } }
 </style>
 </head>
 <body>
@@ -103,6 +110,17 @@
     <p class="byline">By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
     <button type="button" class="share-btn" data-url="https://stminjae.github.io/hex.me/won-deals/" aria-label="Copy a link to this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>Share</span></button>
   </div>
+
+  <section class="summary" aria-label="Executive summary">
+    <p class="summary-label">Snapshot · Q2 FY2026 to Q2 FY2027</p>
+    <div class="stats">
+      <div class="stat"><b>78</b><small>renewals and expansions closed</small></div>
+      <div class="stat"><b>$1.55M</b><small>ARR added</small></div>
+      <div class="stat"><b>129%</b><small>net retention</small></div>
+      <div class="stat"><b>17</b><small>AEs partnered with</small></div>
+    </div>
+    <p class="caption">Mid-market segment alone: 36 deals, 121% net retention.</p>
+  </section>
 
   <span class="soon">Coming soon</span>
   <div class="lede">

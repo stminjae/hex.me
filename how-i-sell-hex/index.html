@@ -93,11 +93,6 @@
   .tldr span.n { color: var(--accent); font-weight: 600; }
   .tldr small { color: var(--muted); font-size: 16px; line-height: 1.45; display: block; }
 
-  /* Stats */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 12px; }
-  .stat { border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
-  .stat b { display: block; font-size: 24px; font-weight: 600; }
-  .stat small { color: var(--muted); font-size: 15px; line-height: 1.3; display: block; }
   .caption { color: var(--muted); font-size: 15px; margin: 0 0 16px; }
 
   /* Tables */
@@ -136,17 +131,6 @@
   .demo-link { margin: 4px 0 24px; }
   .demo-link a { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; font-size: 15px; color: var(--muted); background: var(--soft); border: 1px dashed var(--line); border-radius: 999px; padding: 8px 16px; text-decoration: none; cursor: not-allowed; }
   .demo-link a[href] { color: var(--on-accent); background: var(--accent); border: 0; padding: 12px 22px; font-size: 16px; cursor: pointer; }
-  .attainment details summary { cursor: pointer; font-size: 20px; font-weight: 600; list-style: none; display: flex; align-items: center; gap: 10px; }
-  .attainment details summary::-webkit-details-marker { display: none; }
-  .attainment details summary::before { content: ""; width: 26px; height: 26px; border-radius: 50%; flex: none;
-    background:
-      linear-gradient(var(--accent), var(--accent)) center / 12px 2px no-repeat,
-      linear-gradient(var(--accent), var(--accent)) center / 2px 12px no-repeat,
-      var(--soft); }
-  .attainment details[open] summary::before { background:
-      linear-gradient(var(--accent), var(--accent)) center / 12px 2px no-repeat,
-      var(--soft); }
-  .attainment details[open] summary { margin-bottom: 20px; }
   @media (max-width: 600px) {
     .layers thead { display: none; }
     .layers tr, .layers td { display: block; }
@@ -206,7 +190,6 @@
     main { padding-top: 72px; }
     h1 { font-size: 34px; }
     .lede { font-size: 18px; }
-    .stats { grid-template-columns: repeat(2, 1fr); }
     .flow { grid-template-columns: 1fr; }
     .flow .arrow { justify-self: center; transform: rotate(90deg); }
     td:first-child { white-space: normal; }
@@ -655,19 +638,6 @@
       </div>
       <figcaption>Some of my favorite LinkedIn posts recently.</figcaption>
     </figure>
-  </section>
-
-  <section id="attainment" class="attainment">
-    <details>
-      <summary>If you're curious about my attainment 💰</summary>
-      <div class="stats">
-        <div class="stat"><b>83</b><small>renewals and expansions closed</small></div>
-        <div class="stat"><b>$1.61M</b><small>ARR added</small></div>
-        <div class="stat"><b>128%</b><small>net retention</small></div>
-        <div class="stat"><b>17</b><small>AEs partnered with</small></div>
-      </div>
-      <p class="caption">Mid-market segment alone: 36 deals, 121% net retention.</p>
-    </details>
   </section>
 
 </main>
