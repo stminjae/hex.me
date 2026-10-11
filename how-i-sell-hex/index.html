@@ -322,7 +322,7 @@
   </div>
 
   <ol class="tldr">
-    <li><span class="n">1</span><a href="#trust"><b>Trust is the moat</b><small>Hex ships analytical agents fast. Its governance features are what make agents reliable, and therefore scalable across an enterprise.</small></a></li>
+    <li><span class="n">1</span><a href="#trust"><b>Trust is the moat</b><small>Hex lets data teams own their context and serve it to any agent. That makes agents reliable, and therefore scalable across an enterprise.</small></a></li>
     <li><span class="n">2</span><a href="#micro"><b>Micro product tours</b><small>One use case, one workflow, shown really well to the right person.</small></a></li>
     <li><span class="n">3</span><a href="#together"><b>Better together with dbt</b><small>My dbt platform background turns directly into a sales opportunity.</small></a></li>
     <li><span class="n">4</span><a href="#brand"><b>Brand is a moat</b><small>This is a sales role. People remember the person behind a Zoom call.</small></a></li>
@@ -336,12 +336,28 @@
     <p>Data teams are still central to the success of a deal, so my job is to help them step into two new roles: context engineers and AI analytics platform administrators. That changes the pitch. Instead of telling prospects they can ship more and more agents with Hex, I would show them how to make the agents they build trustworthy. I would walk it in three steps:</p>
 
     <ol class="steps">
-      <li><b>Raise data quality.</b> Standardize data transformation, then add a semantic layer to govern metrics. Hex can author semantic models or sync them from dbt MetricFlow, Cube and Snowflake Semantic Views.</li>
+      <li><b>Raise data quality.</b> Standardize data transformation, then add a semantic layer to govern metrics.</li>
       <li><b>Make the agent's knowledge base smarter.</b> Context Studio shows what agents are asked, surfaces where context is missing, and suggests fixes.</li>
       <li><b>Make the workspace trustworthy and governable.</b> Certified statuses and endorsements tell agents which tables and projects to prefer, and exclusions keep them away from the rest. Business users give feedback in Threads, and that feedback feeds back into context.</li>
     </ol>
 
     <p>Governance, and the automation around it, has been top of mind for me for a while. Customers tell me AI has lowered the barrier to entry so far that the business asks: if we can build agents ourselves, why do we need a data team? At dbt, that pushed me to advocate for data mesh ownership and for product ideas like verified queries, verified metadata, and a review bot that approves or flags pull requests.</p>
+
+    <h3>The competitive landscape</h3>
+    <p>Working at dbt, the consumption layer tools I hear about most are Hex, Omni and Sigma, not legacy BI like Looker and Tableau. All three are racing to own the context layer: the definitions, metadata and rules that tell an agent what the data means.</p>
+    <p>Hex's moat is that data teams can natively author, own and administer the context of their data and organization in one place, then let any agent consume it. That can happen in a Hex workspace, but it doesn't have to: through integrations and the Hex MCP server, the same governed context reaches the tools people already use.</p>
+    <p>That reach is what makes Hex integral to enterprise agent rollouts. Every organization has more business and domain experts than technical ones, and they work in Slack and, increasingly, enterprise AI tools like Claude and ChatGPT. Hex already integrates with them, and I expect that list to keep growing. AI is the biggest opportunity in the market, and the way to capture it is to meet people where they are, with context they can trust.</p>
+
+    <table>
+      <thead><tr><th></th><th>Stance on the semantic model</th></tr></thead>
+      <tbody>
+        <tr><td>Hex</td><td><b>Bring your own.</b> Author it in Hex, or sync it from dbt MetricFlow, Cube or Snowflake Semantic Views.</td></tr>
+        <tr><td>Omni</td><td><b>Model it in Omni.</b> Its AI is built on Omni's own semantic layer.</td></tr>
+        <tr><td>Sigma</td><td><b>Lean on the warehouse.</b> Snowflake Semantic Views, plus partners like Atlan for enterprise context.</td></tr>
+      </tbody>
+    </table>
+
+    <p>The Open Semantic Interchange, announced in 2025, keeps adding partners, and the signal is clear: organizations want semantic models that move between tools. Omni is one of those partners, yet its product still centers on modeling in Omni. Hex's bring-your-own stance is closer to what OSI is asking for, and I'm a big fan of it. Being platform agnostic is one of the reasons I joined dbt.</p>
   </section>
 
   <!-- 2 -->
