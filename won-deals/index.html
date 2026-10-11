@@ -114,21 +114,11 @@
   .edge { margin: 48px 0 0; }
   .edge h2 { font-size: 26px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 8px; }
   .edge-intro { font-size: 19px; line-height: 1.6; margin: 0 0 24px; }
-  .principles { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-  .principles > li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
-  .principles .n { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 14px; font-weight: 700; }
-  .principles h3 { font-size: 18px; font-weight: 600; margin: 4px 0 6px; }
-  .principles p { margin: 0; font-size: 16px; line-height: 1.55; }
-  .principles a { color: inherit; }
-  .subs { margin: 12px 0 0; padding-left: 20px; display: grid; gap: 10px; font-size: 16px; line-height: 1.55; }
-  .swap { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 0; }
-  .swap div { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 15px; line-height: 1.45; }
-  .swap .not { color: var(--muted); }
-  .swap .not s { text-decoration-thickness: 1px; }
-  .swap .yes { border-color: var(--accent); }
-  .swap b { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 4px; }
-  .swap .yes b { color: var(--accent); }
-  @media (max-width: 600px) { .swap { grid-template-columns: 1fr; } }
+  .memo { list-style: none; margin: 0; padding: 8px 24px; background: var(--soft); border: 1px solid var(--line); border-radius: 14px; }
+  .memo li { padding: 16px 0; border-bottom: 1px dashed var(--line); font-size: 18px; line-height: 1.5; }
+  .memo li:last-child { border-bottom: 0; }
+  .memo b { display: block; font-size: 20px; font-weight: 600; color: var(--text); margin: 0 0 2px; }
+  .memo span { color: var(--muted); }
 </style>
 </head>
 <body>
@@ -199,19 +189,17 @@
 
   <section class="edge" aria-labelledby="edge-title">
     <h2 id="edge-title">What Sets Me Apart</h2>
-    <p class="edge-intro">A great sales org trains you to sell in a world-class way. What sets you apart is what you bring on top of it. Here is what I bring to every deal.</p>
-    <ol class="principles">
-      <li><span class="n">1</span><div><h3>Let the customer drive</h3><p>My customers are the smartest people in the room, and they are in the driver&#8217;s seat. I&#8217;m in the passenger seat with them, as a thought partner.</p>
-        <ul class="subs">
-          <li><b>Read the unspoken.</b> I pay attention to what people don&#8217;t say: the hesitation, who defers to whom, the topic that gets skipped.</li>
-          <li><b>Make it safe to be honest.</b> That is why I go on site. Off the record, people share their real challenges and goals, and that context often speeds up a deal.</li>
-          <li><b>Show, don&#8217;t ask.</b> I have sat in my customer&#8217;s seat and been sold to by plenty of vendors. Technical teams do not want to be sold, so I let the demo do the asking.<div class="swap"><div class="not"><b>Instead of</b><s>&#8220;Would this be valuable for you?&#8221;</s></div><div class="yes"><b>I do</b>Listen start to finish, map their workflow, show the end-to-end fix for their pain, then pause. Their reaction answers the question.</div></div></li>
-          <li><b>Celebrate their wins.</b> A successful rollout drives real business outcomes, and sometimes a promotion. I want to be there to celebrate that milestone with them.</li>
-        </ul></div></li>
-      <li><span class="n">2</span><div><h3>Win together with other vendors</h3><p>No customer runs on one tool. I partner closely with the other vendors in my customer&#8217;s stack, so the pieces work together and the customer gets an end-to-end solution, not a pile of logos. I never push a solution that will not help. Sometimes another tool, even a competitor, is the better fit for part of the job. There is room for everyone to win, and the best cross-sell opportunities come out of those partnerships.</p></div></li>
-      <li><span class="n">3</span><div><h3>Have an opinion</h3><p>In the age of AI, taste is a moat. It is the <a href="../how-i-sell-hex/#brand">same reason I believe brand is a moat</a>. People come to a sales engineer to debate trade-offs, not to hear a script. Customers respect it when you kindly tell them their baby is ugly.</p></div></li>
-      <li><span class="n">4</span><div><h3>Be human, have fun</h3><p>Customers can tell instantly when a pitch feels unnatural. Being my honest, human self has made me a better sales engineer.</p></div></li>
-    </ol>
+    <p class="edge-intro">A great sales org teaches you the playbook. This is what I bring on top of it.</p>
+    <ul class="memo">
+      <li><b>Let the customer drive.</b><span>They are the smartest people in the room. I am the thought partner in the passenger seat.</span></li>
+      <li><b>Read the unspoken.</b><span>What people don&#8217;t say tells me the most.</span></li>
+      <li><b>Make it safe to be honest.</b><span>That is why I show up in person.</span></li>
+      <li><b>Show, don&#8217;t ask.</b><span>I let the demo ask &#8220;is this valuable?&#8221; for me.</span></li>
+      <li><b>Celebrate their wins.</b><span>Their promotion is my win too.</span></li>
+      <li><b>Win together.</b><span>No customer runs on one tool. I partner with other vendors, even competitors.</span></li>
+      <li><b>Have an opinion.</b><span>Taste is a moat. I will kindly tell you your baby is ugly.</span></li>
+      <li><b>Be human. Have fun.</b><span>Customers can always tell when you are not.</span></li>
+    </ul>
   </section>
 
 </main>
