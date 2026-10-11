@@ -111,6 +111,23 @@
   .meddpicc { margin: 0; display: grid; gap: 8px; }
   .meddpicc div { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; font-size: 15px; line-height: 1.5; }
   .meddpicc .chip { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 6px; font-size: 13px; font-weight: 700; color: var(--on-accent); background: var(--accent); }
+  .edge { margin: 48px 0 0; }
+  .edge h2 { font-size: 26px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 8px; }
+  .edge-intro { font-size: 19px; line-height: 1.6; margin: 0 0 24px; }
+  .principles { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .principles > li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; background: var(--soft); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .principles .n { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 14px; font-weight: 700; }
+  .principles h3 { font-size: 18px; font-weight: 600; margin: 4px 0 6px; }
+  .principles p { margin: 0; font-size: 16px; line-height: 1.55; }
+  .principles a { color: inherit; }
+  .swap { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 0; }
+  .swap div { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; font-size: 15px; line-height: 1.45; }
+  .swap .not { color: var(--muted); }
+  .swap .not s { text-decoration-thickness: 1px; }
+  .swap .yes { border-color: var(--accent); }
+  .swap b { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; margin: 0 0 4px; }
+  .swap .yes b { color: var(--accent); }
+  @media (max-width: 600px) { .swap { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -178,6 +195,19 @@
     </dl>
     <p class="shows"><b>What it shows:</b> Moving across go-to-market swim lanes: platform, professional services and in-person events.</p>
   </article>
+
+  <section class="edge" aria-labelledby="edge-title">
+    <h2 id="edge-title">Beyond the Playbook</h2>
+    <p class="edge-intro">A great sales org trains you to sell in a world-class way. What sets you apart is what you bring on top of it. Here is what I bring to every call.</p>
+    <ol class="principles">
+      <li><span class="n">1</span><div><h3>Make the customer the smartest person in the room</h3><p>My customers know their systems better than I ever will. I show up as a thought partner, not the expert, and my first job is to listen until they feel heard.</p></div></li>
+      <li><span class="n">2</span><div><h3>Create psychological safety</h3><p>People share their real challenges and goals when they feel safe. That is why I go on site. Off the record, people are more human, and that context often speeds up a deal or sharpens the strategy behind it.</p></div></li>
+      <li><span class="n">3</span><div><h3>Lead with empathy: show, don&#8217;t ask</h3><p>I have sat in my customer&#8217;s seat and been sold to by plenty of vendors. Technical teams do not want to be sold. So I skip the one-dimensional questions and let the demo do the asking.</p><div class="swap"><div class="not"><b>Instead of</b><s>&#8220;Would this be valuable for you?&#8221;</s></div><div class="yes"><b>I do</b>Listen start to finish, map their workflow, show the end-to-end fix for their pain, then pause. Their reaction answers the question.</div></div></div></li>
+      <li><span class="n">4</span><div><h3>Have an opinion</h3><p>In the age of AI, taste is a moat. It is the <a href="../how-i-sell-hex/#brand">same reason I believe brand is a moat</a>. People come to a sales engineer to debate trade-offs, not to hear a script. Customers respect it when you kindly tell them their baby is ugly.</p></div></li>
+      <li><span class="n">5</span><div><h3>Win together</h3><p>I never push a solution that will not help. Sometimes that means saying another tool, even a competitor, is the better fit for part of the job. There is room for everyone to win, which is why I love working with other vendors on cross-sell.</p></div></li>
+      <li><span class="n">6</span><div><h3>Be human, have fun</h3><p>Customers can tell instantly when a pitch feels unnatural. Being my honest, human self has made me a better sales engineer.</p></div></li>
+    </ol>
+  </section>
 
 </main>
 <script>
