@@ -83,10 +83,55 @@
   .share-btn { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
   .share-btn:hover { color: var(--text); }
   .share-btn svg { width: 15px; height: 15px; }
-  .soon { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; margin: 0 0 16px; }
-  .outline { background: var(--soft); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px 16px 38px; margin: 0; }
-  .outline li { margin: 0 0 6px; }
-  .outline li:last-child { margin: 0; }
+
+  h2 { font-size: 26px; font-weight: 600; margin: 0 0 16px; letter-spacing: -.01em; }
+  h2 .num { color: var(--accent); margin-right: 8px; }
+  h3 { font-size: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 28px 0 10px; }
+  section { padding: 48px 0; border-top: 1px solid var(--line); }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); }
+  .caption { color: var(--muted); font-size: 15px; margin: 0 0 16px; }
+
+  /* TL;DR */
+  .tldr { list-style: none; padding: 0; margin: 0 0 48px; display: grid; gap: 10px; }
+  .tldr li { display: grid; grid-template-columns: 28px 1fr; gap: 8px; padding: 14px 16px; background: var(--soft); border-radius: 10px; }
+  .tldr a { color: inherit; text-decoration: none; }
+  .tldr b { display: block; }
+  .tldr span.n { color: var(--accent); font-weight: 600; }
+  .tldr small { color: var(--muted); font-size: 16px; line-height: 1.45; display: block; }
+
+  /* Revenue loop */
+  .loop { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; align-items: stretch; gap: 8px; margin: 8px 0 12px; font-size: 15px; }
+  .loop .box { border: 1px solid var(--line); border-radius: 10px; padding: 12px; background: var(--soft); }
+  .loop .box.pre { border-color: var(--pink); background: var(--pink-soft); }
+  .loop .box b { display: block; margin-bottom: 4px; }
+  .loop .box span { color: var(--muted); line-height: 1.4; display: block; }
+  .loop .box i { display: block; font-style: normal; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  .loop .arrow { align-self: center; color: var(--accent); font-size: 20px; }
+  .loop-back { text-align: center; color: var(--accent); font-size: 15px; font-weight: 600; margin: 0 0 16px; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 16px; margin: 0 0 16px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 10px 10px 0; border-bottom: 1px solid var(--line); }
+  th { font-size: 14px; font-weight: 600; color: var(--muted); }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+
+  blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--pink); font-style: italic; }
+  .close { font-size: 19px; line-height: 1.55; }
+
+  @media (max-width: 600px) {
+    main { padding-top: 64px; }
+    h1 { font-size: 34px; }
+    .lede { font-size: 18px; }
+    .loop { grid-template-columns: 1fr; }
+    .loop .arrow { justify-self: center; transform: rotate(90deg); }
+    .compare thead { display: none; }
+    .compare tr, .compare td { display: block; }
+    .compare tr { border-bottom: 1px solid var(--line); padding: 12px 0; }
+    .compare td { border: 0; padding: 2px 0; }
+    .compare td:first-child { color: var(--accent); }
+    .compare td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; color: var(--muted); }
+  }
 </style>
 </head>
 <body>
@@ -104,17 +149,90 @@
     <button type="button" class="share-btn" data-url="https://stminjae.github.io/hex.me/post-to-pre-sales/" aria-label="Copy a link to this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>Share</span></button>
   </div>
 
-  <span class="soon">Coming soon</span>
   <div class="lede">
-    <p>Every software sale has two halves. <b>Pre-sales</b> is before the deal closes: someone has to show a customer the product can solve their problem. <b>Post-sales</b> is after the deal closes: someone has to make sure it actually does.</p>
-    <p>But the selling never stops at the signature. There is an opportunity on both sides, always. I've built my career in post-sales, and now I'm moving to pre-sales to understand both sides of the coin. This is why, and what post-sales taught me about winning deals.</p>
-    <ol class="outline">
-      <li>Why I want to move to pre-sales</li>
-      <li>What post-sales taught me</li>
-      <li>How it carries into sales engineering</li>
-      <li>Where I'm headed</li>
-    </ol>
+    <p>If you want to really understand go-to-market, you need to have worked both halves of the sale. <b>Pre-sales</b> lands new logos. <b>Post-sales</b> keeps them. A business that wants to keep growing needs both, all the time.</p>
+    <p>Landing a customer is expensive. Once you have one, they are your most precious account: every year they stay is recurring revenue, and keeping them happy costs far less than finding the next one. You still want the best of both worlds, and that takes people who know how to do both.</p>
+    <p>I've built my career in post-sales. Here is what it taught me, and why it makes me a better sales engineer.</p>
   </div>
+
+  <ol class="tldr">
+    <li><span class="n">1</span><a href="#growth"><b>Growth needs both halves</b><small>New logos grow the base. Retention keeps it growing without paying to acquire it again.</small></a></li>
+    <li><span class="n">2</span><a href="#conversation"><b>Same product, different conversation</b><small>How I demo, what I ask, and who my champion is all change after the signature.</small></a></li>
+    <li><span class="n">3</span><a href="#skills"><b>Post-sales skills that carry over</b><small>Knowing what makes customers stick, earning expansions, and speaking to the economic buyer.</small></a></li>
+    <li><span class="n">4</span><a href="#network"><b>I bring my network with me</b><small>Happy customers, conference relationships, and marketing partners who already know me.</small></a></li>
+  </ol>
+
+  <!-- 1 -->
+  <section id="growth">
+    <h2><span class="num">01</span>Growth needs both halves</h2>
+    <p>The business will always ask for net new logos. But acquisition cost is steep, so the real return comes after the deal closes: a customer who stays, adopts, and grows is revenue that renews on its own. Each stage of the account feeds the next.</p>
+
+    <div class="loop" role="img" aria-label="The revenue loop: pre-sales lands a customer, post-sales drives adoption and expansion, and happy customers refer the next customer back to pre-sales.">
+      <div class="box pre"><i>Pre-sales</i><b>Land</b><span>Win the new logo</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="box"><i>Post-sales</i><b>Adopt</b><span>Get real value, fast</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="box"><i>Post-sales</i><b>Expand</b><span>More teams, more use cases</span></div>
+      <div class="arrow" aria-hidden="true">→</div>
+      <div class="box pre"><i>Both</i><b>Refer</b><span>Customers bring in peers</span></div>
+    </div>
+    <p class="loop-back">↺ Referrals become the next land</p>
+    <p class="caption">A great post-sale experience is one of the best lead sources pre-sales has.</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="conversation">
+    <h2><span class="num">02</span>Same product, different conversation</h2>
+    <p>As a sales engineer, the product doesn't change between pre-sales and post-sales, but almost everything about how I talk about it does. There is overlap, but the demo, the delivery, and the questions are different.</p>
+
+    <table class="compare">
+      <thead><tr><th></th><th>Pre-sales</th><th>Post-sales</th></tr></thead>
+      <tbody>
+        <tr><td>The demo</td><td data-label="Pre">Explain it as if they have never used it. Show the one workflow that solves their pain.</td><td data-label="Post">Start from how they already use it. Show what they haven't tried yet.</td></tr>
+        <tr><td>The questions</td><td data-label="Pre">What's broken today? Who feels it? What happens if nothing changes?</td><td data-label="Post">Why did you buy? What have you achieved? What has been hard or disappointing?</td></tr>
+        <tr><td>The champion</td><td data-label="Pre">Emerging. Someone with potential that I'm still qualifying.</td><td data-label="Post">Definitive. My job is to keep them seeing me as a partner for the long term.</td></tr>
+        <tr><td>Time horizon</td><td data-label="Pre">This quarter's close.</td><td data-label="Post">Years: renewal, expansion, the next team.</td></tr>
+      </tbody>
+    </table>
+    <p>A champion in post-sales is never guaranteed, either. People change roles, priorities shift, and a champion can go quiet. Knowing which stage you're in tells you what to look for and what to protect.</p>
+  </section>
+
+  <!-- 3 -->
+  <section id="skills">
+    <h2><span class="num">03</span>Post-sales skills that carry over</h2>
+
+    <h3>Knowing what makes customers stick</h3>
+    <p>I ask customers why they bought, how they ran with it, which milestones they hit, and what was hard, disappointing, or never explained to them, so they're learning it after the fact. The answers do two things. They hint at what their pre-sales experience was like. And they show me how to mature the customer and level them up.</p>
+    <p>Because I have seen many accounts over the long term, I know what mature adoption looks like compared to immature adoption, and I can map out a customer success plan to close the gap. In pre-sales, that means I can show a prospect where they will be a year from now, not just on day one.</p>
+
+    <h3>Being a partner, not a vendor</h3>
+    <p>One thing I hear time after time: customers never want to feel scammed. They are making a heavy upfront investment, so they want the company they buy from to act as a partner that helps them succeed, not a vendor that disappears after the signature. Having held the long-term view of an account, I can sell that way from the first call.</p>
+
+    <h3>Earning the expansion</h3>
+    <p>When a customer has a great product and team experience, they are happy to introduce you to other people in their org and to teams that sit next to theirs. They feel empowered, and they want other teams to have the same tools. I learned to qualify those expansions, nurture the relationship, and help customers get unblocked so they are more open to sharing.</p>
+
+    <h3>Speaking to the economic buyer</h3>
+    <p>I've run a fair number of in-person, onsite quarterly business reviews. In those rooms, I learned to position our champion as a valuable asset to their business in front of the economic buyer, because visibility matters. I also learned to talk about the value of the product broadly, in terms of the economic buyer's goals. Both carry straight into pre-sales.</p>
+
+    <h3>Speaking at the 101 level</h3>
+    <p>Even in post-sales, I always raised my hand to staff trade shows. We ran pre-recorded Storylane demos there, and the whole narrative was pre-sales: explain the product to someone who has never used it. I had to train myself to speak at a 101 level, and it's experience I'm glad to have under my belt.</p>
+  </section>
+
+  <!-- 4 -->
+  <section id="network">
+    <h2><span class="num">04</span>I bring my network with me</h2>
+
+    <h3>Customers who vouch for the product</h3>
+    <p>I was fortunate to staff dbt's annual conference two years in a row. Most of the people there are existing customers, which makes it a great place to introduce prospects to people already in the network who are having a great experience with the product and the team behind it. In pre-sales, those relationships turn into referrals, introductions between people who think alike, and customer stories I can point to.</p>
+
+    <h3>Colleagues who build what pre-sales uses</h3>
+    <p>The internal people you work with are much the same in pre-sales and post-sales. I've partnered closely with product marketing, who own the product roadmap and assets like pricing decks. I've given them deep dives on what I'm hearing in the field and pushed for assets that feel more personal to the customer. Product marketing builds most of its collateral for the pre-sales motion, so already knowing how to work with them is a head start.</p>
+    <p>I've also worked with partner marketing on expansion, through regional events and hands-on labs at trade shows.</p>
+  </section>
+
+  <section>
+    <p class="close">Pre-sales wins the logo. Post-sales earns the renewal. I've done the second one for years, and I've seen what the first one sets up. That is why I want to do both.</p>
+  </section>
 
 </main>
 <script>
