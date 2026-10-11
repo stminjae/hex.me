@@ -116,6 +116,23 @@
   th { font-size: 14px; font-weight: 600; color: var(--muted); }
   td:first-child { font-weight: 600; white-space: nowrap; }
 
+  /* Venn */
+  .venn { margin: 8px 0 24px; }
+  .venn svg { display: block; width: 100%; height: auto; font-family: var(--font); }
+  .venn .tall { display: none; max-width: 400px; margin: 0 auto; }
+  .venn .c-pre { fill: var(--pink); fill-opacity: .45; stroke: var(--accent); stroke-width: 1.5; }
+  .venn .c-post { fill: var(--muted); fill-opacity: .14; stroke: var(--muted); stroke-width: 1.5; }
+  .venn .ttl { font-size: 17px; font-weight: 600; fill: var(--accent); text-anchor: middle; }
+  .venn .ttl.post { fill: var(--muted); }
+  .venn .ttl.mid { fill: var(--text); font-size: 13px; letter-spacing: .08em; text-transform: uppercase; }
+  .venn .it { font-size: 14.5px; fill: var(--text); text-anchor: middle; }
+  .venn .it.key { font-weight: 700; }
+  .overlap { list-style: none; padding: 0; margin: 0 0 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .overlap li { background: var(--soft); border-radius: 10px; padding: 14px 16px; font-size: 16px; line-height: 1.5; }
+  .overlap li b { display: block; margin-bottom: 2px; }
+  .overlap li.key { grid-column: 1 / -1; background: var(--pink-soft); border: 2px solid var(--pink); }
+  .overlap li.key b { color: var(--accent); }
+
   blockquote { margin: 0 0 16px; padding: 4px 0 4px 16px; border-left: 3px solid var(--pink); font-style: italic; }
   .close { font-size: 19px; line-height: 1.55; }
 
@@ -123,6 +140,9 @@
     main { padding-top: 64px; }
     h1 { font-size: 34px; }
     .lede { font-size: 18px; }
+    .venn .wide { display: none; }
+    .venn .tall { display: block; }
+    .overlap { grid-template-columns: 1fr; }
     .loop { grid-template-columns: 1fr; }
     .loop .arrow { justify-self: center; transform: rotate(90deg); }
     .compare thead { display: none; }
@@ -157,9 +177,9 @@
 
   <ol class="tldr">
     <li><span class="n">1</span><a href="#growth"><b>Growth needs both halves</b><small>New logos grow the base. Retention keeps it growing without paying to acquire it again.</small></a></li>
-    <li><span class="n">2</span><a href="#conversation"><b>Same product, different conversation</b><small>How I demo, what I ask, and who my champion is all change after the signature.</small></a></li>
-    <li><span class="n">3</span><a href="#skills"><b>Post-sales skills that carry over</b><small>Knowing what makes customers stick, earning expansions, and speaking to the economic buyer.</small></a></li>
-    <li><span class="n">4</span><a href="#network"><b>I bring my network with me</b><small>Happy customers, conference relationships, and marketing partners who already know me.</small></a></li>
+    <li><span class="n">2</span><a href="#overlap"><b>More overlap than you'd think</b><small>Technical capabilities, champions, executive value, and trust matter on both sides.</small></a></li>
+    <li><span class="n">3</span><a href="#conversation"><b>Same product, different conversation</b><small>How I demo, what I ask, and who my champion is all change after the signature.</small></a></li>
+    <li><span class="n">4</span><a href="#skills"><b>Post-sales skills that carry over</b><small>Knowing what makes customers stick, earning expansions, and speaking to the economic buyer.</small></a></li>
   </ol>
 
   <!-- 1 -->
@@ -181,9 +201,30 @@
   </section>
 
   <!-- 2 -->
+  <section id="overlap">
+    <h2><span class="num">02</span>More overlap than you'd think</h2>
+    <p>Pre-sales and post-sales are often treated as two separate jobs. In practice, the middle of the Venn diagram is where most of the work happens, and it's why my post-sales experience transfers so directly.</p>
+
+    <figure class="venn" role="img" aria-label="Venn diagram. Pre-sales only: land new logos, emerging champion, 101-level demos, this quarter's close. Post-sales only: maturing adoption, definitive champion, success plans, renewals. Both: technical capabilities, champions, executive value, qualification, trust, shared partners.">
+      <svg class="wide" viewBox="0 0 680 440" aria-hidden="true"><circle cx="250" cy="225" r="205" class="c-pre"/><circle cx="430" cy="225" r="205" class="c-post"/><text x="140" y="120" class="ttl">Pre-sales</text><text x="540" y="120" class="ttl post">Post-sales</text><text x="340" y="122" class="ttl mid">Both</text><text x="140" y="170" class="it">Land new logos</text><text x="140" y="200" class="it">Emerging champion</text><text x="140" y="230" class="it">101-level demos</text><text x="140" y="260" class="it">This quarter's close</text><text x="540" y="170" class="it">Maturing adoption</text><text x="540" y="200" class="it">Definitive champion</text><text x="540" y="230" class="it">Success plans</text><text x="540" y="260" class="it">Renewals</text><text x="340" y="160" class="it key">Technical capabilities</text><text x="340" y="190" class="it">Champions</text><text x="340" y="220" class="it">Executive value</text><text x="340" y="250" class="it">Qualification</text><text x="340" y="280" class="it">Trust</text><text x="340" y="310" class="it">Shared partners</text></svg>
+      <svg class="tall" viewBox="0 0 400 700" aria-hidden="true"><circle cx="200" cy="210" r="200" class="c-pre"/><circle cx="200" cy="470" r="200" class="c-post"/><text x="200" y="80" class="ttl">Pre-sales</text><text x="200" y="120" class="it">Land new logos</text><text x="200" y="148" class="it">Emerging champion</text><text x="200" y="176" class="it">101-level demos</text><text x="200" y="204" class="it">This quarter's close</text><text x="200" y="294" class="ttl mid">Both</text><text x="200" y="320" class="it key">Technical capabilities</text><text x="140" y="346" class="it">Champions</text><text x="262" y="346" class="it">Executive value</text><text x="140" y="372" class="it">Qualification</text><text x="262" y="372" class="it">Trust</text><text x="200" y="398" class="it">Shared partners</text><text x="200" y="470" class="it">Maturing adoption</text><text x="200" y="498" class="it">Definitive champion</text><text x="200" y="526" class="it">Success plans</text><text x="200" y="554" class="it">Renewals</text><text x="200" y="600" class="ttl post">Post-sales</text></svg>
+    </figure>
+
+    <h3>What sits in the middle</h3>
+    <ul class="overlap">
+      <li class="key"><b>Technical capabilities</b>Knowing the product deeply, running technical demos, and answering architecture and integration questions. A prospect evaluating the product and a customer scaling it both need someone who can go deep.</li>
+      <li><b>Champions</b>Pre-sales finds them, post-sales keeps them. Either way, the job is to make them look good.</li>
+      <li><b>Executive value</b>Tying the product to the economic buyer's goals, whether to close the deal or to renew it.</li>
+      <li><b>Qualification</b>Pre-sales qualifies new deals. Post-sales qualifies expansions. Same discipline.</li>
+      <li><b>Trust</b>Customers never want to feel scammed. They want a partner, not a vendor, on both sides of the signature.</li>
+      <li><b>Shared partners</b>Product marketing and partner marketing support both motions, so the internal relationships carry over.</li>
+    </ul>
+  </section>
+
+  <!-- 3 -->
   <section id="conversation">
-    <h2><span class="num">02</span>Same product, different conversation</h2>
-    <p>As a sales engineer, the product doesn't change between pre-sales and post-sales, but almost everything about how I talk about it does. There is overlap, but the demo, the delivery, and the questions are different.</p>
+    <h2><span class="num">03</span>Same product, different conversation</h2>
+    <p>The overlap is real, but so are the differences. As a sales engineer, the product doesn't change between pre-sales and post-sales, but how I demo it, deliver it, and what I ask about it does.</p>
 
     <table class="compare">
       <thead><tr><th></th><th>Pre-sales</th><th>Post-sales</th></tr></thead>
@@ -197,9 +238,9 @@
     <p>A champion in post-sales is never guaranteed, either. People change roles, priorities shift, and a champion can go quiet. Knowing which stage you're in tells you what to look for and what to protect.</p>
   </section>
 
-  <!-- 3 -->
+  <!-- 4 -->
   <section id="skills">
-    <h2><span class="num">03</span>Post-sales skills that carry over</h2>
+    <h2><span class="num">04</span>Post-sales skills that carry over</h2>
 
     <h3>Knowing what makes customers stick</h3>
     <p>I ask customers why they bought, how they ran with it, which milestones they hit, and what was hard, disappointing, or never explained to them, so they're learning it after the fact. The answers do two things. They hint at what their pre-sales experience was like. And they show me how to mature the customer and level them up.</p>
@@ -216,18 +257,6 @@
 
     <h3>Speaking at the 101 level</h3>
     <p>Even in post-sales, I always raised my hand to staff trade shows. We ran pre-recorded Storylane demos there, and the whole narrative was pre-sales: explain the product to someone who has never used it. I had to train myself to speak at a 101 level, and it's experience I'm glad to have under my belt.</p>
-  </section>
-
-  <!-- 4 -->
-  <section id="network">
-    <h2><span class="num">04</span>I bring my network with me</h2>
-
-    <h3>Customers who vouch for the product</h3>
-    <p>I was fortunate to staff dbt's annual conference two years in a row. Most of the people there are existing customers, which makes it a great place to introduce prospects to people already in the network who are having a great experience with the product and the team behind it. In pre-sales, those relationships turn into referrals, introductions between people who think alike, and customer stories I can point to.</p>
-
-    <h3>Colleagues who build what pre-sales uses</h3>
-    <p>The internal people you work with are much the same in pre-sales and post-sales. I've partnered closely with product marketing, who own the product roadmap and assets like pricing decks. I've given them deep dives on what I'm hearing in the field and pushed for assets that feel more personal to the customer. Product marketing builds most of its collateral for the pre-sales motion, so already knowing how to work with them is a head start.</p>
-    <p>I've also worked with partner marketing on expansion, through regional events and hands-on labs at trade shows.</p>
   </section>
 
   <section>
