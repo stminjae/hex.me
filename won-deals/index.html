@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Won Deals as a Customer Lead by Minjae Lee</title>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<meta name="description" content="Three closed-won deals where Minjae Lee led the customer through the technical win and past quota.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font: Cinetype, "Instrument Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bg: #ffffff;
+    --text: #31263b;
+    --muted: #6e6378;
+    --line: #e7e2ec;
+    --soft: #f6f3f8;
+    --accent: #a8424c;
+    --on-accent: #ffffff;
+    --pink: #f5c0c0;
+    --pink-soft: #fdf0f0;
+    --note-bg: #fff6d6;
+    --note-line: #e8c547;
+    --note-text: #5c4a00;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17121b;
+      --text: #efe9f3;
+      --muted: #a89fb1;
+      --line: #2e2636;
+      --soft: #221b28;
+      --accent: #f5c0c0;
+      --on-accent: #17121b;
+      --pink-soft: #2c1d25;
+      --note-bg: #2e2810;
+      --note-line: #8a7520;
+      --note-text: #f0dc8c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17121b;
+    --text: #efe9f3;
+    --muted: #a89fb1;
+    --line: #2e2636;
+    --soft: #221b28;
+    --accent: #f5c0c0;
+      --on-accent: #17121b;
+      --pink-soft: #2c1d25;
+    --note-bg: #2e2810;
+    --note-line: #8a7520;
+    --note-text: #f0dc8c;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 17px/1.65 var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 680px; margin: 0 auto; padding: 72px 16px 96px; position: relative; }
+  .theme-toggle { position: absolute; top: 20px; right: 16px; display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+  .theme-toggle:hover { color: var(--text); }
+  .back-link { position: absolute; top: 20px; left: 16px; display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; text-decoration: none; }
+  .back-link:hover { color: var(--text); }
+  .theme-toggle svg { width: 16px; height: 16px; }
+  .theme-toggle .moon, :root[data-theme="dark"] .theme-toggle .sun { display: none; }
+  :root[data-theme="dark"] .theme-toggle .moon { display: block; }
+
+  h1 { font-weight: 600; font-size: 44px; line-height: 1.1; margin: 0 0 16px; letter-spacing: -.02em; }
+  .byline { color: var(--muted); font-size: 17px; margin: 0 0 40px; }
+  .lede { font-size: 19px; line-height: 1.6; margin: 0 0 40px; }
+  .lede p { margin: 0 0 18px; }
+  .lede p:last-child { margin: 0; }
+
+  .meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 40px; }
+  .meta .byline { margin: 0; }
+  .byline a { color: inherit; }
+  .share-btn { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
+  .share-btn:hover { color: var(--text); }
+  .share-btn svg { width: 15px; height: 15px; }
+  .soon { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; margin: 0 0 16px; }
+  .outline { background: var(--soft); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 10px; padding: 16px 18px 16px 38px; margin: 0; }
+  .outline li { margin: 0 0 6px; }
+  .outline li:last-child { margin: 0; }
+  .summary-label { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 0 0 12px; }
+  .stat { border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .stat b { display: block; font-size: 24px; font-weight: 600; }
+  .stat small { color: var(--muted); font-size: 15px; line-height: 1.3; display: block; }
+  .caption { color: var(--muted); font-size: 15px; margin: 0 0 40px; }
+  @media (max-width: 600px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+  .stories-h { font-size: 26px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 8px; }
+  .stories-intro { font-size: 19px; line-height: 1.6; margin: 0 0 28px; }
+  .story { background: var(--soft); border: 1px solid var(--line); border-radius: 14px; padding: 22px 22px 18px; margin: 0 0 20px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; padding: 0; list-style: none; }
+  .tags li { font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; }
+  .tags li.vertical { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
+  .moment { font-size: 14px; color: var(--muted); margin: 0 0 4px; }
+  .story h3 { font-size: 24px; line-height: 1.25; font-weight: 600; letter-spacing: -.01em; margin: 0 0 18px; }
+  .beats { margin: 0; display: grid; gap: 14px; }
+  .beats dt { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); margin: 0 0 2px; }
+  .beats dd { margin: 0; font-size: 16px; line-height: 1.55; }
+  .beats ul { margin: 0; padding-left: 20px; }
+  .shows { margin: 18px 0 0; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 15px; color: var(--muted); }
+  .shows b { color: var(--text); }
+  .meddpicc { margin: 0; display: grid; gap: 8px; }
+  .meddpicc div { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; font-size: 15px; line-height: 1.5; }
+  .meddpicc .chip { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 6px; font-size: 13px; font-weight: 700; color: var(--on-accent); background: var(--accent); }
+  .edge { margin: 48px 0 0; }
+  .edge h2 { font-size: 26px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 8px; }
+  .edge-intro { font-size: 19px; line-height: 1.6; margin: 0 0 24px; }
+  .memo { list-style: none; margin: 0; padding: 8px 24px; background: var(--soft); border: 1px solid var(--line); border-radius: 14px; }
+  .memo li { padding: 16px 0; border-bottom: 1px dashed var(--line); font-size: 18px; line-height: 1.5; }
+  .memo li:last-child { border-bottom: 0; }
+  .memo b { display: block; font-size: 20px; font-weight: 600; color: var(--text); margin: 0 0 2px; }
+  .memo span { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <a class="back-link" href="../">← Back</a>
+  <button class="theme-toggle" type="button" aria-label="Switch light or dark mode">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    <span class="label">Light</span>
+  </button>
+
+  <h1>My Won Deals as a Customer Lead</h1>
+  <div class="meta">
+    <p class="byline">By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
+    <button type="button" class="share-btn" data-url="https://stminjae.github.io/hex.me/won-deals/" aria-label="Copy a link to this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>Share</span></button>
+  </div>
+
+  <section class="summary" aria-label="Executive summary">
+    <p class="summary-label">Snapshot: Q2 FY2026 to Q2 FY2027</p>
+    <div class="stats">
+      <div class="stat"><b>78</b><small>renewals and expansions closed</small></div>
+      <div class="stat"><b>$1.55M</b><small>ARR added</small></div>
+      <div class="stat"><b>129%</b><small>net retention</small></div>
+      <div class="stat"><b>17</b><small>AEs partnered with</small></div>
+    </div>
+    <p class="caption">Mid-market segment alone: 36 deals, 121% net retention.</p>
+  </section>
+
+  <h2 class="stories-h">Customer Stories</h2>
+  <p class="stories-intro">Three customers, three business moments. As the customer lead, I owned the technical side of each deal, from first conversation to signed contract.</p>
+
+  <article class="story">
+    <ul class="tags"><li class="vertical">Retail</li><li>Public company</li><li>Expanding internationally</li></ul>
+    <p class="moment">Business moment: Protecting margins in a volatile economy</p>
+    <h3>Trusted metrics, ready for AI agents</h3>
+    <dl class="beats">
+      <div><dt>The problem</dt><dd>In a volatile U.S. economy, even household-name restaurant brands fight for every point of margin. Leadership needed an accurate read on customer loyalty and retention, seamless restaurant and supply chain operations, and less manual work, all while expanding outside the U.S.</dd></div>
+      <div><dt>How I sold it</dt><dd>I tied their AI ambition to data trust. Agents can only automate operations if loyalty, retention and supply chain metrics mean the same thing in every team and every market. One governed definition of each metric became the foundation for their agentic AI plans.</dd></div>
+      <div><dt>MEDDPICC in action</dt><dd><div class="meddpicc"><div><span class="chip" title="Economic buyer">E</span><span><b>Economic buyer.</b> I tied the deal to what leadership owns: margins, loyalty and operating cost. Not to features.</span></div><div><span class="chip" title="Decision criteria">D</span><span><b>Decision criteria.</b> I made data trust the bar for any AI decision, so a governed metric layer became a requirement, not a nice-to-have.</span></div></div></dd></div>
+      <div><dt>The outcome</dt><dd>A trusted metric foundation for agentic AI, from customer loyalty to the supply chain, built to scale into new markets.</dd></div>
+    </dl>
+    <p class="shows"><b>What it shows:</b> Connecting data work to what the executive team actually cares about, and to AI.</p>
+  </article>
+  <article class="story">
+    <ul class="tags"><li class="vertical">Energy</li><li>Renewables</li><li>Going through an acquisition</li></ul>
+    <p class="moment">Business moment: Preparing for an exit</p>
+    <h3>A renewal that gave the data team the upper hand</h3>
+    <dl class="beats">
+      <div><dt>The problem</dt><dd>The business was being acquired. In a merger, the buyer often decides whose tools and whose teams stay. The data team needed to show their stack was the one worth keeping.</dd></div>
+      <div><dt>How I sold it</dt><dd>I framed the renewal around their position, not ours. Their architecture was already mature, scalable and efficient, built on current best practices. Renewing kept that foundation in place and gave the team proof they were running the cutting edge.</dd></div>
+      <div><dt>MEDDPICC in action</dt><dd><div class="meddpicc"><div><span class="chip" title="Identify pain">I</span><span><b>Identify pain.</b> The real pain was not the tool. It was the team&#8217;s position in the merger, so I sold to that.</span></div><div><span class="chip" title="Competition">C</span><span><b>Competition.</b> The competition was the acquirer&#8217;s own stack. The renewal made theirs the one worth keeping.</span></div></div></dd></div>
+      <div><dt>The outcome</dt><dd>Renewal closed. The data team went into the merger with a stack the acquirer could not easily replace, and a real say in what comes next. A win for both sides.</dd></div>
+    </dl>
+    <p class="shows"><b>What it shows:</b> Selling to the customer&#8217;s position, not just the product.</p>
+  </article>
+  <article class="story">
+    <ul class="tags"><li class="vertical">Financial services</li><li>Member-owned</li><li>Insurance and auto</li></ul>
+    <p class="moment">Business moment: Modernizing a legacy stack</p>
+    <h3>Legacy ETL retired, multi-year signed</h3>
+    <dl class="beats">
+      <div><dt>The problem</dt><dd>A legacy ETL tool was burning through an expensive contract, and the team needed to modernize without slowing the business down.</dd></div>
+      <div><dt>How I sold it</dt><dd>I built the business case to cut that spend and get started right away. I paired the platform with a professional services engagement so the team could move fast, and I built the relationship in person at Coalesce (now dbt Summit).</dd></div>
+      <div><dt>MEDDPICC in action</dt><dd><div class="meddpicc"><div><span class="chip" title="Metrics">M</span><span><b>Metrics.</b> I anchored the business case on the cost of the legacy ETL contract, a number the customer already felt.</span></div><div><span class="chip" title="Champion">C</span><span><b>Champion.</b> I built the relationship in person at Coalesce, and that champion carried the multi-year and services extension internally.</span></div></div></dd></div>
+      <div><dt>The outcome</dt><dd><ul><li>Legacy ETL tool deprecated quickly</li><li>Multi-year agreement signed, based on the long-term potential they saw</li><li>Professional services engagement extended</li></ul></dd></div>
+    </dl>
+    <p class="shows"><b>What it shows:</b> Moving across go-to-market swim lanes: platform, professional services and in-person events.</p>
+  </article>
+
+  <section class="edge" aria-labelledby="edge-title">
+    <h2 id="edge-title">What Sets Me Apart</h2>
+    <p class="edge-intro">A great sales org teaches you the playbook. This is what I bring on top of it.</p>
+    <ul class="memo">
+      <li><b>Let the customer drive.</b><span>They are the smartest people in the room. I am the thought partner in the passenger seat.</span></li>
+      <li><b>Read the unspoken.</b><span>What people don&#8217;t say tells me the most.</span></li>
+      <li><b>Make it safe to be honest.</b><span>That is why I show up in person.</span></li>
+      <li><b>Show, don&#8217;t ask.</b><span>I let the demo ask &#8220;is this valuable?&#8221; for me.</span></li>
+      <li><b>Celebrate their wins.</b><span>Their promotion is my win too.</span></li>
+      <li><b>Win together.</b><span>No customer runs on one tool. I partner with other vendors, even competitors.</span></li>
+      <li><b>Have an opinion.</b><span>Taste is a moat. I will kindly tell you your baby is ugly.</span></li>
+      <li><b>Be human. Have fun.</b><span>Customers can always tell when you are not.</span></li>
+    </ul>
+  </section>
+
+</main>
+<script>
+  (function () {
+    const root = document.documentElement;
+    const btn = document.querySelector('.theme-toggle');
+    const label = btn.querySelector('.label');
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    const systemDark = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+    const apply = (t) => { root.setAttribute('data-theme', t); label.textContent = t === 'dark' ? 'Dark' : 'Light'; };
+    apply(saved || (systemDark ? 'dark' : 'light'));
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      apply(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>
+<script>
+  document.querySelectorAll('.share-btn').forEach((b) => {
+    const label = b.querySelector('span');
+    b.addEventListener('click', async () => {
+      const url = b.dataset.url;
+      let ok = false;
+      try { await navigator.clipboard.writeText(url); ok = true; } catch (e) {}
+      if (!ok) {
+        const t = document.createElement('textarea');
+        t.value = url; document.body.append(t); t.select();
+        try { ok = document.execCommand('copy'); } catch (e) {}
+        t.remove();
+      }
+      label.textContent = ok ? 'Link copied' : url;
+      setTimeout(() => { label.textContent = 'Share'; }, 2500);
+    });
+  });
+</script>
+</body>
+</html>
