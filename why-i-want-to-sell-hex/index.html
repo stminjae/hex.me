@@ -159,7 +159,12 @@
     .cell.hex::after { content: "Hex Enterprise"; }
     .cell.hex::before { left: 50%; top: -10px; }
   }
-  .meme { margin: -16px 0 40px; }
+  .opening { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; margin: -16px 0 40px; }
+  .opening figure { margin: 0; }
+  .meme { margin: 0; }
+  .mentor img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+  .mentor figcaption { margin: 10px 0 0; font-size: 15px; color: var(--muted); line-height: 1.5; }
+  @media (max-width: 600px) { .opening { grid-template-columns: 1fr; } }
   .meme img { display: block; margin: 0 auto; width: 100%; max-width: 420px; height: auto; aspect-ratio: 800 / 755; object-fit: cover; object-position: top; border: 1px solid var(--line); }
   .layer.featured { background: var(--pink-soft); border: 2px solid var(--pink); }
   .layer.featured .cell.hex { border-width: 2px; border-color: var(--accent); font-weight: 600; }
@@ -310,9 +315,15 @@
     <p class="byline">By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
     <button type="button" class="share-btn" data-url="https://stminjae.github.io/hex.me/why-i-want-to-sell-hex/" aria-label="Copy a link to this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>Share</span></button>
   </div>
-  <figure class="meme">
-    <img src="../images/sell-me-this-pen.webp" width="800" height="800" alt="Meme from The Wolf of Wall Street. Sell me this pen. Reply: It's AI powered. Caption: Every company right now.">
-  </figure>
+  <div class="opening">
+    <figure class="meme">
+      <img src="../images/sell-me-this-pen.webp" width="800" height="800" alt="Meme from The Wolf of Wall Street. Sell me this pen. Reply: It's AI powered. Caption: Every company right now.">
+    </figure>
+    <figure class="mentor">
+      <img src="../images/mentor-yuri-goto.jpg" width="900" height="1200" alt="Minjae Lee with mentor Yuri Goto, smiling together at Snowflake Summit 2025.">
+      <figcaption>With my mentor, Yuri Goto, a sales engineer for majors accounts. We are both first-generation immigrants, and she is the one who encouraged me to look into pre-sales. She is one of my favorite sales engineers, and someone I look up to.</figcaption>
+    </figure>
+  </div>
 
   <div class="lede">
     <p>Every B2B SaaS vendor wants to sell agents, and everyone can show you how to build one. The hard part is doing it at scale. Few end-to-end solutions let you deploy agents, administer them, and keep improving them.</p>
