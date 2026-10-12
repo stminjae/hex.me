@@ -153,6 +153,9 @@
     .compare td:first-child { color: var(--accent); }
     .compare td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; color: var(--muted); }
   }
+  .mentor { margin: -16px 0 40px; }
+  .mentor img { display: block; margin: 0 auto; width: 100%; max-width: 360px; height: auto; border: 1px solid var(--line); }
+  .mentor figcaption { max-width: 360px; margin: 10px auto 0; font-size: 15px; color: var(--muted); line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -170,77 +173,26 @@
     <button type="button" class="share-btn" data-url="https://stminjae.github.io/hex.me/post-to-pre-sales/" aria-label="Copy a link to this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>Share</span></button>
   </div>
 
+  <figure class="mentor">
+    <img src="../images/mentor-yuri-goto.jpg" width="900" height="1200" alt="Minjae Lee with mentor Yuri Goto, smiling together at Snowflake Summit 2025.">
+    <figcaption>With my mentor, Yuri Goto, a sales engineer for majors accounts. We are both first-generation immigrants, and she is the one who encouraged me to look into pre-sales.</figcaption>
+  </figure>
+
   <div class="lede">
-    <p>If you want to really understand go-to-market, you need to have worked both halves of the sale. <b>Pre-sales</b> lands new logos. <b>Post-sales</b> keeps them.</p>
-    <p>Landing a customer is expensive. Once you have one, they are your most precious account: every year they stay is recurring revenue, and keeping them happy costs far less than finding the next one. A business that wants to keep growing needs both, all the time.</p>
-    <p>I've built my career in post-sales. Here is what it taught me, and why it makes me a better sales engineer.</p>
+    <p>My long-term goal is to understand sales to its fullest. To do that, I need to work both sides of it: <b>pre-sales</b>, which lands new customers, and <b>post-sales</b>, which keeps them and helps them grow.</p>
+    <p>I&#8217;ve built my career in post-sales. Now I want to learn pre-sales. Here is what post-sales taught me, how the two differ, and where they overlap.</p>
   </div>
 
   <ol class="tldr">
-    <li><span class="n">1</span><a href="#growth"><b>Growth needs both halves</b><small>Each stage of an account, from land to referral, feeds the next.</small></a></li>
-    <li><span class="n">2</span><a href="#overlap"><b>More overlap than you'd think</b><small>Technical capabilities, champions, executive value, and trust matter on both sides.</small></a></li>
-    <li><span class="n">3</span><a href="#conversation"><b>Same product, different conversation</b><small>How I demo, what I ask, and who my champion is all change after the signature.</small></a></li>
-    <li><span class="n">4</span><a href="#skills"><b>Post-sales skills that carry over</b><small>Knowing what makes customers stick, earning expansions, and speaking to the economic buyer.</small></a></li>
+    <li><span class="n">1</span><a href="#skills"><b>Post-sales skills that carry over</b><small>What post-sales taught me, and how it set me up for pre-sales.</small></a></li>
+    <li><span class="n">2</span><a href="#conversation"><b>Same product, different conversation</b><small>How I demo, what I ask, and who my champion is all change after the signature.</small></a></li>
+    <li><span class="n">3</span><a href="#overlap"><b>More overlap than you&#8217;d think</b><small>Technical capabilities, champions, executive value, and trust matter on both sides.</small></a></li>
   </ol>
 
   <!-- 1 -->
-  <section id="growth">
-    <h2><span class="num">01</span>Growth needs both halves</h2>
-    <p>The business will always ask for net new logos, but the account doesn't end at the signature.</p>
-
-    <div class="loop" role="img" aria-label="The revenue loop: pre-sales lands a customer, post-sales drives adoption and expansion, and happy customers refer the next customer back to pre-sales.">
-      <div class="box pre"><i>Pre-sales</i><b>Land</b><span>Win the new logo</span></div>
-      <div class="arrow" aria-hidden="true">→</div>
-      <div class="box"><i>Post-sales</i><b>Adopt</b><span>Get real value, fast</span></div>
-      <div class="arrow" aria-hidden="true">→</div>
-      <div class="box"><i>Post-sales</i><b>Expand</b><span>More teams, more use cases</span></div>
-      <div class="arrow" aria-hidden="true">→</div>
-      <div class="box pre"><i>Both</i><b>Refer</b><span>Customers bring in peers</span></div>
-    </div>
-    <p class="loop-back">↺ Referrals become the next land</p>
-  </section>
-
-  <!-- 2 -->
-  <section id="overlap">
-    <h2><span class="num">02</span>More overlap than you'd think</h2>
-    <p>Pre-sales and post-sales are often treated as two separate jobs. In practice, most of the work sits in the middle.</p>
-
-    <figure class="venn" role="img" aria-label="Venn diagram. Pre-sales only: land new logos, emerging champion, 101-level demos, this quarter's close. Post-sales only: maturing adoption, definitive champion, success plans, renewals. Both: technical capabilities, champions, executive value, qualification, trust, product marketing.">
-      <svg class="wide" viewBox="0 0 680 440" aria-hidden="true"><circle cx="250" cy="225" r="205" class="c-pre"/><circle cx="430" cy="225" r="205" class="c-post"/><text x="140" y="120" class="ttl">Pre-sales</text><text x="540" y="120" class="ttl post">Post-sales</text><text x="340" y="122" class="ttl mid">Both</text><text x="140" y="170" class="it">Land new logos</text><text x="140" y="200" class="it">Emerging champion</text><text x="140" y="230" class="it">101-level demos</text><text x="140" y="260" class="it">This quarter's close</text><text x="540" y="170" class="it">Maturing adoption</text><text x="540" y="200" class="it">Definitive champion</text><text x="540" y="230" class="it">Success plans</text><text x="540" y="260" class="it">Renewals</text><text x="340" y="160" class="it key">Technical capabilities</text><text x="340" y="190" class="it">Champions</text><text x="340" y="220" class="it">Executive value</text><text x="340" y="250" class="it">Qualification</text><text x="340" y="280" class="it">Trust</text><text x="340" y="310" class="it">Product marketing</text></svg>
-      <svg class="tall" viewBox="0 0 400 700" aria-hidden="true"><circle cx="200" cy="210" r="200" class="c-pre"/><circle cx="200" cy="470" r="200" class="c-post"/><text x="200" y="80" class="ttl">Pre-sales</text><text x="200" y="120" class="it">Land new logos</text><text x="200" y="148" class="it">Emerging champion</text><text x="200" y="176" class="it">101-level demos</text><text x="200" y="204" class="it">This quarter's close</text><text x="200" y="288" class="ttl mid">Both</text><text x="200" y="312" class="it key">Technical capabilities</text><text x="140" y="336" class="it">Champions</text><text x="262" y="336" class="it">Executive value</text><text x="140" y="360" class="it">Qualification</text><text x="262" y="360" class="it">Trust</text><text x="200" y="384" class="it">Product marketing</text><text x="200" y="470" class="it">Maturing adoption</text><text x="200" y="498" class="it">Definitive champion</text><text x="200" y="526" class="it">Success plans</text><text x="200" y="554" class="it">Renewals</text><text x="200" y="600" class="ttl post">Post-sales</text></svg>
-    </figure>
-
-    <h3>What sits in the middle</h3>
-    <ul class="overlap">
-      <li class="key"><b>Technical capabilities</b>Knowing the product deeply, running technical demos, and answering architecture and integration questions. A prospect evaluating the product and a customer scaling it both need someone who can go deep.</li>
-      <li><b>Champions</b>Pre-sales finds them, post-sales keeps them. Either way, the job is to make them look good.</li>
-      <li><b>Executive value</b>Tying the product to the economic buyer's goals, whether to close the deal or to renew it.</li>
-      <li><b>Qualification</b>Pre-sales qualifies new deals. Post-sales qualifies expansions. Same discipline.</li>
-      <li><b>Trust</b>Customers want a partner, not a vendor, before and after they sign.</li>
-      <li><b>Product marketing</b>They own the roadmap and assets like pricing decks, and build most collateral for the pre-sales motion. I've worked closely with them, sharing what I hear in the field and pushing for more personalized assets.</li>
-    </ul>
-  </section>
-
-  <!-- 3 -->
-  <section id="conversation">
-    <h2><span class="num">03</span>Same product, different conversation</h2>
-    <p>As a sales engineer, the product stays the same, but how I demo it and what I ask about it changes.</p>
-
-    <table class="compare">
-      <thead><tr><th></th><th>Pre-sales</th><th>Post-sales</th></tr></thead>
-      <tbody>
-        <tr><td>The demo</td><td data-label="Pre">Explain it as if they have never used it. Show the one workflow that solves their pain.</td><td data-label="Post">Start from how they already use it. Show what they haven't tried yet.</td></tr>
-        <tr><td>The questions</td><td data-label="Pre">What's broken today? Who feels it? What happens if nothing changes?</td><td data-label="Post">Why did you buy? What have you achieved? What has been hard or disappointing?</td></tr>
-        <tr><td>The champion</td><td data-label="Pre">Emerging. Someone with potential that I'm still qualifying.</td><td data-label="Post">Definitive. My job is to keep them seeing me as a partner for the long term.</td></tr>
-        <tr><td>Time horizon</td><td data-label="Pre">This quarter's close.</td><td data-label="Post">Years: renewal, expansion, the next team.</td></tr>
-      </tbody>
-    </table>
-    <p>A champion in post-sales is never guaranteed, either. People change roles, priorities shift, and a champion can go quiet. Knowing which stage you're in tells you what to look for and what to protect.</p>
-  </section>
-
-  <!-- 4 -->
   <section id="skills">
-    <h2><span class="num">04</span>Post-sales skills that carry over</h2>
+    <h2><span class="num">01</span>Post-sales skills that carry over</h2>
+    <p>Post-sales taught me a lot about sales in general. It also set me up to succeed in pre-sales. Here is what carries over.</p>
 
     <h3>Knowing what makes customers stick</h3>
     <p>I ask customers why they bought, how they ran with it, which milestones they hit, and what was hard, disappointing, or never explained to them, so they're learning it after the fact. The answers do two things. They hint at what their pre-sales experience was like. And they show me how to mature the customer and level them up.</p>
@@ -258,6 +210,44 @@
 
     <h3>Speaking at the 101 level</h3>
     <p>Even in post-sales, I always raised my hand to staff trade shows. We ran pre-recorded Storylane demos there, and the whole narrative was pre-sales: explain the product to someone who has never used it. I had to train myself to speak at a 101 level.</p>
+  </section>
+
+  <!-- 2 -->
+  <section id="conversation">
+    <h2><span class="num">02</span>Same product, different conversation</h2>
+    <p>As a sales engineer, the product stays the same, but how I demo it and what I ask about it changes.</p>
+
+    <table class="compare">
+      <thead><tr><th></th><th>Pre-sales</th><th>Post-sales</th></tr></thead>
+      <tbody>
+        <tr><td>The demo</td><td data-label="Pre">Explain it as if they have never used it. Show the one workflow that solves their pain.</td><td data-label="Post">Start from how they already use it. Show what they haven't tried yet.</td></tr>
+        <tr><td>The questions</td><td data-label="Pre">What's broken today? Who feels it? What happens if nothing changes?</td><td data-label="Post">Why did you buy? What have you achieved? What has been hard or disappointing?</td></tr>
+        <tr><td>The champion</td><td data-label="Pre">Emerging. Someone with potential that I'm still qualifying.</td><td data-label="Post">Definitive. My job is to keep them seeing me as a partner for the long term.</td></tr>
+        <tr><td>Time horizon</td><td data-label="Pre">This quarter's close.</td><td data-label="Post">Years: renewal, expansion, the next team.</td></tr>
+      </tbody>
+    </table>
+    <p>A champion in post-sales is never guaranteed, either. People change roles, priorities shift, and a champion can go quiet. Knowing which stage you're in tells you what to look for and what to protect.</p>
+  </section>
+
+  <!-- 3 -->
+  <section id="overlap">
+    <h2><span class="num">03</span>More overlap than you'd think</h2>
+    <p>Pre-sales and post-sales are often treated as two separate jobs. In practice, most of the work sits in the middle.</p>
+
+    <figure class="venn" role="img" aria-label="Venn diagram. Pre-sales only: land new logos, emerging champion, 101-level demos, this quarter's close. Post-sales only: maturing adoption, definitive champion, success plans, renewals. Both: technical capabilities, champions, executive value, qualification, trust, product marketing.">
+      <svg class="wide" viewBox="0 0 680 440" aria-hidden="true"><circle cx="250" cy="225" r="205" class="c-pre"/><circle cx="430" cy="225" r="205" class="c-post"/><text x="140" y="120" class="ttl">Pre-sales</text><text x="540" y="120" class="ttl post">Post-sales</text><text x="340" y="122" class="ttl mid">Both</text><text x="140" y="170" class="it">Land new logos</text><text x="140" y="200" class="it">Emerging champion</text><text x="140" y="230" class="it">101-level demos</text><text x="140" y="260" class="it">This quarter's close</text><text x="540" y="170" class="it">Maturing adoption</text><text x="540" y="200" class="it">Definitive champion</text><text x="540" y="230" class="it">Success plans</text><text x="540" y="260" class="it">Renewals</text><text x="340" y="160" class="it key">Technical capabilities</text><text x="340" y="190" class="it">Champions</text><text x="340" y="220" class="it">Executive value</text><text x="340" y="250" class="it">Qualification</text><text x="340" y="280" class="it">Trust</text><text x="340" y="310" class="it">Product marketing</text></svg>
+      <svg class="tall" viewBox="0 0 400 700" aria-hidden="true"><circle cx="200" cy="210" r="200" class="c-pre"/><circle cx="200" cy="470" r="200" class="c-post"/><text x="200" y="80" class="ttl">Pre-sales</text><text x="200" y="120" class="it">Land new logos</text><text x="200" y="148" class="it">Emerging champion</text><text x="200" y="176" class="it">101-level demos</text><text x="200" y="204" class="it">This quarter's close</text><text x="200" y="288" class="ttl mid">Both</text><text x="200" y="312" class="it key">Technical capabilities</text><text x="140" y="336" class="it">Champions</text><text x="262" y="336" class="it">Executive value</text><text x="140" y="360" class="it">Qualification</text><text x="262" y="360" class="it">Trust</text><text x="200" y="384" class="it">Product marketing</text><text x="200" y="470" class="it">Maturing adoption</text><text x="200" y="498" class="it">Definitive champion</text><text x="200" y="526" class="it">Success plans</text><text x="200" y="554" class="it">Renewals</text><text x="200" y="600" class="ttl post">Post-sales</text></svg>
+    </figure>
+
+    <h3>What sits in the middle</h3>
+    <ul class="overlap">
+      <li class="key"><b>Technical capabilities</b>Knowing the product deeply, running technical demos, and answering architecture and integration questions. A prospect evaluating the product and a customer scaling it both need someone who can go deep.</li>
+      <li><b>Champions</b>Pre-sales finds them, post-sales keeps them. Either way, the job is to make them look good.</li>
+      <li><b>Executive value</b>Tying the product to the economic buyer's goals, whether to close the deal or to renew it.</li>
+      <li><b>Qualification</b>Pre-sales qualifies new deals. Post-sales qualifies expansions. Same discipline.</li>
+      <li><b>Trust</b>Customers want a partner, not a vendor, before and after they sign.</li>
+      <li><b>Product marketing</b>They own the roadmap and assets like pricing decks, and build most collateral for the pre-sales motion. I've worked closely with them, sharing what I hear in the field and pushing for more personalized assets.</li>
+    </ul>
   </section>
 
 
