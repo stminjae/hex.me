@@ -294,6 +294,15 @@
   .share-btn { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
   .share-btn:hover { color: var(--text); }
   .share-btn svg { width: 15px; height: 15px; }
+  .flow { list-style: none; margin: 16px 0 24px; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .flow > li { background: var(--soft); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; min-width: 0; }
+  .flow > li.lead { border-color: var(--accent); }
+  .flow .head { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); font-weight: 600; font-size: 15px; }
+  .flow .head i { font-style: normal; display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 13px; flex: none; }
+  .flow .head em { margin-left: auto; font-style: normal; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px; white-space: nowrap; }
+  .flow > li.lead .head em { color: var(--on-accent); background: var(--accent); border-color: var(--accent); }
+  .flow p { margin: 0; padding: 10px 14px 14px; font-size: 15px; line-height: 1.5; }
+  @media (max-width: 640px) { .flow { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -319,7 +328,8 @@
   <ol class="tldr">
     <li><span class="n">1</span><a href="#listen"><b>Listen first, build relationships now</b><small>Shadow the field, and meet product early. I won&#8217;t wait.</small></a></li>
     <li><span class="n">2</span><a href="#micro"><b>Micro product tours</b><small>One use case, one workflow, shown really well to the right person.</small></a></li>
-    <li><span class="n">3</span><a href="#together"><b>Better together with dbt</b><small>My network and dbt background turn directly into cross-sell.</small></a></li>
+    <li><span class="n">3</span><a href="#stages"><b>Trained to win every stage</b><small>The deal stages I sold on at dbt, and where I lead each one.</small></a></li>
+    <li><span class="n">4</span><a href="#together"><b>Bonus: Better together with dbt</b><small>My network and dbt background turn directly into cross-sell.</small></a></li>
   </ol>
 
   <!-- 1 -->
@@ -354,8 +364,41 @@
   </section>
 
   <!-- 3 -->
+  <section id="stages">
+    <h2><span class="num">03</span>Trained to win every stage</h2>
+    <p>dbt gave me a great sales training program. This is the stage map we ran every pre-sales deal on, and I&#8217;ll carry what worked over to Hex. I lead stages 1 to 3 and stay proactive everywhere else.</p>
+    <ol class="flow">
+      <li class=""><div class="head"><i>0</i><span>Pipeline generation</span><em>Support</em></div><p>Help account executives sharpen the ideal customer profile and the common reasons to adopt, like Context Studio or faster development in notebooks. Happy to run pitch practice and give coaching points.</p></li>
+      <li class="lead"><div class="head"><i>1</i><span>Discovery</span><em>Lead</em></div><p>Before the call, I review recorded calls and account intelligence, form hypotheses, and capture the customer&#8217;s own words for their pain. On the call, I map the technical criteria, read the room (champion or skeptic), learn what&#8217;s broken in today&#8217;s process, and quantify it.</p></li>
+      <li class="lead"><div class="head"><i>2</i><span>Scope</span><em>Lead</em></div><p>Define the technical win and what a successful proof of concept looks like, with a clear scope of work.</p></li>
+      <li class="lead"><div class="head"><i>3</i><span>Validation</span><em>Lead</em></div><p>Get into the weeds. Build the implementation, or act as a teaching assistant for the people implementing Hex, until the champion confirms we proved it.</p></li>
+      <li class=""><div class="head"><i>4</i><span>Business justification</span><em>Proactive</em></div><p>It can feel like the account executive&#8217;s stage, but procurement and legal ask technical questions: governance, fit with the data stack, administration, where data is stored, audit logs. I send the Hex Trust Center and the right resources early, and I&#8217;m ready to show why Enterprise is worth more than Team.</p></li>
+      <li class=""><div class="head"><i>5</i><span>Propose and close</span><em>Support</em></div><p>Paperwork and the purchase order. I keep the technical win warm until it&#8217;s signed.</p></li>
+    </ol>
+
+    <h3>Team or Enterprise</h3>
+    <p>Stage 4 is where I defend the premium plan. Team is self-serve. Enterprise is how a company works with sales and says yes.</p>
+    <table>
+      <thead><tr><th></th><th>Team</th><th>Enterprise</th></tr></thead>
+      <tbody>
+        <tr><td>How you buy</td><td>Self-serve, 14-day free trial</td><td>Through sales, with an order form</td></tr>
+        <tr><td>Who it convinces</td><td>The data team</td><td>IT, security, legal and procurement</td></tr>
+        <tr><td>Billing</td><td>Monthly, by card</td><td>Committed seats, billed annually</td></tr>
+      </tbody>
+    </table>
+    <p>The move to Enterprise usually comes from security asking for SSO, audit logs or customer-managed AI keys, or the business wanting Explorer seats to self-serve.</p>
+
+    <h3>How I&#8217;ll get sharp fast</h3>
+    <ol class="steps">
+      <li><b>Practice on tape.</b> Record myself, think up new use cases, and reuse what works at scale.</li>
+      <li><b>Tune for each customer.</b> Every use case and personality is different, so I&#8217;ll keep learning the small tweaks.</li>
+      <li><b>Use agents.</b> Internal agents, like Notion agents or Claude, to prep calls faster and help other teams onboard to self-serve analytics.</li>
+    </ol>
+  </section>
+
+  <!-- 4 -->
   <section id="together">
-    <h2><span class="num">03</span>Better together with dbt</h2>
+    <h2><span class="num">04</span>Bonus: Better together with dbt</h2>
 
     <p>At dbt, partner motions usually centered on warehouses like Snowflake. Hex rarely came up, at least for me, even though Hex shows up big at dbt Summit and the product ties run deeper than most users realize. There is a clear story for selling a Hex Enterprise plan alongside the dbt platform, with both used together: dbt governs the data, and Hex governs how people and agents use it. Together they give an enterprise agent rollout a trusted foundation.</p>
 
