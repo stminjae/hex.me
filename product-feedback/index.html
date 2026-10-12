@@ -62,7 +62,7 @@
     font: 17px/1.65 var(--font);
     -webkit-font-smoothing: antialiased;
   }
-  main { max-width: 680px; margin: 0 auto; padding: 72px 16px 96px; position: relative; }
+  main { max-width: 900px; margin: 0 auto; padding: 72px 16px 96px; position: relative; }
   .theme-toggle { position: absolute; top: 20px; right: 16px; display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; cursor: pointer; }
   .theme-toggle:hover { color: var(--text); }
   .back-link { position: absolute; top: 20px; left: 16px; display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; text-decoration: none; }
@@ -332,6 +332,35 @@
   .share-btn { display: inline-flex; align-items: center; gap: 6px; font: 500 14px var(--font); color: var(--muted); background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; cursor: pointer; white-space: nowrap; }
   .share-btn:hover { color: var(--text); }
   .share-btn svg { width: 15px; height: 15px; }
+  .lede { max-width: 680px; }
+  .prio { width: 100%; border-collapse: collapse; margin: 0 0 48px; font-size: 16px; }
+  .prio th { text-align: left; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 0 12px 8px 0; border-bottom: 1px solid var(--line); }
+  .prio td { padding: 12px 12px 12px 0; border-bottom: 1px solid var(--line); vertical-align: top; line-height: 1.45; }
+  .prio a { color: inherit; font-weight: 600; }
+  .p { display: inline-block; font-size: 12px; font-weight: 700; border-radius: 999px; padding: 3px 9px; white-space: nowrap; }
+  .p1 { color: var(--on-accent); background: var(--accent); }
+  .p2 { color: var(--accent); border: 1px solid var(--accent); }
+  .p3 { color: var(--muted); border: 1px solid var(--line); }
+  .cols-head { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 10px 0; margin: 0 0 8px; border-bottom: 1px solid var(--line); }
+  .cols-head b { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+  .cols-head .w { color: var(--muted); }
+  .cols-head .i { color: var(--accent); }
+  .area { padding: 24px 0; border-bottom: 1px solid var(--line); }
+  .area h2 { margin: 0 0 2px; }
+  .area .area-intro { margin: 0 0 14px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  .row .col > .fb-card:last-child { margin-bottom: 0; }
+  .empty { color: var(--muted); font-size: 15px; padding: 16px 0; }
+  .fb-card .p { position: absolute; top: 14px; right: 14px; }
+  .fb-card.improve h3 { padding-right: 44px; }
+  .col-label { display: none; }
+  @media (max-width: 700px) {
+    .row { grid-template-columns: 1fr; }
+    .cols-head { display: none; }
+    .col-label { display: block; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin: 4px 0 8px; }
+    .col-label.w { color: var(--muted); } .col-label.i { color: var(--accent); }
+    .prio .hide-sm { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -350,59 +379,71 @@
   </div>
 
   <div class="lede">
-    <p>I built a notebook and a Generative App in Hex, then kept working on them from Claude through the Hex MCP server. Here is what helped me and what I would change, grouped by product area.</p>
+    <p>I built a notebook and a Generative App in Hex, then kept working on them from Claude through the Hex MCP server. Start with the priorities below. Then each product area shows what works on the left and what I&#8217;d improve on the right.</p>
   </div>
 
-  <ol class="tldr">
-    <li><span class="n">1</span><a href="#notebooks"><b>Notebooks</b><small>Run modes, staleness markers and SQL to Python with no switching cost.</small></a></li>
-    <li><span class="n">2</span><a href="#agent"><b>Notebook Agent</b><small>Reviewable diffs. It needs business context to pick the right columns.</small></a></li>
-    <li><span class="n">3</span><a href="#apps"><b>Generative Apps</b><small>My top priority: hard to finish without writing code.</small></a></li>
-    <li><span class="n">4</span><a href="#mcp"><b>Hex MCP server</b><small>Sees the whole notebook, then stops at the notebook's edge.</small></a></li>
-  </ol>
+  <table class="prio">
+    <thead><tr><th>Priority</th><th>Gap</th><th>Ask</th><th class="hide-sm">Area</th></tr></thead>
+    <tbody>
+      <tr><td><span class="p p1">P1</span></td><td><a href="#apps">Apps are hard to finish without code</a></td><td>Click a chart to see and change its source. Show a clear error when data fails to load.</td><td class="hide-sm">Generative Apps</td></tr>
+      <tr><td><span class="p p2">P2</span></td><td><a href="#agent">The agent needs business context</a></td><td>Nudge new users to add a semantic model or table descriptions first.</td><td class="hide-sm">Notebook Agent</td></tr>
+      <tr><td><span class="p p3">P3</span></td><td><a href="#mcp">MCP stops at the notebook</a></td><td>Add app-code access, plus move-cell and rename-cell tools.</td><td class="hide-sm">Hex MCP server</td></tr>
+    </tbody>
+  </table>
 
-  <section id="notebooks">
+  <div class="cols-head" aria-hidden="true"><b class="w">What works</b><b class="i">What I&#8217;d improve</b></div>
+
+  <section id="notebooks" class="area">
     <h2><span class="num">01</span>Notebooks</h2>
     <p class="area-intro">The core editing experience.</p>
-    <div class="fb-group">
-      <span class="fb-tag works">What works</span>
+    <div class="row">
+      <div class="col"><span class="col-label w">What works</span>
       <div class="fb-card"><h3>Run modes and staleness</h3><p>Hex knows which cells depend on which, so I never have to remember what to rerun.</p><p>A stale marker means I never trust an old number, which matters more once an agent is writing cells.</p></div>
       <div class="fb-card"><h3>SQL to Python, no switching cost</h3><p>My SQL result was already a dataframe, so I did the what-if math in Python with no export step.</p></div>
       <div class="fb-card"><h3>SQL formatting</h3><p>One click formats SQL to a house style, so agent-written queries are easy to review.</p></div>
+      </div>
+      <div class="col"><span class="col-label i">What I&#8217;d improve</span>
+      <p class="empty">Nothing blocking.</p>
+      </div>
     </div>
   </section>
 
-  <section id="agent">
+  <section id="agent" class="area">
     <h2><span class="num">02</span>Notebook Agent</h2>
     <p class="area-intro">The AI that writes and edits cells inside a notebook.</p>
-    <div class="fb-group">
-      <span class="fb-tag works">What works</span>
+    <div class="row">
+      <div class="col"><span class="col-label w">What works</span>
       <div class="fb-card"><h3>Diff review</h3><p>The agent showed its changes like a pull request and flagged its own risk.</p></div>
-    </div>
-    <div class="fb-group">
-      <span class="fb-tag improve">What I'd improve</span>
-      <div class="fb-card improve"><h3>The agent needs context</h3><p>With plain business language, it picked the wrong columns.</p><p class="ask">Ask: nudge new users to add a semantic model or table descriptions first.</p><details><summary>The details</summary><p>In my notebook, a loyal customer is <code>orders &gt;= 7</code>, but the agent can't know that without a definition. Hex's own AI setup guide lists semantic models and column descriptions as the fix, yet nothing in the product prompts you to do it.</p></details></div>
+      </div>
+      <div class="col"><span class="col-label i">What I&#8217;d improve</span>
+      <div class="fb-card improve"><span class="p p2">P2</span><h3>The agent needs context</h3><p>With plain business language, it picked the wrong columns.</p><p class="ask">Ask: nudge new users to add a semantic model or table descriptions first.</p><details><summary>The details</summary><p>In my notebook, a loyal customer is <code>orders &gt;= 7</code>, but the agent can't know that without a definition. Hex's own AI setup guide lists semantic models and column descriptions as the fix, yet nothing in the product prompts you to do it.</p></details></div>
+      </div>
     </div>
   </section>
 
-  <section id="apps">
+  <section id="apps" class="area">
     <h2><span class="num">03</span>Generative Apps</h2>
     <p class="area-intro">Turning notebook results into an app people can use.</p>
-    <div class="fb-group">
-      <span class="fb-tag improve">What I'd improve</span>
-      <div class="fb-card improve"><h3>Hard to finish without code</h3><p>Editing needs JavaScript, even for a label or a chart's data source.</p><p>I couldn't see which dataframe feeds which chart, only a cell ID.</p><p>A new cell I connected loaded forever, with no error.</p><p class="ask">Ask: click a chart to see and change its source, and show a clear error when data fails to load.</p><details><summary>The details</summary><p>Each chart in <code>charts.js</code> reads data with <code>useHexData("&lt;cellId&gt;")</code>. The ID is an opaque string, not a dataframe name, so I added my own Source caption under all 7 charts to trace them. Repointing a chart means hand-editing that ID.</p></details></div>
+    <div class="row">
+      <div class="col"><span class="col-label w">What works</span>
+      <p class="empty">Nothing yet.</p>
+      </div>
+      <div class="col"><span class="col-label i">What I&#8217;d improve</span>
+      <div class="fb-card improve"><span class="p p1">P1</span><h3>Hard to finish without code</h3><p>Editing needs JavaScript, even for a label or a chart's data source.</p><p>I couldn't see which dataframe feeds which chart, only a cell ID.</p><p>A new cell I connected loaded forever, with no error.</p><p class="ask">Ask: click a chart to see and change its source, and show a clear error when data fails to load.</p><details><summary>The details</summary><p>Each chart in <code>charts.js</code> reads data with <code>useHexData("&lt;cellId&gt;")</code>. The ID is an opaque string, not a dataframe name, so I added my own Source caption under all 7 charts to trace them. Repointing a chart means hand-editing that ID.</p></details></div>
+      </div>
     </div>
   </section>
 
-  <section id="mcp">
+  <section id="mcp" class="area">
     <h2><span class="num">04</span>Hex MCP server</h2>
     <p class="area-intro">Working on Hex from Claude, outside the Hex app.</p>
-    <div class="fb-group">
-      <span class="fb-tag works">What works</span>
+    <div class="row">
+      <div class="col"><span class="col-label w">What works</span>
       <div class="fb-card"><h3>Whole-notebook view</h3><p>Claude saw every cell at once, caught the loyalty rule repeated about 12 times, and suggested defining it once upstream.</p></div>
-    </div>
-    <div class="fb-group">
-      <span class="fb-tag improve">What I'd improve</span>
-      <div class="fb-card improve"><h3>MCP stops at the notebook</h3><p>It can't touch app code, cell names or cell order, or read Python outputs.</p><p class="ask">Ask: app-code access, plus move-cell and rename-cell tools.</p><details><summary>The details</summary><ul><li><code>update_cell</code> changes only the source and data connection. There is no label or location.</li><li><code>create_cell</code> does take <code>label</code> and <code>insertAfterCellId</code>, so moving a cell means delete and recreate. That issues a new cell ID and breaks the app's <code>useHexData</code> link.</li><li><code>get_cell_output</code> is documented as SQL-only, so my <code>market_conversion</code> Python cell can't be read back.</li><li><code>list_cells</code> returns code, SQL and markdown. No tool reads or writes <code>App.js</code> or <code>charts.js</code>.</li></ul></details></div>
+      </div>
+      <div class="col"><span class="col-label i">What I&#8217;d improve</span>
+      <div class="fb-card improve"><span class="p p3">P3</span><h3>MCP stops at the notebook</h3><p>It can't touch app code, cell names or cell order, or read Python outputs.</p><p class="ask">Ask: app-code access, plus move-cell and rename-cell tools.</p><details><summary>The details</summary><ul><li><code>update_cell</code> changes only the source and data connection. There is no label or location.</li><li><code>create_cell</code> does take <code>label</code> and <code>insertAfterCellId</code>, so moving a cell means delete and recreate. That issues a new cell ID and breaks the app's <code>useHexData</code> link.</li><li><code>get_cell_output</code> is documented as SQL-only, so my <code>market_conversion</code> Python cell can't be read back.</li><li><code>list_cells</code> returns code, SQL and markdown. No tool reads or writes <code>App.js</code> or <code>charts.js</code>.</li></ul></details></div>
+      </div>
     </div>
   </section>
 
