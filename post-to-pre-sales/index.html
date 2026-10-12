@@ -153,6 +153,9 @@
     .compare td:first-child { color: var(--accent); }
     .compare td[data-label]::before { content: attr(data-label) ": "; font-weight: 600; color: var(--muted); }
   }
+  .mentor { margin: -16px 0 40px; }
+  .mentor img { display: block; margin: 0 auto; width: 100%; max-width: 360px; height: auto; border: 1px solid var(--line); }
+  .mentor figcaption { max-width: 360px; margin: 10px auto 0; font-size: 15px; color: var(--muted); line-height: 1.5; }
 </style>
 </head>
 <body>
@@ -169,6 +172,11 @@
     <p class="byline">By <a href="https://www.linkedin.com/in/minjae-lee/">Minjae Lee</a></p>
     <button type="button" class="share-btn" data-url="https://stminjae.github.io/hex.me/post-to-pre-sales/" aria-label="Copy a link to this page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7 8l5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg><span>Share</span></button>
   </div>
+
+  <figure class="mentor">
+    <img src="../images/mentor-yuri-goto.jpg" width="900" height="1200" alt="Minjae Lee with mentor Yuri Goto, smiling together at Snowflake Summit 2025.">
+    <figcaption>With my mentor, Yuri Goto, a sales engineer for majors accounts. We are both first-generation immigrants, and she is the one who encouraged me to look into pre-sales. She is one of my favorite sales engineers, and someone I look up to.</figcaption>
+  </figure>
 
   <div class="lede">
     <p>My long-term goal is to understand sales to its fullest. To do that, I need to work both sides of it: <b>pre-sales</b>, which lands new customers, and <b>post-sales</b>, which keeps them and helps them grow.</p>
